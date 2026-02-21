@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=Eta Tif
+Exec=eta-tif
+Icon=
+Terminal=false
+Type=Application
+Categories=
+GenericName=
+X-KDE-Autostart-enabled=true
+X-GNOME-Autostart-Delay=10

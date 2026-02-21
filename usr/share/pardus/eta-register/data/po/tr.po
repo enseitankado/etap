@@ -1,0 +1,709 @@
+# Turkish translations for eta-register package.
+# Copyright (C) 2025 THE eta-register'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the eta-register package.
+# Osman Coskun <osman.coskun@pardus.org.tr>, 2024-2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: eta-register\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-29 16:23+0300\n"
+"PO-Revision-Date: 2026-01-29 16:28+0300\n"
+"Last-Translator: Osman Coskun <osman.coskun@pardus.org.tr>\n"
+"Language-Team: Turkish <dev@pardus.org.tr>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#: src/checks.py:309
+msgid "Error: USB subsystem not found."
+msgstr "Hata: USB alt sistemi bulunamadı."
+
+#: src/checks.py:314
+msgid "Error: Cannot access USB devices."
+msgstr "Hata: USB cihazlarına bağlanılamıyor."
+
+#: src/checks.py:360 src/checks.py:436
+msgid "Unknown Device"
+msgstr "Bilinmeyen Cihaz"
+
+#: src/checks.py:369 src/MainWindow.py:339 src/MainWindow.py:479
+msgid "No USB devices found."
+msgstr "USB cihazı bulunamadı."
+
+#: src/checks.py:477
+#, python-brace-format
+msgid "Invalid response from server: {response_body}"
+msgstr "Sunucudan geçersiz yanıt: {response_body}"
+
+#. For all other non-200 cases where the key was not found.
+#: src/checks.py:480
+#, python-brace-format
+msgid "Server returned status {status_code}"
+msgstr "Sunucu {status_code} durum kodunu döndürdü"
+
+#: src/checks.py:482
+#, python-brace-format
+msgid ": {msg}"
+msgstr ": {msg}"
+
+#: src/installer.py:90
+msgid ""
+"Your board has been registered to Pardus. The Central Management Application "
+"(LiderAhenk) will be installed."
+msgstr ""
+"Tahtanız Pardus'a Kaydedildi. Merkezi Yönetim Uygulaması (LiderAhenk) "
+"kurulacak."
+
+#: src/installer.py:93
+#, python-brace-format
+msgid "Error loading UI for installer: {e}"
+msgstr "Yükleyici arayüzü yüklenirken hata: {e}"
+
+#: src/installer.py:116
+msgid ""
+"\n"
+"Retrying installation..."
+msgstr ""
+"\n"
+"Kurulum yeniden deneniyor..."
+
+#: src/installer.py:118
+msgid "Starting installation..."
+msgstr "Kurulum başlatılıyor..."
+
+#: src/installer.py:121
+msgid "Updating package lists..."
+msgstr "Paket listeleri güncelleniyor..."
+
+#: src/installer.py:142
+msgid ""
+"\n"
+"{_('Error starting update process')}: {e_message}"
+msgstr ""
+"\n"
+"{_('Güncelleme işlemi başlatılırken hata')}: {e_message}"
+
+#: src/installer.py:149
+msgid "Package lists updated successfully.\n"
+msgstr "Paket listeleri başarıyla güncellendi.\n"
+
+#: src/installer.py:152
+msgid "apt update failed"
+msgstr "apt güncellemesi başarısız oldu"
+
+#: src/installer.py:157
+#, python-brace-format
+msgid "Installing '{pkg}'..."
+msgstr "'{pkg}' kuruluyor..."
+
+#: src/installer.py:158
+msgid ""
+"\n"
+"Installing package..."
+msgstr ""
+"\n"
+"Paket kuruluyor..."
+
+#: src/installer.py:176
+msgid ""
+"\n"
+"{_('Error starting installation process')}: {e_message}"
+msgstr ""
+"\n"
+"{_('Kurulum işlemi başlatılırken hata')}: {e_message}"
+
+#: src/installer.py:198
+msgid "Installation command finished.\n"
+msgstr "Kurulum komutu tamamlandı.\n"
+
+#: src/installer.py:200
+msgid "Installation command failed"
+msgstr "Kurulum komutu başarısız oldu"
+
+#: src/installer.py:210
+msgid "Verifying installation..."
+msgstr "Kurulum doğrulanıyor..."
+
+#: src/installer.py:221
+#, python-brace-format
+msgid "Verification successful: '{pkg}' is installed correctly."
+msgstr "Doğrulama başarılı: '{pkg}' doğru bir şekilde kuruldu."
+
+#: src/installer.py:224
+msgid "Verification failed: Package is not in a correctly installed state."
+msgstr "Doğrulama başarısız: Paket doğru bir şekilde kurulu değil."
+
+#: src/installer.py:233
+#, python-brace-format
+msgid ""
+"\n"
+"Error verifying installation: {e}"
+msgstr ""
+"\n"
+"Kurulum doğrulanırken hata: {e}"
+
+#: src/installer.py:243
+msgid "Enabling and starting the service..."
+msgstr "Servis etkinleştiriliyor ve başlatılıyor..."
+
+#: src/installer.py:244
+msgid ""
+"\n"
+"Enabling and starting the service..."
+msgstr ""
+"\n"
+"Servis etkinleştiriliyor ve başlatılıyor..."
+
+#. This error is for if the process fails to even start
+#: src/installer.py:262
+#, python-brace-format
+msgid "Failed to run the service helper script. Error: {error}"
+msgstr "Servis yardımcı komutu çalıştırılamadı. Hata: {error}"
+
+#. If wait_check_finish succeeds, the script exited with 0
+#: src/installer.py:270
+msgid "Service started successfully.\n"
+msgstr "Servis başarıyla başlatıldı.\n"
+
+#: src/installer.py:271
+msgid "Installation successful. You can close the window."
+msgstr "Kurulum başarılı. Pencereyi kapatabilirsiniz."
+
+#. If wait_check_finish fails, the script exited with a non-zero code
+#: src/installer.py:275
+#, python-brace-format
+msgid ""
+"The helper script failed to start the service. See log file for details. "
+"Error: {error}\n"
+msgstr ""
+"Yardımcı betik servisi başlatamadı. Ayrıntılar için günlük dosyasına bakın. "
+"Hata: {error}\n"
+
+#. As per user request, treat this as a success with a warning, not a total failure.
+#: src/installer.py:277
+msgid "Installation successful, but service start failed."
+msgstr "Kurulum başarılı, ancak servis başlatılamadı."
+
+#: src/installer.py:290
+msgid ""
+"\n"
+"Attempting to fix broken packages with 'dpkg --configure -a'..."
+msgstr ""
+"\n"
+"Bozuk paketler 'dpkg --configure -a' ile onarılmaya çalışılıyor..."
+
+#: src/installer.py:291
+msgid "Attempting to fix system packages..."
+msgstr "Sistem paketleri onarılmaya çalışılıyor..."
+
+#: src/installer.py:301
+#, python-brace-format
+msgid "Failed to run 'dpkg --configure -a'. Error: {error}"
+msgstr "'dpkg --configure -a' çalıştırılamadı. Hata: {error}"
+
+#: src/installer.py:309
+msgid "'dpkg --configure -a' completed successfully.\n"
+msgstr "'dpkg --configure -a' başarıyla tamamlandı.\n"
+
+#: src/installer.py:311
+#, python-brace-format
+msgid "'dpkg --configure -a' failed. Error: {error}\n"
+msgstr "'dpkg --configure -a' başarısız oldu. Hata: {error}\n"
+
+#. After trying to fix, verify again.
+#: src/installer.py:314
+msgid "Re-verifying installation after dpkg..."
+msgstr "Dpkg sonrası kurulum yeniden doğrulanıyor..."
+
+#: src/installer.py:328
+msgid "Verification successful after dpkg run.\n"
+msgstr "dpkg sonrası doğrulama başarılı.\n"
+
+#: src/installer.py:331
+msgid ""
+"Package still not installed after dpkg. Retrying full installation "
+"process...\n"
+msgstr ""
+"Paket, dpkg sonrası hala yüklü değil. Tüm kurulum süreci yeniden "
+"deneniyor...\n"
+
+#: src/installer.py:334
+#, python-brace-format
+msgid ""
+"\n"
+"Error during re-verification: {e}. Retrying full installation..."
+msgstr ""
+"\n"
+"Yeniden doğrulama sırasında hata: {e}. Tüm kurulum yeniden deneniyor..."
+
+#: src/installer.py:341
+msgid ""
+"\n"
+"Installation failed after all attempts."
+msgstr ""
+"\n"
+"Tüm denemelerden sonra kurulum başarısız oldu."
+
+#: src/installer.py:342
+msgid "Installation failed. Please check the log."
+msgstr "Kurulum başarısız oldu. Lütfen kayıtları inceleyin."
+
+#. Provide visual feedback to the user
+#: src/installer.py:359
+msgid "Copied!"
+msgstr "Kopyalandı!"
+
+#: src/Main.py:68
+msgid "Set the initial status from the dispatcher."
+msgstr "Dağıtıcıdan başlangıç durumunu ayarla."
+
+#: src/Main.py:101
+msgid "Virtual Machine Detected"
+msgstr "Sanal Makine Algılandı"
+
+#: src/Main.py:102
+msgid "This application cannot be run inside a virtual machine."
+msgstr "Bu uygulama bir sanal makinede çalıştırılamaz."
+
+#: src/Main.py:108
+#, python-brace-format
+msgid ""
+"This application must be run by the '{required}' user, but it is run by "
+"'{current}'."
+msgstr ""
+"Bu uygulama '{required}' kullanıcısı tarafından çalıştırılmalıdır, ancak "
+"'{current}' tarafından çalıştırılıyor."
+
+#: src/Main.py:113
+msgid "Invalid User"
+msgstr "Geçersiz Kullanıcı"
+
+#: src/MainWindow.py:105
+#, python-brace-format
+msgid "Error loading UI: {e}."
+msgstr "Arayüz yüklenirken hata oluştu: {e}"
+
+#. Should not happen
+#: src/MainWindow.py:139
+msgid "Verifying school code..."
+msgstr "Okul kodu doğrulanıyor..."
+
+#: src/MainWindow.py:156
+msgid "Invalid School Code"
+msgstr "Geçersiz Okul Kodu"
+
+#: src/MainWindow.py:159
+msgid ""
+"The entered school code could not be found. Please check the code and try "
+"again."
+msgstr "Girilen okul kodu bulunamadı. Lütfen kodu kontrol edip tekrar deneyin."
+
+#. Show loading page
+#: src/MainWindow.py:190 src/MainWindow.py:386
+msgid "Configuration Error"
+msgstr "Yapılandırma Hatası"
+
+#: src/MainWindow.py:190 src/MainWindow.py:277 src/MainWindow.py:410
+msgid "No Internet Connection"
+msgstr "İnternet Bağlantısı Yok"
+
+#: src/MainWindow.py:191 src/MainWindow.py:387
+msgid ""
+"Your wired network device may be missing or not loaded.\n"
+"\n"
+"MAC address could not be retrieved. ETA Register performs board registration "
+"using the wired network device's MAC address."
+msgstr ""
+"Kablolu ağ aygıtınız yok ya da yüklenmemiş olabilir.\n"
+"\n"
+"MAC adresi alınamadı. ETA Kayıt tahta kaydını kablolu ağ aygıtının MAC "
+"adresi ile gerçekleştirir."
+
+#: src/MainWindow.py:191 src/MainWindow.py:278
+msgid "Please check your network connection and try again."
+msgstr "Lütfen internet bağlantınızı kontrol edip tekrar deneyin."
+
+#: src/MainWindow.py:201
+msgid "The '{}' package is not installed on your system."
+msgstr "'{}' paketi sisteminizde kurulu değil."
+
+#. Update the labels for "edit mode"
+#: src/MainWindow.py:237
+msgid "Update Registration"
+msgstr "Kaydı Güncelle"
+
+#: src/MainWindow.py:238
+msgid "You can update your registration information below."
+msgstr "Kayıt bilgilerinizi aşağıdan güncelleyebilirsiniz."
+
+#: src/MainWindow.py:266
+msgid "Checking connection..."
+msgstr "İnternet bağlantısı kontrol ediliyor..."
+
+#: src/MainWindow.py:303 src/MainWindow.py:443
+msgid "Unsupported Device"
+msgstr "Desteklenmeyen Cihaz"
+
+#: src/MainWindow.py:308 src/MainWindow.py:448 src/MainWindow.py:540
+#: ui/window.glade:1083
+msgid "Close"
+msgstr "Kapat"
+
+#: src/MainWindow.py:322 src/MainWindow.py:462
+msgid ""
+"Your touch panel vendor is not in the allowed list.\n"
+"\n"
+"Please report your vendor ID to: <b>{}</b>"
+msgstr ""
+"Dokunmatik panel izin verilen üreticiler listesinde değil.\n"
+"\n"
+"Üretici ID buraya bildirin: <b>{}</b>"
+
+#. Label for the table
+#: src/MainWindow.py:329 src/MainWindow.py:469
+msgid "Detected USB Devices:"
+msgstr "Bulunan USB Cihazları:"
+
+#: src/MainWindow.py:352 src/MainWindow.py:492
+msgid "Vendor"
+msgstr "Üretici"
+
+#. Column 2: Device
+#: src/MainWindow.py:356 src/MainWindow.py:496
+msgid "Device"
+msgstr "Cihaz"
+
+#. Column 3: Name
+#: src/MainWindow.py:360 src/MainWindow.py:500
+msgid "Name"
+msgstr "İsim"
+
+#: src/MainWindow.py:381
+msgid "Connecting to ETA server..."
+msgstr "ETA sunucusuna bağlanılıyor..."
+
+#: src/MainWindow.py:397
+msgid "Network connection failed."
+msgstr "Ağ bağlantısı başarısız."
+
+#: src/MainWindow.py:411
+msgid "Could not connect to the ETA server. Please try again later."
+msgstr "ETA sunucusuna bağlanılamadı. Lütfen daha sonra tekrar deneyin."
+
+#: src/MainWindow.py:539
+msgid "Retry"
+msgstr "Tekrar Dene"
+
+#: src/MainWindow.py:626
+msgid "Fetching provinces..."
+msgstr "İller getiriliyor..."
+
+#: src/MainWindow.py:641 src/MainWindow.py:700 src/MainWindow.py:759
+msgid "Error Fetching Data"
+msgstr "Veri Getirme Hatası"
+
+#: src/MainWindow.py:642
+msgid ""
+"Could not fetch the list of provinces. Please check your connection and try "
+"again."
+msgstr ""
+"İl listesi getirilemedi. Lütfen bağlantınızı kontrol edip tekrar deneyin."
+
+#: src/MainWindow.py:685
+msgid "Fetching districts..."
+msgstr "İlçeler getiriliyor..."
+
+#: src/MainWindow.py:701
+msgid "Could not fetch the list of districts. Please try again."
+msgstr "İlçe listesi getirilemedi. Lütfen tekrar deneyin."
+
+#: src/MainWindow.py:744
+msgid "Fetching schools..."
+msgstr "Okullar getiriliyor..."
+
+#: src/MainWindow.py:760
+msgid "Could not fetch the list of schools. Please try again."
+msgstr "Okul listesi getirilemedi. Lütfen tekrar deneyin."
+
+#: src/MainWindow.py:899 src/MainWindow.py:904
+msgid "Unit Name Required"
+msgstr "Sınıf Adı Zorunlu"
+
+#: src/MainWindow.py:900
+msgid "The unit name (room name) is required and cannot be empty for update."
+msgstr "Sınıf adı (oda adı) güncelleme için zorunludur ve boş bırakılamaz."
+
+#: src/MainWindow.py:905
+msgid ""
+"The unit name (room name) is required and cannot be empty for registration."
+msgstr "Sınıf adı (oda adı) kayıt için zorunludur ve boş bırakılamaz."
+
+#: src/MainWindow.py:913
+msgid "Invalid Unit Name"
+msgstr "Geçersiz Sınıf Adı"
+
+#: src/MainWindow.py:914
+msgid "The unit name must be between 2 and 12 characters long."
+msgstr "Sınıf adı 2 ile 12 karakter arasında olmalıdır."
+
+#: src/MainWindow.py:922
+msgid "Updating... Please wait."
+msgstr "Güncelleniyor... Lütfen bekleyin."
+
+#: src/MainWindow.py:928
+msgid "Update Failed"
+msgstr "Güncelleme Başarısız"
+
+#: src/MainWindow.py:929
+msgid "Could not find the board ID for the update operation."
+msgstr "Güncelleme işlemi için kart kimliği bulunamadı."
+
+#: src/MainWindow.py:939
+msgid "Registering... Please wait."
+msgstr "Kaydediliyor... Lütfen bekleyin."
+
+#: src/MainWindow.py:947 src/MainWindow.py:982
+msgid "Registration Failed"
+msgstr "Kayıt Başarısız"
+
+#: src/MainWindow.py:948
+msgid "Could not generate the necessary data for registration."
+msgstr "Kayıt için gerekli veriler oluşturulamadı."
+
+#. Construct a more user-friendly error message
+#: src/MainWindow.py:968
+msgid "An unexpected error occurred during registration."
+msgstr "Kayıt sırasında beklenmedik bir hata oluştu."
+
+#. Fallback to the network error
+#: src/MainWindow.py:974
+msgid ""
+"Could not connect to the registration server. Please check your internet "
+"connection and try again."
+msgstr ""
+"Kayıt sunucusuna bağlanılamadı. Lütfen bağlantınızı kontrol edip tekrar "
+"deneyin."
+
+#: src/MainWindow.py:998
+msgid "Pardus Registration Successful"
+msgstr "Pardus Kaydı Başarılı"
+
+#: src/MainWindow.py:1001
+msgid ""
+"Your device has been registered with Pardus. The central management "
+"application (LiderAhenk) will now be installed."
+msgstr ""
+"Tahtanız Pardus'a Kaydedildi. Merkezi Yönetim Uygulaması (LiderAhenk) "
+"kurulacak."
+
+#: src/network.py:57 src/network.py:82
+msgid "Invalid URL"
+msgstr "Geçersiz URL"
+
+#: src/network.py:128
+msgid "Invalid JSON or encoding in response"
+msgstr "Yanıtta geçersiz JSON veya kodlama"
+
+#: src/network.py:133
+#, python-brace-format
+msgid "API Error: Status {status_code}"
+msgstr "API Hatası: Durum {status_code}"
+
+#: src/network.py:135
+#, python-brace-format
+msgid " - {response_body_get_msg}"
+msgstr " - {response_body_get_msg}"
+
+#: src/network.py:146
+msgid "Failed to decode JSON from response"
+msgstr "Yanıttan JSON verisi çözülemedi"
+
+#: ui/window.glade:7 tr.org.pardus.eta-register.desktop:2
+#: tr.org.pardus.eta-register.desktop:4
+#: tr.org.pardus.eta-register-autostart.desktop:4
+msgid "ETA Register"
+msgstr "ETA Kayıt"
+
+#: ui/window.glade:46
+msgid "Checking status... Please wait."
+msgstr "Durum kontrol ediliyor... Lütfen bekleyin."
+
+#: ui/window.glade:60
+msgid "Loading"
+msgstr "Yükleniyor"
+
+#: ui/window.glade:74
+msgid "This device is not registered at Pardus."
+msgstr "Bu cihaz Pardus'a kayıtlı değil."
+
+#: ui/window.glade:90
+msgid "Please register your device."
+msgstr "Lütfen cihazınızı kaydedin."
+
+#: ui/window.glade:114
+msgid "School Code:"
+msgstr "Okul Kodu:"
+
+#: ui/window.glade:121
+msgid "Enter School Code Here"
+msgstr "Okul Kodunu Buraya Girin"
+
+#: ui/window.glade:161 ui/window.glade:627 ui/window.glade:665
+#: ui/window.glade:1523
+msgid "Register"
+msgstr "Kaydet"
+
+#: ui/window.glade:200
+msgid ""
+"If you dont know your school code; you can register by selecting province, "
+"town and school."
+msgstr ""
+"Okul kodunuzu bilmiyorsanız; il, ilçe ve okul seçerek kayıt olabilirsiniz."
+
+#: ui/window.glade:236
+msgid "Choose Province, Town and School"
+msgstr "İl, İlçe ve Okul Seç"
+
+#: ui/window.glade:455 ui/window.glade:1349
+msgid "Enter the classroom/location of the board."
+msgstr "Tahtanın bulunduğu sınıfı/konumu giriniz."
+
+#: ui/window.glade:463 ui/window.glade:1357
+msgid "e.g., 7-C or Teacher's Room."
+msgstr "Örn: 7-C, OgrOdasi"
+
+#: ui/window.glade:484 ui/window.glade:1378 ui/window.glade:1752
+msgid "Room Name:"
+msgstr "Sınıf Adı:"
+
+#: ui/window.glade:491 ui/window.glade:1385
+msgid "11-A"
+msgstr "11-A"
+
+#: ui/window.glade:538 ui/window.glade:863 ui/window.glade:1434
+msgid "Back"
+msgstr "Geri"
+
+#: ui/window.glade:581 ui/window.glade:1477
+msgid "Cancel"
+msgstr "İptal"
+
+#: ui/window.glade:679
+msgid "Choose Province/Town/School"
+msgstr "İl / İlçe / Kurum Seçimi"
+
+#: ui/window.glade:705
+msgid "Search Provinces..."
+msgstr "İl Ara..."
+
+#: ui/window.glade:735
+msgid "Provinces"
+msgstr "İller"
+
+#: ui/window.glade:748
+msgid "Search Districts..."
+msgstr "İlçe Ara..."
+
+#: ui/window.glade:778
+msgid "Districts"
+msgstr "İlçeler"
+
+#: ui/window.glade:791
+msgid "Search Schools..."
+msgstr "Okul Ara..."
+
+#: ui/window.glade:821
+msgid "Schools"
+msgstr "Okullar"
+
+#: ui/window.glade:907 ui/window.glade:1553
+msgid "Confirm"
+msgstr "Onayla"
+
+#: ui/window.glade:937
+msgid "Selection Register"
+msgstr "Seçimle Kayıt"
+
+#: ui/window.glade:952
+msgid "A required package is not installed on your system."
+msgstr "Sisteminizde gerekli bir paket kurulu değil."
+
+#: ui/window.glade:1005
+msgid "Installation in progress..."
+msgstr "Kurulum devam ediyor..."
+
+#: ui/window.glade:1039
+msgid "Copy Logs"
+msgstr "Logları Kopyala"
+
+#: ui/window.glade:1111
+msgid "Install"
+msgstr "Yükle"
+
+#: ui/window.glade:1137
+msgid "Installation in progress... Please wait."
+msgstr "Kurulum devam ediyor... Lütfen bekleyin."
+
+#: ui/window.glade:1151
+msgid "Installing"
+msgstr "Yükleniyor"
+
+#: ui/window.glade:1568
+msgid "Your device is registered with the following information:"
+msgstr "Cihazınız aşağıdaki bilgilerle kayıtlıdır:"
+
+#: ui/window.glade:1591
+msgid "Province:"
+msgstr "İl:"
+
+#: ui/window.glade:1630
+msgid "District:"
+msgstr "İlçe:"
+
+#: ui/window.glade:1669
+msgid "Institution:"
+msgstr "Kurum:"
+
+#: ui/window.glade:1708
+msgid "Institution Code:"
+msgstr "Kurum Kodu:"
+
+#: ui/window.glade:1823
+msgid "Edit"
+msgstr "Düzenle"
+
+#: ui/window.glade:1843
+msgid "Information"
+msgstr "Bilgi"
+
+#: tr.org.pardus.eta-register.desktop:6
+#: tr.org.pardus.eta-register-autostart.desktop:6
+msgid "Register Smart Board"
+msgstr "Akıllı Tahtayı Kaydet"
+
+#: tr.org.pardus.eta-register.desktop:14
+msgid "register,smart board,eta,eta register,eta kayıt"
+msgstr "kayıt,akıllı tahta,eta,eta kayıt"
+
+#: tr.org.pardus.eta-register-autostart.desktop:2
+msgid "Eta Register"
+msgstr "Eta Kayıt"
+
+#: tr.org.pardus.eta-register-autostart.desktop:14
+msgid "register;eta;pardus;"
+msgstr "kayıt;eta;pardus;"
+
+#~ msgid "Could not determine the device's MAC address."
+#~ msgstr "Cihazın MAC adresi belirlenemedi."
+
+#, python-brace-format
+#~ msgid "Could not connect to the internet. Retrying in {} minute(s)..."
+#~ msgstr "İnternete bağlanılamadı. {} dakika içinde yeniden denenecek..."
+
+#, python-brace-format
+#~ msgid "Could not reach ETA server. Retrying in {} minute(s)..."
+#~ msgstr "ETA sunucusuna ulaşılamadı. {} dakika içinde yeniden denenecek..."

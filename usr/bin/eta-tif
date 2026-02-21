@@ -1,0 +1,298 @@
+#!/usr/bin/env python3
+
+import pyatspi
+import dbus
+import signal
+import sys
+
+from dbus.mainloop.glib import DBusGMainLoop
+
+import gi
+
+gi.require_version('XApp', '1.0')
+gi.require_version('Gtk', '3.0')
+
+from gi.repository import GLib, Gtk, XApp
+
+# Setup internationalization
+import locale
+from locale import gettext as _
+
+locale.bindtextdomain('eta-keyboard', '/usr/share/locale')
+locale.textdomain('eta-keyboard')
+
+DBusGMainLoop(set_as_default=True)
+session_bus = dbus.SessionBus()
+
+# Status icon paths
+ICON_AUTO_ON = '/usr/share/eta/eta-keyboard/auto-on-status.svg'
+ICON_AUTO_OFF = '/usr/share/eta/eta-keyboard/auto-off-status.svg'
+
+
+def get_dbus_interface(name, path, interface):
+    try:
+        obj = session_bus.get_object(name, path)
+        return dbus.Interface(obj, dbus_interface=interface)
+    except dbus.DBusException as e:
+        print(f"Failed to retrieve dbus interface: {e}")
+        return None
+
+
+def get_keyboard():
+    try:
+        obj = get_dbus_interface(
+            'org.eta.virtualkeyboard',
+            '/VirtualKeyboard',
+            'org.eta.virtualkeyboard'
+        )
+        return obj
+    except Exception as e:
+        print(e)
+        return None
+
+
+def dbus_show_keyboard(show, is_password):
+    keyboard = get_keyboard()
+    if keyboard:
+        try:
+            if not keyboard.getEnableAtspi():
+                return
+            if show:
+                keyboard.show(is_password)
+            else:
+                pass
+        except dbus.DBusException as e:
+            print(f"Failed to call method on keyboard: {e}")
+        except Exception as e:
+            print(f"Unexpected error calling method on keyboard: {e}")
+
+
+def create_focus_changed_callback(show_keyboard_function):
+    def on_focus_changed(event):
+        print(f"Focused role: {event.source.getRole()}")
+        try:
+            atspi_role = event.source.getRole()
+            show = atspi_role in [
+                pyatspi.ROLE_TEXT,
+                pyatspi.ROLE_ENTRY,
+                pyatspi.ROLE_COMBO_BOX,
+                pyatspi.ROLE_SPIN_BUTTON,
+                pyatspi.ROLE_PARAGRAPH,
+                pyatspi.ROLE_PASSWORD_TEXT,
+                pyatspi.ROLE_TERMINAL
+            ]
+            is_password = atspi_role == pyatspi.ROLE_PASSWORD_TEXT
+            show_keyboard_function(show, is_password)
+        except Exception as e:
+            print(f"Error during focus change handling: {e}")
+
+    return on_focus_changed
+
+
+def signal_handler(signum, frame):
+    try:
+        pyatspi.Registry.deregisterEventListener(
+            focus_changed_callback,
+            'object:state-changed:focused'
+        )
+    except:
+        pass
+    sys.exit(0)
+
+
+class IndicatorState:
+
+    def __init__(self):
+        self.auto_mode = True
+        self.status_icon = None
+        self.auto_item = None
+        self.manual_item = None
+
+    def update_icon(self):
+
+        if self.status_icon is None:
+            return
+        if self.auto_mode:
+            self.status_icon.set_icon_name(ICON_AUTO_ON)
+            tip = _('ETA Keyboard') + ' - ' + _('Auto')
+        else:
+            self.status_icon.set_icon_name(ICON_AUTO_OFF)
+            tip = _('ETA Keyboard') + ' - ' + _('Manual')
+        self.status_icon.set_tooltip_text(tip)
+
+    def update_menu_items(self, auto_action_func, manual_action_func):
+        """
+        Update radio menu items to match current state
+        """
+        if self.auto_item and self.manual_item:
+            try:
+                self.auto_item.handler_block_by_func(auto_action_func)
+                self.manual_item.handler_block_by_func(manual_action_func)
+                self.auto_item.set_active(self.auto_mode)
+                self.manual_item.set_active(not self.auto_mode)
+                self.auto_item.handler_unblock_by_func(auto_action_func)
+                self.manual_item.handler_unblock_by_func(manual_action_func)
+            except Exception as e:
+                print(f"Error updating menu items: {e}")
+
+    def sync_from_keyboard(self):
+        """
+        Sync state from keyboard Dbus interface
+        """
+        keyboard = get_keyboard()
+        if keyboard:
+            try:
+                self.auto_mode = bool(keyboard.getEnableAtspi())
+                self.update_icon()
+            except Exception as e:
+                print(f"Error syncing state from keyboard: {e}")
+
+
+def create_indicator():
+
+    state = IndicatorState()
+
+    def on_menu_show(_widget):
+        """
+        Sync menu radio buttons with keyboard state on show
+        """
+        keyboard = get_keyboard()
+        if keyboard:
+            try:
+                current_state = keyboard.getEnableAtspi()
+                state.auto_mode = bool(current_state)
+                state.update_icon()
+                state.update_menu_items(auto_action, manual_action)
+            except Exception as e:
+                print(f"Error getting atspi state: {e}")
+
+    def show_action(*_args):
+        keyboard = get_keyboard()
+        if keyboard:
+            try:
+                keyboard.showForce(True)
+            except Exception as e:
+                print(f"Error showing keyboard: {e}")
+
+    def toggle_action(*_args):
+        """
+        Toggle auto/manual mode on left click
+        """
+        keyboard = get_keyboard()
+        if keyboard:
+            try:
+                current_state = keyboard.getEnableAtspi()
+                new_state = not current_state
+                keyboard.setEnableAtspi(new_state)
+                state.auto_mode = new_state
+                state.update_icon()
+                if not new_state:
+                    keyboard.hide()
+            except Exception as e:
+                print(f"Error toggling auto mode: {e}")
+
+    def auto_action(*_args):
+        """
+        Enable auto mode from menu
+        """
+        if state.auto_item.get_active():
+            keyboard = get_keyboard()
+            if keyboard:
+                try:
+                    keyboard.setEnableAtspi(True)
+                    state.auto_mode = True
+                    state.update_icon()
+                except Exception as e:
+                    print(f"Error enabling auto mode: {e}")
+
+    def manual_action(*_args):
+        """
+        Enable manual mode from menu
+        """
+        if state.manual_item.get_active():
+            keyboard = get_keyboard()
+            if keyboard:
+                try:
+                    keyboard.setEnableAtspi(False)
+                    keyboard.hide()
+                    state.auto_mode = False
+                    state.update_icon()
+                except Exception as e:
+                    print(f"Error enabling manual mode: {e}")
+
+    # Create the menu for indicator
+    menu = Gtk.Menu()
+
+    # Show menu item
+    show_item = Gtk.MenuItem.new_with_label(_('Show'))
+    show_item.connect('activate', show_action)
+    menu.append(show_item)
+
+    separator = Gtk.SeparatorMenuItem()
+    menu.append(separator)
+
+    # Create radio menu items
+    radio_group = None
+    state.auto_item = Gtk.RadioMenuItem.new_with_label(radio_group, _('Auto'))
+    radio_group = state.auto_item.get_group()
+    state.auto_item.connect('activate', auto_action)
+    state.auto_item.set_active(True)
+    menu.append(state.auto_item)
+
+    state.manual_item = Gtk.RadioMenuItem.new_with_label(
+        radio_group, _('Manual')
+    )
+    state.manual_item.connect('activate', manual_action)
+    menu.append(state.manual_item)
+
+    menu.connect('show', on_menu_show)
+
+    menu.show_all()
+
+    # Configure status icon
+    state.status_icon = XApp.StatusIcon()
+    state.status_icon.set_name('eta-keyboard')
+
+    # Sync initial state from keyboard and set icon
+    state.sync_from_keyboard()
+
+    # Set menu as secondary (right-click) instead of primary (left-click)
+    state.status_icon.set_secondary_menu(menu)
+    state.status_icon.set_visible(True)
+
+    # Connect toggle action to left-click (activate signal)
+    state.status_icon.connect('activate', toggle_action)
+
+    # Listen for atspiStateChanged DBus signal
+    def on_atspi_state_changed(enabled):
+        """
+        Callback for DBus atspiStateChanged signal - triggered when
+        atspi state is changed from QML Settings
+        """
+        state.auto_mode = bool(enabled)
+        state.update_icon()
+        state.update_menu_items(auto_action, manual_action)
+
+    session_bus.add_signal_receiver(
+        on_atspi_state_changed,
+        signal_name='atspiStateChanged',
+        dbus_interface='org.eta.virtualkeyboard',
+        bus_name='org.eta.virtualkeyboard',
+        path='/VirtualKeyboard'
+    )
+
+    Gtk.main()
+
+
+if __name__ == "__main__":
+    signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+
+    # pyatspi.Registry.registerEventListener(onfocuschanged, 'focus')
+    focus_changed_callback = create_focus_changed_callback(dbus_show_keyboard)
+    pyatspi.Registry.registerEventListener(
+        focus_changed_callback,
+        'object:state-changed:focused'
+    )
+
+    create_indicator()

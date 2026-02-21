@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Nemo Bookmarks
+Exec=/usr/share/pardus/pardus-etap-settings/nemo-bookmarks
+Type=Application
+StartupNotify=false
+NoDisplay=true

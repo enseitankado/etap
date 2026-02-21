@@ -1,0 +1,12 @@
+[Unit]
+Description=Pardus ETAP display control
+Before=lightdm.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/share/eta/eta-display-control/eta-display-control
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

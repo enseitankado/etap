@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=EBA Homepage
+Name[tr]=EBA Anasayfa
+Type=Application
+Comment=EBA Web Homepage
+Comment[tr]=EBA Web Anasayfa
+Terminal=false
+Exec=ebalogin
+Icon=ebalogin

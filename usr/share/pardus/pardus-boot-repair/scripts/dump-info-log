@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+target="$1"
+DESTDIR=$(mktemp -d)
+if [[ "$1" == "" ]] ; then
+    echo -n "Enter the target directory to save the logs to: "
+    read target
+fi
+source /usr/bin/pardus-mount-rootfs
+
+zip "$target/system-log" \
+    "$DESTDIR"/var/log/auth.log \
+    "$DESTDIR"/var/log/boot.log \
+    "$DESTDIR"/var/log/daemon.log \
+    "$DESTDIR"/var/log/dmesg.log \
+    "$DESTDIR"/var/log/dpkg.log \
+    "$DESTDIR"/var/log/kern.log \
+    "$DESTDIR"/var/log/syslog.log \
+    "$DESTDIR"/var/log/user.log \
+    "$DESTDIR"/var/log/pardus-installer.log \
+    "$DESTDIR"/etc/hosts \
+    "$DESTDIR"/etc/apt/sources.list \
+    "$DESTDIR"/etc/apt/sources.list.d/* \
+    "$DESTDIR"/var/log/auth.log \
+    "$DESTDIR"/var/log/Xorg.0.log \
+    "$DESTDIR"/var/lib/dpkg/status \
+    "$DESTDIR"/var/log/lightdm/lightdm.log \
+    "$DESTDIR"/var/log/apt/*.log \
+    "$DESTDIR"/var/log/lightdm/lightdm.log \
+    "$DESTDIR"/boot/grub/grub.cfg

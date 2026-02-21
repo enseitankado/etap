@@ -1,0 +1,28 @@
+#!/bin/sh
+
+if [ "$1" != "post_install_hook" ];then
+    exit 0
+fi
+
+echo "PARDUS LIVE INSTALLER SOURCES LIST HOOK"
+
+rm -fr /target/etc/apt/sources.list.d/pardus-yirmiuc.list
+
+SOURCE_LIST=/target/etc/apt/sources.list
+
+cat > $SOURCE_LIST <<EOF
+### The Official Pardus Package Repositories ###
+
+## Pardus
+deb http://depo.pardus.org.tr/pardus yirmiuc main contrib non-free non-free-firmware
+# deb-src http://depo.pardus.org.tr/pardus yirmiuc main contrib non-free non-free-firmware
+
+## Pardus Deb
+deb http://depo.pardus.org.tr/pardus yirmiuc-deb main contrib non-free non-free-firmware
+# deb-src http://depo.pardus.org.tr/pardus yirmiuc-deb main contrib non-free non-free-firmware
+
+## Pardus Security Deb
+deb http://depo.pardus.org.tr/guvenlik yirmiuc-deb main contrib non-free non-free-firmware
+# deb-src http://depo.pardus.org.tr/guvenlik yirmiuc-deb main contrib non-free non-free-firmware
+
+EOF

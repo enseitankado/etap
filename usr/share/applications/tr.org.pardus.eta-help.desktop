@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=ETA Help
+Name[tr]=ETA Yardım
+Comment=Sends your help message and screenshot
+Comment[tr]=Yardım mesajınızı ve ekran resminizi gönderir
+Exec=eta-help
+Icon=eta-help
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+StartupNotify=true
+Keywords=help;fault;problem;issue;bug;request;
+Keywords[tr]=yardım;arıza;problem;sorun;hata;talep;

@@ -1,0 +1,35 @@
+image#floating_logo {  
+    animation-name: floating_logo;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    margin-bottom: 7px;
+}
+
+image#logo {
+    margin-bottom: 7px;
+}
+
+@keyframes floating_logo {
+    0% { -gtk-icon-transform: translate(0,  0px); }
+    100%  { -gtk-icon-transform: translate(0, 7px); }  
+}
+
+label#logotitle {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+label#service_active {
+    color: green;
+}
+
+#success {
+    color: green;
+}
+
+entry#entry_not_valid {
+    border-color: red;
+    border-width: 4pt;
+}

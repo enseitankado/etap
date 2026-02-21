@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Power Off the Board add to desktop
+Name[tr]=Tahtayı Kapat masaüstüne ekle
+Exec=/usr/libexec/eta-poweroff-add-to-desktop
+Icon=system-shutdown
+Categories=System;

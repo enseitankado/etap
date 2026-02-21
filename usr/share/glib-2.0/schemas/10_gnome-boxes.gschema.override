@@ -1,0 +1,2 @@
+[org.gnome.boxes]
+recommended-downloads-url='https://salsa.debian.org/gnome-team/gnome-boxes/-/raw/debian/bookworm/debian/recommended-downloads.xml'

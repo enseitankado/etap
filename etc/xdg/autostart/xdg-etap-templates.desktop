@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Pardus Etap Templates
+Exec=/usr/bin/python3 /usr/share/pardus/pardus-etap-settings/xdg-pardus-etap-templates/xdg-pardus-etap-templates
+Type=Application
+StartupNotify=false
+NoDisplay=true

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=ETA USB Register
+Name[tr]=ETA USB Kaydedici
+Comment=Register your USB to your EBA Account easily.
+Comment[tr]=USB'nizi EBA hesabınıza kolayca kaydedin.
+
+Categories=System;X-Pardus-Apps;
+Keywords=eta;register;usb;eba;
+
+Exec=eta-usb-register
+Icon=eta-usb-register
+
+Terminal=false
+Type=Application
+StartupNotify=true
+X-GNOME-UsesNotifications=true

@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policyconfig>
+  <action id="com.endlessm.ParentalControls.AppFilter.ChangeOwn">
+    <description>Change your own app filter</description>
+    <description xml:lang="zh_TW">更改您的應用程式過濾器</description>
+    <description xml:lang="uk">Зміна власного фільтра програм</description>
+    <description xml:lang="tr">Kendi uygulama süzgecini değiştir</description>
+    <description xml:lang="sv">Ändra ditt eget programfilter</description>
+    <description xml:lang="ru">Изменение собственного фильтра приложений</description>
+    <description xml:lang="ro">Modifica filtrul aplicatiei</description>
+    <description xml:lang="pt_BR">Alterar seu próprio filtro de aplicativos</description>
+    <description xml:lang="pl">Zmiana własnego filtru programów</description>
+    <description xml:lang="ms">Ubah penapis apl anda sendiri</description>
+    <description xml:lang="it">Modifica filtri app personali</description>
+    <description xml:lang="id">Ubah filter aplikasi Anda sendiri</description>
+    <description xml:lang="hi">अपना खुद का ऐप फ़िल्टर बदलें</description>
+    <description xml:lang="fr">Modifiez votre propre filtre d'application</description>
+    <description xml:lang="fa">فلتر کردن برنامه خود را تغیر بدهد</description>
+    <description xml:lang="es">Cambiar su propio filtro de aplicaciones</description>
+    <description xml:lang="de">Ihren eigenen Anwendungsfilter ändern</description>
+    <description xml:lang="da">Ændr dit eget programfilter</description>
+    <description xml:lang="cs">Měnit filtr vlastních aplikací</description>
+    <description xml:lang="ca">Canvieu el filtre d'app propi</description>
+    <description xml:lang="ar">قُم بتغيير عناصر تصفية تطبيقك</description>
+    <message>Authentication is required to change your app filter.</message>
+    <message xml:lang="zh_TW">需要認證才能更改您的應用程式過濾器。</message>
+    <message xml:lang="uk">Для зміни власного фільтра програм слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Uygulama süzgecinizi değiştirmek için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att ändra ditt programfilter.</message>
+    <message xml:lang="ru">Для изменения своего фильтра приложений требуется идентификация.</message>
+    <message xml:lang="ro">Pentru a schimba filtrul este necesara autentificarea</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para alterar seu filtro de aplicativos.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby zmienić swój filtr programów.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk mengubah penapis apl anda.</message>
+    <message xml:lang="it">È richiesto autenticarsi per modificare i propri filtri app.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk mengubah filter aplikasi Anda.</message>
+    <message xml:lang="hi">आपके ऐप फिल्टर को बदलने के लिए सत्यापन की आवश्यकता है।</message>
+    <message xml:lang="fr">L'authentification est requise pour modifier votre filtre d'application.</message>
+    <message xml:lang="fa">تشخیص هویت برای تبدیل کردن فیلتر برنامه ضروری است.</message>
+    <message xml:lang="es">Necesita autenticarse para cambiar su filtro de aplicaciones.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um Ihren Anwendungsfilter zu ändern.</message>
+    <message xml:lang="da">Der kræves godkendelse for at ændre dit eget programfilter.</message>
+    <message xml:lang="cs">Pro změnu vlastního filtru aplikací je vyžadováno ověření.</message>
+    <message xml:lang="ca">L'autenticació és necessària per a canviar el seu filtre de l'app.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لتغيير عناصر تصفية تطبيقك.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AppFilter.ReadOwn">
+    <description>Read your own app filter</description>
+    <description xml:lang="zh_TW">讀取您的應用程式過濾器</description>
+    <description xml:lang="uk">Читання власного фільтра програм</description>
+    <description xml:lang="tr">Kendi uygulama süzgecini oku</description>
+    <description xml:lang="sv">Läs ditt eget programfilter</description>
+    <description xml:lang="ru">Чтение собственного фильтра приложений</description>
+    <description xml:lang="ro">Citeste filtrul aplicatiei</description>
+    <description xml:lang="pt_BR">Ler seu próprio filtro de aplicativos</description>
+    <description xml:lang="pl">Odczytanie własnego filtru programów</description>
+    <description xml:lang="ms">Baca penapis apl anda sendiri</description>
+    <description xml:lang="it">Lettura dei filtri app personali</description>
+    <description xml:lang="id">Baca filter aplikasi Anda sendiri</description>
+    <description xml:lang="hi">अपना खुद का ऐप फिल्टर पढ़ें</description>
+    <description xml:lang="fr">Lisez votre propre filtre d'application</description>
+    <description xml:lang="fa">فیلتر برنامه خود را بخوانید</description>
+    <description xml:lang="es">Leer su propio filtro de aplicaciones</description>
+    <description xml:lang="de">Ihren eigenen Anwendungsfilter ansehen</description>
+    <description xml:lang="da">Læs dit eget programfilter</description>
+    <description xml:lang="cs">Číst filtr vlastních aplikací</description>
+    <description xml:lang="ca">Llegeix el teu propi filtre d'app</description>
+    <description xml:lang="ar">اقرأ عناصر تصفية تطبيقك</description>
+    <message>Authentication is required to read your app filter.</message>
+    <message xml:lang="zh_TW">需要認證才能讀取您的應用程式過濾器。</message>
+    <message xml:lang="uk">Для читання власного фільтра програм слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Uygulama süzgecinizi okumak için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att läsa ditt programfilter.</message>
+    <message xml:lang="ru">Для чтения своего фильтра приложений требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para ler seu filtro de aplicativos.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby odczytać własne filtry programów.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk membaca penapis apl anda.</message>
+    <message xml:lang="it">È richiesto autenticarsi per leggere i propri filtri app.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk membaca filter aplikasi Anda.</message>
+    <message xml:lang="hi">आपके एप फ़िल्टर को पढ़ने के लिए प्रमाणीकरण आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour lire votre filtre d'application.</message>
+    <message xml:lang="fa">تشخیص هویت رای خواندن فیلتر برنامه ضروری است.</message>
+    <message xml:lang="es">Necesita autenticarse para leer su filtro de aplicaciones.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um Ihren Anwendungsfilter anzusehen.</message>
+    <message xml:lang="da">Der kræves godkendelse for at læse dit eget programfilter.</message>
+    <message xml:lang="cs">Pro čtení vlastního filtru aplikací je vyžadováno ověření.</message>
+    <message xml:lang="ca">L'autenticació és necessària per a llegir el seu filtre de l'app.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لقراءة عناصر تصفية تطبيقك.</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AppFilter.ChangeAny">
+    <description>Change another user’s app filter</description>
+    <description xml:lang="zh_TW">更改另一位使用者的應用程式過濾器</description>
+    <description xml:lang="uk">Зміна фільтра програм іншого користувача</description>
+    <description xml:lang="tr">Başka kullanıcının uygulama süzgecini değiştir</description>
+    <description xml:lang="sv">Ändra en annan användares programfilter</description>
+    <description xml:lang="ru">Изменение фильтра приложений другого пользователя</description>
+    <description xml:lang="ro">Schimba filtrul aplicatiei a altui utilizator</description>
+    <description xml:lang="pt_BR">Alterar o filtro de aplicativos de outro usuário</description>
+    <description xml:lang="pl">Zmiana filtru programów innego użytkownika</description>
+    <description xml:lang="ms">Ubah penapis apl pengguna lain</description>
+    <description xml:lang="it">Modifica dei filtri app di un altro utente</description>
+    <description xml:lang="id">Ubah filter aplikasi pengguna lain</description>
+    <description xml:lang="hi">अन्य उपयोगकर्ता का ऐप फ़िल्टर बदलें</description>
+    <description xml:lang="fr">Modifier le filtre d'application d'un autre utilisateur</description>
+    <description xml:lang="fa">برنامه فیلتر یوزر دیگر را تغیر بدهد.</description>
+    <description xml:lang="es">Cambiar filtro de aplicaciones de otra cuenta</description>
+    <description xml:lang="de">Anwendungsfilter eines anderen Nutzers ändern</description>
+    <description xml:lang="da">Ændr en anden brugers programfilter</description>
+    <description xml:lang="cs">Měnit filtr aplikací jiného uživatele</description>
+    <description xml:lang="ca">Canvieu el filtre d'app d'un altre usuari</description>
+    <description xml:lang="ar">قم بتغيير مرشح تطبيق مستخدم آخر</description>
+    <message>Authentication is required to change another user’s app filter.</message>
+    <message xml:lang="zh_TW">需要認證才能更改另一位使用者的應用程式過濾器。</message>
+    <message xml:lang="uk">Для зміни фільтра програм іншого користувача слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Başka kullanıcının uygulama süzgecini değiştirmek için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att ändra en annan användares programfilter.</message>
+    <message xml:lang="ru">Для изменения фильтра приложений другого пользователя требуется идентификация.</message>
+    <message xml:lang="ro">Pentru a schimba filrtul aplicatiei a altui utilizator,este necesara autentificarea.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para alterar o filtro de aplicativos de outro usuário.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby zmienić filtr programów innego użytkownika.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk mengubah penapis apl pengguna yang lain.</message>
+    <message xml:lang="it">È richiesto autenticarsi per modificare i filtri app di un altro utente.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk mengubah filter aplikasi pengguna lain.</message>
+    <message xml:lang="hi">किसी अन्य उपयोगकर्ता के ऐप फ़िल्टर को बदलने के लिए प्रमाणीकरण की आवश्यकता होती है</message>
+    <message xml:lang="fr">L'authentification est requise pour modifier le filtre d'application d'un autre utilisateur.</message>
+    <message xml:lang="fa">تشخیص هویت برای تغیر دادن فیلتر برنامه یوزر دیگر ضروری است.</message>
+    <message xml:lang="es">Necesita autenticarse para cambiar el filtro de aplicaciones de otra cuenta.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um den Anwendungsfilter eines anderen Nutzers zu ändern.</message>
+    <message xml:lang="da">Der kræves godkendelse for at ændre en anden brugers programfilter.</message>
+    <message xml:lang="cs">Pro změnu filtru aplikací jiného uživatele je vyžadováno ověření.</message>
+    <message xml:lang="ca">Cal autenticació per a canviar el filtre d'app d'un altre usuari.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لتغيير عناصر تصفية التطبيق الخاص بمستخدمٍ آخر.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AppFilter.ReadAny">
+    <description>Read another user’s app filter</description>
+    <description xml:lang="zh_TW">讀取另一位使用者的應用程式過濾器</description>
+    <description xml:lang="uk">Читання фільтра програм іншого користувача</description>
+    <description xml:lang="tr">Başka kullanıcının uygulama süzgecini oku</description>
+    <description xml:lang="sv">Läs en annan användares programfilter</description>
+    <description xml:lang="ru">Чтение фильтра приложений другого пользователя</description>
+    <description xml:lang="ro">Citeste filtrul aplicatiei a altui utilizator.</description>
+    <description xml:lang="pt_BR">Ler o filtro de aplicativo de outro usuário</description>
+    <description xml:lang="pl">Odczytanie filtru programów innego użytkownika</description>
+    <description xml:lang="ms">Baca penapis apl pengguna lain</description>
+    <description xml:lang="it">Lettura dei filtri app di un altro utente</description>
+    <description xml:lang="id">Baca filter aplikasi pengguna lain</description>
+    <description xml:lang="hi">अन्य उपयोगकर्ता का ऐप फ़िल्टर पढ़ें</description>
+    <description xml:lang="fr">Lire le filtre d'application d'un autre utilisateur</description>
+    <description xml:lang="fa">فیلتر برنامه کاربر دیگر را بخوانید</description>
+    <description xml:lang="es">Leer el filtro de aplicaciones de otra cuenta</description>
+    <description xml:lang="de">Anwendungsfilter eines anderen Nutzers ansehen</description>
+    <description xml:lang="da">Læs en anden brugers programfilter</description>
+    <description xml:lang="cs">Číst filtr aplikací jiného uživatele</description>
+    <description xml:lang="ca">Llegeix el filtre d'app d'un altre usuari</description>
+    <description xml:lang="ar">قراءة مرشح تطبيقات مستخدم آخر</description>
+    <message>Authentication is required to read another user’s app filter.</message>
+    <message xml:lang="zh_TW">需要認證才能讀取另一位使用者的應用程式過濾器。</message>
+    <message xml:lang="uk">Для читання фільтра програм іншого користувача слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Başka kullanıcının uygulama süzgecini okumak için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att läsa en annan användares programfilter.</message>
+    <message xml:lang="ru">Для чтения фильтра приложений другого пользователя требуется идентификация.</message>
+    <message xml:lang="ro">Pentru a citi filtrul aplicatiei a altui utilizator,este necesara autentificarea.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para ler o filtro de aplicativos de outro usuário.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby odczytać filtr programów innego użytkownika.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk membaca penapis apl pengguna yang lain.</message>
+    <message xml:lang="it">È richiesto autenticarsi per leggere i filtri app di un altro utente.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk membaca filter aplikasi pengguna lain.</message>
+    <message xml:lang="hi">किसी अन्य उपयोगकर्ता के ऐप फ़िल्टर को पढ़ने के लिए सत्यापन आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour lire le filtre d'application d'un autre utilisateur.</message>
+    <message xml:lang="fa">تشخیص هویت ضروری است برای خوانده فیلتر برنامه کاربر دیگر</message>
+    <message xml:lang="es">Necesita autenticarse para leer el filtro de aplicaciones de otra cuenta.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um den Anwendungsfilter eines anderen Nutzers anzusehen.</message>
+    <message xml:lang="da">Der kræves godkendelse for at læse en anden brugers programfilter.</message>
+    <message xml:lang="cs">Pro čtení filtru aplikací jiného uživatele je vyžadováno ověření.</message>
+    <message xml:lang="ca">L'autenticació és necessària per a llegir el filtre d'app d'un altre usuari.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لقراءة مرشح تطبيق مستخدم آخر.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.SessionLimits.ChangeOwn">
+    <description>Change your own session limits</description>
+    <description xml:lang="zh_TW">更改您的工作階段限制</description>
+    <description xml:lang="uk">Зміна обмежень власного сеансу</description>
+    <description xml:lang="tr">Kendi oturum sınırlarını değiştir</description>
+    <description xml:lang="sv">Ändra dina egna sessionsgränser</description>
+    <description xml:lang="ru">Изменение ограничений собственного сеанса</description>
+    <description xml:lang="ro">Modifica limita de sesiune personala.</description>
+    <description xml:lang="pt_BR">Alterar seus próprios limites de sessão</description>
+    <description xml:lang="pl">Zmiana własnych ograniczeń sesji</description>
+    <description xml:lang="ms">Ubah had sesi anda sendiri</description>
+    <description xml:lang="it">Modifica dei limiti di sessione personali</description>
+    <description xml:lang="id">Ubah batas sesi Anda sendiri</description>
+    <description xml:lang="hi">अपने स्वयं के सेशन की सीमा को बदलें</description>
+    <description xml:lang="fr">Modifiez vos propres limites de session</description>
+    <description xml:lang="es">Cambiar sus propios límites de sesión</description>
+    <description xml:lang="de">Ihre eigenen Sitzungsbeschränkungen ändern</description>
+    <description xml:lang="da">Ændr dine egne sessionsgrænser</description>
+    <description xml:lang="cs">Měnit limity vlastního sezení</description>
+    <description xml:lang="ca">Canvieu els límits de sessió propis</description>
+    <description xml:lang="ar">تغيير حدود جلستك</description>
+    <message>Authentication is required to change your session limits.</message>
+    <message xml:lang="zh_TW">需要認證才能更改您的工作階段限制。</message>
+    <message xml:lang="uk">Для зміни обмежень вашого власного сеансу слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Kendi oturum sınırlarınızı değiştirmek için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att ändra dina sessionsgränser.</message>
+    <message xml:lang="ru">Для изменения ограничений собственного сеанса требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para alterar seus próprios limites de sessão.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby zmienić własne ograniczenia sesji.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk mengubah had sesi anda.</message>
+    <message xml:lang="it">È richiesto autenticarsi per modificare i propri limiti di sessione.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk mengubah batas sesi Anda.</message>
+    <message xml:lang="hi">आपके सत्र की सीमा को बदलने के लिए सत्यापन की आवश्यकता है।</message>
+    <message xml:lang="fr">L'authentification est requise pour modifier vos limites de session.</message>
+    <message xml:lang="es">Necesita autenticarse para cambiar los límites de su sesión.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um Ihre Sitzungsbeschränkungen zu ändern.</message>
+    <message xml:lang="da">Der kræves godkendelse for at ændre dine egne sessionsgrænser.</message>
+    <message xml:lang="cs">Pro změnu limitů vlastního sezení je vyžadováno ověření.</message>
+    <message xml:lang="ca">Es requereix autenticació per a canviar els límits de sessió.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لتغيير حدود جلستك.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.SessionLimits.ReadOwn">
+    <description>Read your own session limits</description>
+    <description xml:lang="zh_TW">讀取您的工作階段限制</description>
+    <description xml:lang="uk">Читання обмежень власного сеансу</description>
+    <description xml:lang="tr">Kendi oturum sınırlarını oku</description>
+    <description xml:lang="sv">Läs dina egna sessionsgränser</description>
+    <description xml:lang="ru">Чтение ограничений собственного сеанса</description>
+    <description xml:lang="pt_BR">Ler seus próprios limites de sessão</description>
+    <description xml:lang="pl">Odczytanie własnych ograniczeń sesji</description>
+    <description xml:lang="ms">Baca had sesi anda sendiri</description>
+    <description xml:lang="it">Lettura limiti di sessione personali</description>
+    <description xml:lang="id">Baca batas sesi Anda sendiri</description>
+    <description xml:lang="hi">अपने स्वयं के सेशन की सीमा को पढ़ें</description>
+    <description xml:lang="fr">Lisez vos propres limites de session</description>
+    <description xml:lang="es">Leer sus propios límites de sesión</description>
+    <description xml:lang="de">Ihre eigenen Sitzungsbeschränkungen ansehen</description>
+    <description xml:lang="da">Læs dine egne sessionsgrænser</description>
+    <description xml:lang="cs">Číst limity vlastního sezení</description>
+    <description xml:lang="ca">Llegeix els propis límits de sessió</description>
+    <description xml:lang="ar">قراءة حدود الجلسة الخاصة بك</description>
+    <message>Authentication is required to read your session limits.</message>
+    <message xml:lang="zh_TW">需要認證才能讀取您的工作階段限制。</message>
+    <message xml:lang="uk">Для читання обмежень вашого власного сеансу слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Kendi oturum sınırlarınızı okumak için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att läsa dina sessionsgränser.</message>
+    <message xml:lang="ru">Для чтения ограничений собственного сеанса требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para ler seus próprios limites de sessão.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby odczytać własne ograniczenia sesji.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk membaca had sesi anda.</message>
+    <message xml:lang="it">È richiesto autenticarsi per leggere i propri limiti di sessione.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk membaca batas sesi Anda.</message>
+    <message xml:lang="hi">आपके सत्र की सीमा को पढ़ने के लिए सत्यापन की आवश्यकता है।</message>
+    <message xml:lang="fr">L'authentification est requise pour lire vos limites de session.</message>
+    <message xml:lang="es">Necesita autenticarse para leer los límites de su sesión.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um Ihre Sitzungsbeschränkungen anzusehen.</message>
+    <message xml:lang="da">Der kræves godkendelse for at læse dine egne sessionsgrænser.</message>
+    <message xml:lang="cs">Pro čtení limitů vlastního sezení je vyžadováno ověření.</message>
+    <message xml:lang="ca">Es requereix autenticació per a llegir els límits de sessió.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لقراءة حدود جلستك</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.SessionLimits.ChangeAny">
+    <description>Change another user’s session limits</description>
+    <description xml:lang="zh_TW">更改另一位使用者的工作階段限制</description>
+    <description xml:lang="uk">Зміна обмежень сеансу іншого користувача</description>
+    <description xml:lang="tr">Başka kullanıcının oturum kısıtlarını değiştir</description>
+    <description xml:lang="sv">Ändra en annan användares sessionsgränser</description>
+    <description xml:lang="ru">Изменение ограничений сеанса другого пользователя</description>
+    <description xml:lang="pt_BR">Alterar os limites de sessão de outro usuário</description>
+    <description xml:lang="pl">Zmiana ograniczeń sesji innego użytkownika</description>
+    <description xml:lang="ms">Ubah had sesi pengguna lain</description>
+    <description xml:lang="it">Modifica dei limiti di sessione di un altro utente</description>
+    <description xml:lang="id">Ubah batas sesi pengguna lain</description>
+    <description xml:lang="hi">किसी अन्य उपयोगकर्ता की सत्र सीमा बदलें</description>
+    <description xml:lang="fr">Modifier les limites de session d'un autre utilisateur</description>
+    <description xml:lang="es">Cambiar los límites de sesión de otra cuenta</description>
+    <description xml:lang="de">Sitzungsbeschränkungen eines anderen Nutzers ändern</description>
+    <description xml:lang="da">Ændr en anden brugers sessionsgrænser</description>
+    <description xml:lang="cs">Měnit limity sezení jiného uživatele</description>
+    <description xml:lang="ca">Canvieu els límits de sessió d'un altre usuari</description>
+    <description xml:lang="ar">تغيير حدود الجلسات لمستخدمٍ آخر</description>
+    <message>Authentication is required to change another user’s session limits.</message>
+    <message xml:lang="zh_TW">需要驗證才能更改另一位使用者的工作階段限制。</message>
+    <message xml:lang="uk">Для зміни обмежень сеансу іншого користувача слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Başka kullanıcının oturum sınırlarını değiştirmek için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att ändra en annan användares sessionsgränser.</message>
+    <message xml:lang="ru">Для изменения ограничений сеанса другого пользователя требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para alterar os limites de sessão de outro usuário.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby zmienić ograniczenia sesji innego użytkownika.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk mengubah had pengguna yang lain.</message>
+    <message xml:lang="it">È richiesto autenticarsi per modificare i limiti di sessione di un altro utente.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk mengubah batas sesi pengguna lain.</message>
+    <message xml:lang="hi">उपयोगकर्ता की सत्र सीमाओं को बदलने के लिए प्रमाणीकरण आवश्यक है</message>
+    <message xml:lang="fr">L'authentification est requise pour modifier les limites de session d'un autre utilisateur.</message>
+    <message xml:lang="es">Necesita autenticarse para cambiar los límites de sesión de otra cuenta.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um die Sitzungsbeschränkungen eines anderen Nutzers zu ändern.</message>
+    <message xml:lang="da">Der kræves godkendelse for at ændre en anden brugers sessionsgrænser.</message>
+    <message xml:lang="cs">Pro změnu limitů sezení jiného uživatele je vyžadováno ověření.</message>
+    <message xml:lang="ca">L'autenticació és necessària per a canviar els límits de sessió d'un altre usuari.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لتغيير حدود جلسة مستخدمٍ آخر.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.SessionLimits.ReadAny">
+    <description>Read another user’s session limits</description>
+    <description xml:lang="zh_TW">讀取另一位使用者的工作階段限制</description>
+    <description xml:lang="uk">Читання обмежень сеансу іншого користувача</description>
+    <description xml:lang="tr">Başka kullanıcının oturum sınırlarını oku</description>
+    <description xml:lang="sv">Läs en annan användares sessionsgränser</description>
+    <description xml:lang="ru">Чтение ограничений сеанса другого пользователя</description>
+    <description xml:lang="pt_BR">Ler os limites de sessão de outro usuário</description>
+    <description xml:lang="pl">Odczytanie ograniczeń sesji innego użytkownika</description>
+    <description xml:lang="ms">Baca had sesi pengguna lain</description>
+    <description xml:lang="it">Lettura dei limiti di sessione di un altro utente</description>
+    <description xml:lang="id">Baca batas sesi pengguna lain</description>
+    <description xml:lang="hi">किसी अन्य उपयोगकर्ता की सत्र सीमा पढ़ें</description>
+    <description xml:lang="fr">Lire les limites de session d'un autre utilisateur</description>
+    <description xml:lang="es">Leer los límites de sesión de otra cuenta</description>
+    <description xml:lang="de">Sitzungsbeschränkungen eines anderen Nutzers ansehen</description>
+    <description xml:lang="da">Læs en anden brugers sessionsgrænser</description>
+    <description xml:lang="cs">Číst limity sezení jiného uživatele</description>
+    <description xml:lang="ca">Llegeix els límits de sessió d'un altre usuari</description>
+    <description xml:lang="ar">اقرأ حدود جلسات مستخدمٍ آخر</description>
+    <message>Authentication is required to read another user’s session limits.</message>
+    <message xml:lang="zh_TW">需要認證才能讀取另一位使用者的工作階段限制。</message>
+    <message xml:lang="uk">Для читання обмежень сеансу іншого користувача слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Başka kullanıcının oturum sınırlarını okumak için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att läsa en annan användares sessionsgränser.</message>
+    <message xml:lang="ru">Для чтения ограничений сеанса другого пользователя требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para ler os limites de sessão de outro usuário.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby odczytać ograniczenia sesji innego użytkownika.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk membaca had sesi pengguna yang lain.</message>
+    <message xml:lang="it">È richiesto autenticarsi per leggere i limiti di sessione di un altro utente.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk membaca batas sesi pengguna lain.</message>
+    <message xml:lang="hi">किसी अन्य उपयोगकर्ता की सेशन की सीमाओं को पढ़ने के लिए सत्यापन आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour lire les limites de session d'un autre utilisateur.</message>
+    <message xml:lang="es">Necesita autenticarse para leer los límites de sesión de otra cuenta.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um die Sitzungsbeschränkungen eines anderen Nutzers anzusehen.</message>
+    <message xml:lang="da">Der kræves godkendelse for at læse en anden brugers sessionsgrænser.</message>
+    <message xml:lang="cs">Pro čtení limitů sezení jiného uživatele je vyžadováno ověření.</message>
+    <message xml:lang="ca">Es requereix autenticació per a llegir els límits de sessió d'un altre usuari.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لقراءة حدود جلسات مستخدم آخر.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AccountInfo.ChangeOwn">
+    <description>Change your own account info</description>
+    <description xml:lang="zh_TW">更改您的帳戶資訊</description>
+    <description xml:lang="uk">Зміна даних щодо власного облікового запису</description>
+    <description xml:lang="tr">Kendi hesap bilgilerini değiştir</description>
+    <description xml:lang="sv">Ändra din egen kontoinformation</description>
+    <description xml:lang="ru">Изменение данных своей учётной записи</description>
+    <description xml:lang="pt_BR">Alterar informações de sua própria conta</description>
+    <description xml:lang="pl">Zmiana własnych informacji o koncie</description>
+    <description xml:lang="ms">Ubah maklumat akaun anda sendiri</description>
+    <description xml:lang="it">Modifica delle informazioni dell'account personale</description>
+    <description xml:lang="id">Ubah info akun Anda sendiri</description>
+    <description xml:lang="hi">अपनी खुद की खाता जानकारी बदलें</description>
+    <description xml:lang="fr">Modifiez vos propres infos de compte</description>
+    <description xml:lang="es">Cambiar información de su propia cuenta</description>
+    <description xml:lang="de">Eigene Kontoinformationen ändern</description>
+    <description xml:lang="da">Ændr din egen kontoinformation</description>
+    <description xml:lang="cs">Měnit informace o vlastním účtu</description>
+    <description xml:lang="ca">Canvieu la informació del compte</description>
+    <description xml:lang="ar">قُم بتغيير معلومات حسابك</description>
+    <message>Authentication is required to change your account info.</message>
+    <message xml:lang="zh_TW">需要認證才能更改您的帳戶資訊。</message>
+    <message xml:lang="uk">Для зміни даних щодо вашого облікового запису слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Kendi hesap bilgilerinizi değiştirmek için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att ändra din kontoinformation.</message>
+    <message xml:lang="ru">Для изменения данных своей учётной записи требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para alterar informações de sua própria conta.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby zmienić własne informacje o koncie.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk mengubah maklumat akaun anda.</message>
+    <message xml:lang="it">È richiesto autenticarsi per modificare le informazioni del proprio account.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk mengubah info akun Anda.</message>
+    <message xml:lang="hi">आपके खाते की जानकारी बदलने के लिए प्रमाणीकरण आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour modifier vos infos de compte.</message>
+    <message xml:lang="es">Necesita autenticarse para cambiar la información de su cuenta.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um Ihre Kontoinformationen zu ändern.</message>
+    <message xml:lang="da">Der kræves godkendelse for at ændre din egen kontoinformation.</message>
+    <message xml:lang="cs">Pro změnu informací o vlastním účtu je vyžadováno ověření.</message>
+    <message xml:lang="ca">És necessària l'autenticació per a canviar la informació del compte.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لتغيير معلومات حسابك.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AccountInfo.ReadOwn">
+    <description>Read your own account info</description>
+    <description xml:lang="zh_TW">讀取您的帳戶資訊</description>
+    <description xml:lang="uk">Читання даних щодо власного облікового запису</description>
+    <description xml:lang="tr">Kendi hesap bilgilerini oku</description>
+    <description xml:lang="sv">Läs din egen kontoinformation</description>
+    <description xml:lang="ru">Чтение данных своей учётной записи</description>
+    <description xml:lang="pt_BR">Ler informações de sua própria conta</description>
+    <description xml:lang="pl">Odczytanie własnych informacji o koncie</description>
+    <description xml:lang="ms">Baca maklumat akaun anda sendiri</description>
+    <description xml:lang="it">Lettura delle informazioni dell'account personale</description>
+    <description xml:lang="id">Baca info akun Anda sendiri</description>
+    <description xml:lang="hi">अपने स्वयं के खाते की जानकारी पढ़ें</description>
+    <description xml:lang="fr">Lisez vos propres infos de compte</description>
+    <description xml:lang="es">Leer información de su propia cuenta</description>
+    <description xml:lang="de">Eigene Kontoinformationen ansehen</description>
+    <description xml:lang="da">Læs din egen kontoinformation</description>
+    <description xml:lang="cs">Číst informace o vlastním účtu</description>
+    <description xml:lang="ca">Llegeix la informació del compte propi</description>
+    <description xml:lang="ar">قراءة معلومات الحساب الخاص بك</description>
+    <message>Authentication is required to read your account info.</message>
+    <message xml:lang="zh_TW">需要認證才能讀取您的帳戶資訊。</message>
+    <message xml:lang="uk">Для читання даних щодо вашого облікового запису слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Kendi hesap bilgilerinizi okumak için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att läsa din kontoinformation.</message>
+    <message xml:lang="ru">Для чтения данных своей учётной записи требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para ler informações de sua própria conta.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby odczytać własne informacje o koncie.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk membaca maklumat akaun anda.</message>
+    <message xml:lang="it">È richiesto autenticarsi per leggere le informazioni del proprio account.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk membaca info akun Anda.</message>
+    <message xml:lang="hi">आपके खाते की जानकारी पढ़ने के लिए सत्यापन आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour lire les infos de votre compte.</message>
+    <message xml:lang="es">Necesita autenticarse para leer la información de su cuenta.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um Ihre Kontoinformationen anzusehen.</message>
+    <message xml:lang="da">Der kræves godkendelse for at læse din egen kontoinformation.</message>
+    <message xml:lang="cs">Pro čtení informací o vlastním účtu je vyžadováno ověření.</message>
+    <message xml:lang="ca">L'autenticació és necessària per a llegir la informació del compte.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لقراءة معلومات حسابك.</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AccountInfo.ChangeAny">
+    <description>Change another user’s account info</description>
+    <description xml:lang="zh_TW">更改另一位使用者的帳戶資訊</description>
+    <description xml:lang="uk">Зміна даних щодо облікового запису іншого користувача</description>
+    <description xml:lang="tr">Başka kullanıcının hesap bilgilerini değiştir</description>
+    <description xml:lang="sv">Ändra en annan användares kontoinformation</description>
+    <description xml:lang="ru">Изменение данных учётной записи другого пользователя</description>
+    <description xml:lang="pt_BR">Alterar informações da conta de outro usuário</description>
+    <description xml:lang="pl">Zmiana informacji o koncie innego użytkownika</description>
+    <description xml:lang="ms">Ubah maklumat akaun pengguna lain</description>
+    <description xml:lang="it">Modifica delle informazioni dell'account di un altro utente</description>
+    <description xml:lang="id">Ubah info akun pengguna lain</description>
+    <description xml:lang="hi">किसी अन्य उपयोगकर्ता की खाता जानकारी बदलें</description>
+    <description xml:lang="fr">Modifier les infos de compte d'un autre utilisateur</description>
+    <description xml:lang="es">Cambiar información de la cuenta de otra cuenta</description>
+    <description xml:lang="de">Kontoinformationen eines anderen Nutzers ändern</description>
+    <description xml:lang="da">Ændr en anden brugers kontoinformation</description>
+    <description xml:lang="cs">Měnit informace o účtu jiného uživatele</description>
+    <description xml:lang="ca">Canvieu la informació del compte d'un altre usuari</description>
+    <description xml:lang="ar">تغيير معلومات حساب مستخدمٍ آخر</description>
+    <message>Authentication is required to change another user’s account info.</message>
+    <message xml:lang="zh_TW">需要認證才能更改另一位使用者的帳戶資訊。</message>
+    <message xml:lang="uk">Для зміни даних щодо облікового запису іншого користувача слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Başka kullanıcının hesap bilgilerini değiştirmek için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att ändra en annan användares kontoinformation.</message>
+    <message xml:lang="ru">Для изменения данных учётной записи другого пользователя требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para alterar as informações da conta de outro usuário.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby zmienić informacje o koncie innego użytkownika.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk mengubah maklumat akaun pengguna yang lain.</message>
+    <message xml:lang="it">È richiesto autenticarsi per modificare le informazioni dell'account di un altro utente.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk mengubah info akun pengguna lain.</message>
+    <message xml:lang="hi">किसी अन्य उपयोगकर्ता के खाते की जानकारी को बदलने के लिए सत्यापन आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour modifier les informations de compte d'un autre utilisateur.</message>
+    <message xml:lang="es">Necesita autenticarse para cambiar la información de la cuenta de otro usuario.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um die Kontoinformationen eines anderen Nutzers zu ändern.</message>
+    <message xml:lang="da">Der kræves godkendelse for at ændre en anden brugers kontoinformation.</message>
+    <message xml:lang="cs">Pro změnu informací o účtu jiného uživatele je vyžadováno ověření.</message>
+    <message xml:lang="ca">Es requereix autenticació per a canviar la informació del compte d'un altre usuari.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لتغيير معلومات حساب مستخدم آخر.</message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+  <action id="com.endlessm.ParentalControls.AccountInfo.ReadAny">
+    <description>Read another user’s account info</description>
+    <description xml:lang="zh_TW">讀取另一位使用者的帳戶資訊</description>
+    <description xml:lang="uk">Читання даних щодо облікового запису іншого користувача</description>
+    <description xml:lang="tr">Başka kullanıcının hesap bilgilerini oku</description>
+    <description xml:lang="sv">Läs en annan användares kontoinformation</description>
+    <description xml:lang="ru">Чтение данных учётной записи другого пользователя</description>
+    <description xml:lang="pt_BR">Ler informações da conta de outro usuário</description>
+    <description xml:lang="pl">Odczytanie informacji o koncie innego użytkownika</description>
+    <description xml:lang="ms">Baca maklumat akaun pengguna lain</description>
+    <description xml:lang="it">Lettura delle informazioni dell'account di un altro utente</description>
+    <description xml:lang="id">Baca info akun pengguna lain</description>
+    <description xml:lang="hi">अन्य उपयोगकर्ता के खाते की जानकारी पढ़ें</description>
+    <description xml:lang="fr">Lire les infos de compte d'un autre utilisateur</description>
+    <description xml:lang="es">Leer información de la cuenta de otro usuario</description>
+    <description xml:lang="de">Kontoinformationen eines anderen Nutzers ansehen</description>
+    <description xml:lang="da">Læs en anden brugers kontoinformation</description>
+    <description xml:lang="cs">Číst informace o účtu jiného uživatele</description>
+    <description xml:lang="ca">Llegeix la informació del compte d'un altre usuari</description>
+    <description xml:lang="ar">قراءة معلومات حساب مستخدم آخر</description>
+    <message>Authentication is required to read another user’s account info.</message>
+    <message xml:lang="zh_TW">需要認證才能讀取另一位使用者的帳戶資訊。</message>
+    <message xml:lang="uk">Для читання даних щодо облікового запису іншого користувача слід пройти розпізнавання.</message>
+    <message xml:lang="tr">Başka kullanıcının hesap bilgilerini okumak için kimlik doğrulanmalıdır.</message>
+    <message xml:lang="sv">Autentisering krävs för att läsa en annan användares kontoinformation.</message>
+    <message xml:lang="ru">Для чтения данных учётной записи другого пользователя требуется идентификация.</message>
+    <message xml:lang="pt_BR">Autenticação é necessária para ler as informações da conta de outro usuário.</message>
+    <message xml:lang="pl">Wymagane jest uwierzytelnienie, aby odczytać informacje o koncie innego użytkownika.</message>
+    <message xml:lang="ms">Pengesahihan diperlukan untuk membaca maklumat akaun pengguna yang lain.</message>
+    <message xml:lang="it">È richiesto autenticarsi per leggere le informazioni dell'account di un altro utente.</message>
+    <message xml:lang="id">Diperlukan autentikasi untuk membaca info akun pengguna lain.</message>
+    <message xml:lang="hi">उपयोगकर्ता के खाते की जानकारी को पढ़ने के लिए प्रमाणीकरण आवश्यक है।</message>
+    <message xml:lang="fr">L'authentification est requise pour lire les infos de compte d'un autre utilisateur.</message>
+    <message xml:lang="es">Necesita autenticarse para leer la información de la cuenta de otro usuario.</message>
+    <message xml:lang="de">Legitimierung ist erforderlich, um die Kontoinformationen eines anderen Nutzers anzusehen.</message>
+    <message xml:lang="da">Der kræves godkendelse for at læse en anden brugers kontoinformation.</message>
+    <message xml:lang="cs">Pro čtení informací o účtu jiného uživatele je vyžadováno ověření.</message>
+    <message xml:lang="ca">Es requereix autenticació per a llegir la informació del compte d'un altre usuari.</message>
+    <message xml:lang="ar">المصادقة مطلوبة لقراءة معلومات حساب مستخدمٍ آخر.</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+</policyconfig>

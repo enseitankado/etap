@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Pardus Lightdm Settings
+Name[pt]=Definições do Lightdm Pardus
+Name[tr]=Pardus Lightdm Ayarları
+GenericName=Lightdm Settings
+GenericName[pt]=Definições Lightdm
+GenericName[tr]=Lightdm Ayarları
+Comment=Configure Pardus lightdm greeter
+Comment[pt]=Configurar o gestor de acesso lightdm do Pardus
+Comment[tr]=Pardus lightdm arayüzünü ayarla
+Exec=pardus-lightdm-greeter-settings
+Icon=pardus-lightdm-greeter-settings
+Terminal=false
+Type=Application
+Categories=Settings;X-Pardus-Apps;
+StartupNotify=true
+StartupWMClass=pardus-lightdm-greeter-settings

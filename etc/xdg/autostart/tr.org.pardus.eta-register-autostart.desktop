@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Eta Register
+Name[tr]=ETA Kayıt
+GenericName=ETA Register
+GenericName[tr]=ETA Kayıt
+Comment=Register Smart Board
+Comment[tr]=Akıllı Tahtayı Kaydet
+Exec=eta-register -c
+Icon=eta-register
+Terminal=false
+Type=Application
+Categories=Settings;X-Pardus-Apps;
+StartupNotify=true
+Keywords=register;eta;pardus;
+Keywords[tr]=kayıt;eta;pardus;

@@ -1,0 +1,74 @@
+[org.nemo.desktop]
+trash-icon-visible = true
+home-icon-visible = true
+volumes-visible = true
+use-desktop-grid = false
+font = 'Ubuntu 11'
+
+[org.nemo.icon-view]
+labels-beside-icons = false
+default-zoom-level = 'standard'
+
+[org.nemo.preferences]
+show-compact-view-icon-toolbar = false
+show-reload-icon-toolbar = true
+show-open-in-terminal-toolbar = true
+
+[org.nemo.window-state]
+sidebar-bookmark-breakpoint = 6
+
+[org.cinnamon.desktop.wm.preferences]
+button-layout = ':minimize,maximize,close'
+titlebar-font = 'Ubuntu Bold 11'
+
+[org.cinnamon.settings-daemon.plugins.power]
+idle-dim-ac = false
+idle-dim-battery = false
+idle-dim-time = 0
+sleep-display-ac = 0
+sleep-display-battery = 0
+sleep-inactive-ac-timeout = 0
+sleep-inactive-ac-type = 'nothing'
+sleep-inactive-battery-timeout = 0
+sleep-inactive-battery-type = 'nothing'
+button-power = 'nothing'
+
+[org.cinnamon.desktop.session]
+idle-delay = 0
+
+[org.cinnamon.desktop.a11y.mouse]
+secondary-click-enabled = true
+
+[org.cinnamon.theme]
+name = 'eta'
+
+[org.cinnamon.desktop.interface]
+icon-theme = 'eta'
+gtk-theme = 'eta'
+font-name = 'Ubuntu 11'
+
+[org.gnome.desktop.interface]
+monospace-font-name = 'Ubuntu Mono 13'
+document-font-name = 'Ubuntu 11'
+
+[org.cinnamon]
+workspace-expo-view-as-grid = true
+panels-height = ['1:60']
+panel-zone-icon-sizes = '[{"panelId": 1, "left": 0, "center": 0, "right": 0}]'
+panel-zone-symbolic-icon-sizes = '[{"panelId": 1, "left": 42, "center": 42, "right": 42}]'
+panel-zone-text-sizes = '[{"panelId": 1, "left": 15.0, "center": 0.0, "right": 16.0}]'
+enabled-applets = ['panel1:left:0:menu@etap.org.tr', 'panel1:left:1:separator@cinnamon.org', 'panel1:left:2:grouped-window-list@cinnamon.org', 'panel1:right:0:expo@cinnamon.org', 'panel1:right:1:systray@cinnamon.org', 'panel1:right:2:xapp-status@cinnamon.org', 'panel1:right:3:notifications@cinnamon.org', 'panel1:right:4:removable-drives@cinnamon.org', 'panel1:right:5:keyboard@cinnamon.org', 'panel1:right:6:favorites@cinnamon.org', 'panel1:right:7:network@cinnamon.org', 'panel1:right:8:sound@cinnamon.org', 'panel1:right:9:power@cinnamon.org', 'panel1:right:10:calendar@cinnamon.org', 'panel1:right:11:cornerbar@cinnamon.org']
+
+[org.cinnamon.desktop.background]
+picture-uri='file:///usr/share/backgrounds/pardusetap23-3_12.webp'
+
+[org.cinnamon.desktop.screensaver]
+idle-activation-enabled = false
+lock-enabled = false
+custom-screensaver-command = 'dm-tool lock'
+
+[org.cinnamon.desktop.peripherals.mouse]
+drag-threshold = 24
+
+[org.gnome.calculator]
+refresh-interval = 0

@@ -1,0 +1,9 @@
+[Unit]
+Description=Non-HID touchscreen servers
+After=lightdm.service
+
+[Service]
+ExecStart=/usr/bin/touchdrv_install
+
+[Install]
+WantedBy=multi-user.target

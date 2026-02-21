@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Install ETAP
+Name[tr]=ETAP Yükle
+Comment=Install Etap
+Comment[tr]=ETAP Yükle
+Exec=/lib/installer-terminal
+Terminal=false
+Type=Application
+Icon=/lib/installer.svg
+Categories=System;

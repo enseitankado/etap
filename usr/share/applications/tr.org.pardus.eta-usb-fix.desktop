@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=ETA USB Fix
+Name[tr]=ETA USB Onarıcı
+Comment=Fix USB Devices easily
+Comment[tr]=USB Aygıtlarınızı Kolayca Onarın
+Exec=eta-usb-fix
+Icon=eta-usb-fix
+Terminal=false
+Type=Application
+Categories=GTK;Utility;X-Pardus-Apps;
+StartupNotify=true
+Keywords=fix;repair;

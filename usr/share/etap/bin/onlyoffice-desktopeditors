@@ -1,0 +1,14 @@
+#!/bin/bash
+
+res=$(xrandr | grep '*' | awk '{print $1}')
+
+width=$(echo "$res" | cut -d'x' -f1)
+height=$(echo "$res" | cut -d'x' -f2)
+
+scale="1.25"
+
+if [ "$width" -gt 1920 ] || [ "$height" -gt 1080 ]; then
+    scale="2.5"
+fi
+
+exec /usr/bin/onlyoffice-desktopeditors --system-title-bar --force-scale="$scale" "$@"

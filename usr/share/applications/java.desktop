@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Java Jar Loader
+Exec=java -jar %f
+MimeType=application/x-java-archive;application/zip;
+Icon=gnome-mime-application-x-jar
+NoDisplay=true
+StartupNotify=true

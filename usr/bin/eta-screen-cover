@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import sys
+
+sys.path.insert(0, "/usr/share/pardus/eta-screen-cover/src/")
+import Main

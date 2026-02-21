@@ -1,0 +1,12 @@
+[Unit]
+Description=ETA Sinirli Erisim service
+After=default.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /usr/share/eta/eta-kisit/src/UserCheckService.py
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,16 @@
+<schemalist>
+  <schema id="tr.org.pardus.eta.count" path="/tr/org/pardus/eta/count/">
+    <key type="s" name="title0">
+      <default>""</default>
+      <summary>Title 1</summary>
+    </key>
+    <key type="s" name="title1">
+      <default>""</default>
+      <summary>Title 2</summary>
+    </key>
+    <key type="s" name="alarm">
+      <default>""</default>
+      <summary>Alarm path</summary>
+    </key>
+  </schema>
+</schemalist>

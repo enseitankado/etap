@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Pin Login Settings
+Name[tr]=Pin Giriş Ayarları
+Type=Application
+Comment=Otp key settings
+Comment[tr]=Otp anahtar ayarları
+Terminal=false
+Exec=python3 /usr/share/etap/eta-otp/main.py
+Icon=eta-otp
+Categories=Settings;X-Pardus-Apps;

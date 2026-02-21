@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Ayyildiz
+Description=Ayyildiz Plymouth theme.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/ayyildiz
+ScriptFile=/usr/share/plymouth/themes/ayyildiz/ayyildiz.script

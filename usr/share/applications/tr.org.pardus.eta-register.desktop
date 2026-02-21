@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=ETA Register
+Name[tr]=ETA Kayıt
+GenericName=ETA Register
+GenericName[tr]=Pardus Nvidia Installer
+Comment=Register Smart Board
+Comment[tr]=ETA Tahtasını Kaydet
+Exec=eta-register
+Icon=eta-register
+Terminal=false
+Type=Application
+Categories=Settings;X-Pardus-Apps;
+StartupNotify=true
+Keywords=register,smart board,eta,eta register,eta kayıt
+Keywords[tr]=kayıt,akıllı tahta,eta,eta kayıt,eta kayıt

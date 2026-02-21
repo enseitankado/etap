@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=Pardus Software Center Application Viewer
+Name[pt]=Visualizador de Aplicações do Centro de Software Pardus
+Name[tr]=Pardus Yazılım Merkezi Uygulama Görüntüleyici
+GenericName=Software Center Application Viewer
+GenericName[pt]=Visualizador de Aplicações do Centro de Software
+GenericName[tr]=Yazılım Merkezi Uygulama Görüntüleyici
+Comment=View .pardusapp applications
+Comment[pt]=Ver aplicações .pardusapp
+Comment[tr]=.pardusapp uygulamalarını görüntüleyin
+Exec=pardus-software --details %f
+Icon=pardus-software
+Terminal=false
+Type=Application
+Categories=GTK;System;PackageManager;
+StartupNotify=true
+MimeType=application/pardus-software-app
+NoDisplay=true

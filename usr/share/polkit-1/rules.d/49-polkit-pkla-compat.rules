@@ -1,0 +1,26 @@
+polkit.addAdminRule(function(action, subject) {
+	//polkit.log('Starting pkla-admin-identities\n');
+	// Let exception, if any, propagate to the JS authority
+	var res = polkit.spawn(['/usr/sbin/pkla-admin-identities']);
+	//polkit.log('Got "' + res.replace(/\n/g, '\\n') + '"\n');
+	if (res == '')
+		return null;
+	var identities = res.split('\n');
+	//polkit.log('Identities: ' + identities.join(',') + '\n');
+	if (identities[identities.length - 1] == '')
+		identities.pop()
+	//polkit.log('Returning: ' + identities.join(',') + '\n');
+	return identities;
+});
+
+polkit.addRule(function(action, subject) {
+	var params = ['/usr/sbin/pkla-check-authorization',
+		      subject.user, subject.local ? 'true' : 'false',
+		      subject.active ? 'true' : 'false', action.id];
+	//polkit.log('Starting ' + params.join(' ') + '\n');
+	var res = polkit.spawn(params);
+	//polkit.log('Got "' + res.replace(/\n/g, '\\n') + '"\n');
+	if (res == '')
+		return null;
+	return res.replace(/\n$/, '');
+});

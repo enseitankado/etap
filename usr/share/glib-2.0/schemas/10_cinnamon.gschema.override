@@ -1,0 +1,12 @@
+[org.cinnamon]
+favorite-apps=[ 'firefox.desktop', 'firefox-esr.desktop', 'cinnamon-settings.desktop', 'pidgin.desktop', 'org.gnome.Terminal.desktop', 'nemo.desktop' ]
+
+[org.cinnamon.settings-daemon.plugins.power]
+lock-on-suspend=true
+
+[org.cinnamon.desktop.interface]
+gtk-overlay-scrollbars=false
+
+[org.cinnamon.theme]
+name='cinnamon'
+

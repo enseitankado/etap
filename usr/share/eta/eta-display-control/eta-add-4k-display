@@ -1,0 +1,53 @@
+#!/bin/sh -e
+set -e
+
+mkdir -p /etc/skel/.config
+
+#DEBHELPER#
+ARCELIKCONF=/etc/skel/.config/cinnamon-monitors.xml
+
+cat > $ARCELIKCONF.new <<EOF
+<monitors version="2">
+  <configuration>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>2</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-2</connector>
+          <vendor>BEK</vendor>
+          <product>BK UHD TV</product>
+          <serial>0x00000001</serial>
+        </monitorspec>
+        <mode>
+          <width>3840</width>
+          <height>2160</height>
+          <rate>30</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+</monitors>
+EOF
+
+# Here we do rename because rename(2) syscall is atomic
+# See for details: http://man7.org/linux/man-pages/man2/rename.2.html
+
+if [ -d "/home" ]; then
+    if ! [ -z "$(ls -A /home)" ]; then
+        user=""
+        for i in /home/*
+        do
+            cp -fv $ARCELIKCONF.new "$i/.config/cinnamon-monitors.xml"
+            user=`basename $i`
+            chown -v $user:$user "$i/.config/cinnamon-monitors.xml"
+        done
+    fi
+fi
+
+mv -fv $ARCELIKCONF.new $ARCELIKCONF
+
+
+exit 0

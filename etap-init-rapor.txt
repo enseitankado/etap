@@ -1,0 +1,48 @@
+=====================================================================
+ ETAP ISO BAŞLANGIÇ RAPORU
+=====================================================================
+ ISO      : /home/kali/Desktop/ETAPISO/Pardus-23.4-ETAP-20260130-1941-amd64.iso
+ Tarih    : 2026-02-21 01:53:35
+ Çıktı    : /home/kali/Desktop/ETAPISO/baslangic_Pardus-23_4-ETAP-20260130-1941-amd64
+=====================================================================
+
+Taranan dizinler (tam):
+  /usr/share/pardus                                        (312 dosya)
+  /usr/share/etap                                          (7 dosya)
+  /usr/share/eta                                           (66 dosya)
+  /etc/pardus                                              (5 dosya)
+  /etc/etap                                                (bulunamadı)
+  /etc/systemd                                             (9 dosya)
+  /usr/share/applications                                  (144 dosya)
+  /usr/share/dconf                                         (bulunamadı)
+  /etc/dconf                                               (3 dosya)
+  /etc/xdg                                                 (72 dosya)
+  /usr/share/polkit-1                                      (54 dosya)
+  /usr/lib/pardus                                          (bulunamadı)
+  /usr/lib/etap                                            (bulunamadı)
+  /usr/share/glib-2.0/schemas                              (162 dosya)
+  /usr/share/plymouth                                      (354 dosya)
+  /etc/xdg/xfce4                                           (1 dosya)
+  /usr/share/xfce4                                         (bulunamadı)
+  /usr/share/xfwm4                                         (1 dosya)
+  /etc/xdg/autostart                                       (58 dosya)
+  /usr/share/cinnamon                                      (511 dosya)
+  /usr/share/cinnamon-background-properties                (bulunamadı)
+  /usr/share/gnome-shell/extensions                        (bulunamadı)
+  /usr/lib/cinnamon-settings-daemon                        (bulunamadı)
+  /etc/cinnamon                                            (bulunamadı)
+  /etc/lightdm                                             (4 dosya)
+  /usr/share/lightdm                                       (3 dosya)
+  /usr/share/xgreeters                                     (2 dosya)
+  /usr/share/web-greeter                                   (bulunamadı)
+
+İsim filtresiyle taranan dizinler:
+  Filtreler : *pardus* *etap* *eta-* *-eta
+  /usr/bin
+  /usr/sbin
+  /usr/lib
+  /usr/lib/python3
+
+=====================================================================
+  Toplam kopyalanan : 1812 dosya
+=====================================================================

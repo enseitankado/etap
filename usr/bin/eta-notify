@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Run the Python script
+/usr/bin/python3 /usr/share/eta/eta-notify/src/Main.py "$@"

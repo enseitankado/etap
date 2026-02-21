@@ -1,0 +1,172 @@
+# 
+# Dolunay Plymouth Theme.
+# Pardus 21's default plymouth theme.
+# Yusuf Düzgün & Çağrı Gökçe & Ali Rıza Keskin & Emin Fedar
+# 2021 TÜBİTAK ULAKBİM
+
+
+# Set background color
+Window.SetBackgroundTopColor(0.19, 0.20, 0.23);
+Window.SetBackgroundBottomColor(0.19, 0.20, 0.23);
+
+# Global counter
+time = 0;
+
+# Global CONSTANTS
+MODE = Plymouth.GetMode(); # Get mode (e.g. boot, shutdown, resume, suspend)
+CENTER_X = Window.GetX() + (Window.GetWidth()  / 2);
+CENTER_Y = Window.GetY() + (Window.GetHeight()  / 2);
+SCALE = Window.GetHeight() / 2160; # 4K is %100
+
+
+#-------------------------------- Pardus Logo --------------------------------
+# Add Pardus Logo
+pardus_logo.image = Image("pardus.png");
+pardus_logo.image = pardus_logo.image.Scale(pardus_logo.image.GetWidth() * SCALE , pardus_logo.image.GetHeight() * SCALE );
+pardus_logo.sprite = Sprite(pardus_logo.image);
+
+# Pardus Logo set position to center
+pardus_logo.x = CENTER_X - (pardus_logo.image.GetWidth()  / 2);
+pardus_logo.y = CENTER_Y - (pardus_logo.image.GetHeight() / 2);
+pardus_logo.sprite.SetPosition(pardus_logo.x, pardus_logo.y);
+
+#-------------------------------- Throbber  --------------------------------
+
+# Throbber
+throbber.frame_size = 60;
+for (i = 1; i <= throbber.frame_size; i++)
+    throbber.images[i] = Image(i + ".png");
+throbber.sprite = Sprite(throbber.images[1]);
+throbber.x = CENTER_X - throbber.images[1].GetWidth() / 2;
+throbber.y = Window.GetHeight()*109/120 - throbber.images[1].GetHeight() ;
+throbber.sprite.SetPosition(throbber.x, throbber.y);
+
+# Throbber callback
+fun throbber_callback()
+{
+    throbber.sprite.SetImage(throbber.images[(Math.Int(time / 2)) % (throbber.frame_size - 1)]);
+    time += 1;
+}
+
+Plymouth.SetRefreshFunction(throbber_callback);
+
+#-------------------------------- Dialog --------------------------------
+
+status = "normal";
+
+fun dialog_setup()
+{
+    local.box;
+    local.lock;
+    local.entry;
+
+    box.image = Image("box.png");
+    lock.image = Image("lock.png");
+    entry.image = Image("entry.png");
+
+    box.sprite = Sprite(box.image);
+    box.x = CENTER_X - box.image.GetWidth ()/2;
+    box.y = CENTER_Y - box.image.GetHeight()/2;
+    box.sprite.SetPosition(box.x, box.y);
+
+    lock.sprite = Sprite(lock.image);
+    lock.x = box.x + box.image.GetWidth()/2 - (lock.image.GetWidth() + entry.image.GetWidth()) / 2;
+    lock.y = box.y + box.image.GetHeight()/2 - lock.image.GetHeight()/2;
+    lock.z = box.z + 1;
+    lock.sprite.SetPosition(lock.x, lock.y, lock.z);
+
+    entry.sprite = Sprite(entry.image);
+    entry.x = lock.x + lock.image.GetWidth();
+    entry.y = box.y + box.image.GetHeight()/2 - entry.image.GetHeight()/2;
+    entry.z = box.z + 1;
+    entry.sprite.SetPosition(entry.x, entry.y, entry.z);
+
+    global.dialog.box = box;
+    global.dialog.lock = lock;
+    global.dialog.entry = entry;
+    global.dialog.bullet_image = Image("bullet.png");
+    dialog_opacity (1);
+}
+
+fun dialog_opacity(opacity)
+{
+    dialog.box.sprite.SetOpacity (opacity);
+    dialog.lock.sprite.SetOpacity (opacity);
+    dialog.entry.sprite.SetOpacity (opacity);
+    for (index = 0; dialog.bullet[index]; index++)
+    {
+        dialog.bullet[index].sprite.SetOpacity(opacity);
+    }
+}
+
+fun display_normal_callback ()
+{
+    global.status = "normal";
+    if (global.dialog)
+      dialog_opacity (0);
+}
+
+fun display_password_callback (prompt, bullets)
+{
+    global.status = "password";
+    if (!global.dialog)
+    dialog_setup();
+    else
+    dialog_opacity(1);
+    for (index = 0; dialog.bullet[index] || index < bullets; index++)
+      {
+        if (!dialog.bullet[index])
+          {
+            dialog.bullet[index].sprite = Sprite(dialog.bullet_image);
+            dialog.bullet[index].x = dialog.entry.x + index * dialog.bullet_image.GetWidth();
+            dialog.bullet[index].y = dialog.entry.y + dialog.entry.image.GetHeight() / 2 - dialog.bullet_image.GetHeight() / 2;
+            dialog.bullet[index].z = dialog.entry.z + 1;
+            dialog.bullet[index].sprite.SetPosition(dialog.bullet[index].x, dialog.bullet[index].y, dialog.bullet[index].z);
+          }
+        if (index < bullets)
+          dialog.bullet[index].sprite.SetOpacity(1);
+        else
+          dialog.bullet[index].sprite.SetOpacity(0);
+      }
+}
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+#-------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+    throbber.sprite.SetOpacity(0);
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+#-------------------------------- Message --------------------------------
+
+message_sprites = [];
+message_sprite_count = 0;
+message_sprite_y = 10;
+
+fun display_message_callback (text)
+{
+  my_image = Image.Text(text, 1, 1, 1);
+  message_sprites[message_sprite_count] = Sprite(my_image);
+  message_sprites[message_sprite_count].SetPosition(10, message_sprite_y, 10000);
+  message_sprites[message_sprite_count].text = text;
+  message_sprite_count++;
+  message_sprite_y += my_image.GetHeight();
+}
+
+fun hide_message_callback (text)
+{
+  for (i = 0; i < message_sprite_count; i++)
+    {
+      if (message_sprites[i].text == text)
+        message_sprites[i] = NULL;
+    }
+}
+
+# Set message callbacks
+Plymouth.SetDisplayMessageFunction (display_message_callback);
+Plymouth.SetHideMessageFunction (hide_message_callback);

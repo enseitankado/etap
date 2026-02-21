@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Sep 27 23:03:23 2025
+
+@author: fatih
+"""
+
+import sys
+sys.path.insert(0, '/usr/share/pardus/eta-usb-fix/src/')
+import Main
+
