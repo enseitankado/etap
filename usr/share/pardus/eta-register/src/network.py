@@ -120,12 +120,13 @@ def _on_request_finished(session, result, user_data):
         if full_data_bytes:
             try:
                 # The server may claim UTF-8, but the bytes suggest a different encoding.
-                # We decode manually using a common Turkish encoding before parsing JSON.
                 response_text = full_data_bytes.decode('utf-8')
                 response_body = json.loads(response_text)
             except (json.JSONDecodeError, UnicodeDecodeError) as e:
                 logger.error("Failed to decode response from {message_get_uri}: {e}".format(message_get_uri=message.get_uri(), e=e))
-                response_body = {"error": _("Invalid JSON or encoding in response")}
+                # Keep raw body for display when status is 200 (e.g. vendor list returned non-JSON)
+                raw_display = full_data_bytes.decode('utf-8', errors='replace')
+                response_body = {"_raw_body": raw_display, "_json_error": True}
         
         if 200 <= status_code < 300:
             GLib.idle_add(user_callback, None, response_body, status_code)

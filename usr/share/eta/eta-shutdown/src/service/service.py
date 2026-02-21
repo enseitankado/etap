@@ -90,15 +90,15 @@ def service():
             ignore_auto = True
 
     log("###### Eta Shutdown {} ######".format(time.time()))
-    idle_time = -1
-    for display in os.listdir("/tmp/.X11-unix/"):
-        idle = get_idle_time(f":{display[1:]}")
-        if idle_time < idle or idle_time < 0:
-            idle_time = idle
-    print("idle_time: {}".format(idle_time))
     # timed shutdown
     mode = config["TIMED_MODE"]["mode"]
     if mode != "none":
+        idle_time = -1
+        for display in os.listdir("/tmp/.X11-unix/"):
+            idle = get_idle_time(f":{display[1:]}")
+            if idle_time < idle or idle_time < 0:
+                idle_time = idle
+        print("idle_time: {}".format(idle_time))
         req_idle = (hour*3600 + minute * 60)*1000
         if req_idle < 5*60*1000:
             req_idle = 5*60*1000

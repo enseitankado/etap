@@ -6,13 +6,23 @@ import traceback
 
 f=open("/var/log/pam_etap.log","a")
 
+import os
+
 def chown_recursive(path, uid, gid):
-    for sub in os.listdir(path):
-       if os.path.isdir(f"{path}/{sub}"):
-           chown_recursive(f"{path}/{sub}", uid, gid)
-       else:
-           os.chown(f"{path}/{sub}", uid, gid)
-    os.chown(path, uid, gid)
+    os.lchown(path, uid, gid)
+    with os.scandir(path) as it:
+        for entry in it:
+            try:
+                if entry.is_symlink():
+                    os.lchown(entry.path, uid, gid)
+                elif entry.is_dir(follow_symlinks=False):
+                    chown_recursive(entry.path, uid, gid)
+                else:
+                    os.chown(entry.path, uid, gid)
+
+            except:
+                log(e, traceback.format_exc())
+                continue
 
 def log(*args):
     print(args, file=f)

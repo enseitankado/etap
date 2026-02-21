@@ -3,13 +3,13 @@
  "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
-    <vendor>Example</vendor>
-    <vendor_url>https://example.org/</vendor_url>
+    <vendor>Pardus ETAP</vendor>
+    <vendor_url>https://etap.org.tr</vendor_url>
 
     <action id="tr.org.etap.otp-settings">
-        <description>Run etap otp</description>
-        <message>Authentication is required</message>
-        <message xml:lang="tr">Yetkilendirme gerekiyor</message>
+        <description>Run Etap OTP</description>
+        <message>Please enter the password you used to log in to this session.</message>
+        <message xml:lang="tr">Lütfen bu oturumu açarken kullandığınız şifreyi giriniz.</message>
         <defaults>
             <allow_any>auth_self_keep</allow_any>
             <allow_inactive>auth_self_keep</allow_inactive>
