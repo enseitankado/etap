@@ -1,48 +1,73 @@
 =====================================================================
  ETAP ISO KARŞILAŞTIRMA RAPORU
 =====================================================================
- Eski ISO : /home/kali/Desktop/ETAPISO-takip/Pardus-23.4-ETAP-20260130-1941-amd64.iso
- Yeni ISO : /home/kali/Desktop/ETAPISO-takip/Pardus-23.4-ETAP-20260212-1645-amd64.iso
- Tarih    : 2026-02-25 02:54:59
+ Eski ISO : /home/kali/Desktop/ETAPISO-takip/Pardus-23.4-ETAP-20260212-1645-amd64.iso
+ Yeni ISO : /home/kali/Desktop/ETAPISO-takip/Pardus-23.4-ETAP-20260216-1444-amd64.iso
+ Etiket   : 20260228-021505
+ Tarih    : 2026-02-28 02:16:37
 =====================================================================
 
-Taranan dizinler (tam):
-  /usr/share/pardus
-  /usr/share/etap
-  /usr/share/eta
-  /etc/pardus
-  /etc/etap
-  /etc/systemd
-  /usr/share/applications
-  /usr/share/dconf
-  /etc/dconf
-  /etc/xdg
-  /usr/share/polkit-1
-  /usr/src
-  /usr/lib/pardus
-  /usr/lib/etap
-  /usr/share/glib-2.0/schemas
-  /usr/share/plymouth
-  /etc/xdg/xfce4
-  /usr/share/xfce4
-  /usr/share/xfwm4
-  /etc/xdg/autostart
-  /usr/share/cinnamon
-  /usr/share/cinnamon-background-properties
-  /usr/share/gnome-shell/extensions
-  /usr/lib/cinnamon-settings-daemon
-  /etc/cinnamon
-  /etc/lightdm
-  /usr/share/lightdm
-  /usr/share/xgreeters
-  /usr/share/web-greeter
-
-İsim filtresiyle taranan dizinler:
-  Filtreler : *pardus* *etap* *eta-* *-eta
-  /usr/bin
-  /usr/sbin
-  /usr/lib
-  /usr/lib/python3
+---------------------------------------------------------------------
+ YENİ EKLENEN — METİN (0 adet)
+---------------------------------------------------------------------
+  (yok)
 
 ---------------------------------------------------------------------
- YENİ EKLENEN — METİN  ✓ kopyalandı (1 adet)
+ YENİ EKLENEN — BİNARY (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+---------------------------------------------------------------------
+ YENİ EKLENEN — DİZİN (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+---------------------------------------------------------------------
+ YENİ EKLENEN — SYMLINK (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+---------------------------------------------------------------------
+ DEĞİŞEN — METİN (1 adet)
+---------------------------------------------------------------------
+  /usr/share/eta/eta-qr-login/unix_socket_service.py
+
+---------------------------------------------------------------------
+ DEĞİŞEN — BİNARY (1 adet)
+---------------------------------------------------------------------
+  /usr/bin/pardus-pen
+
+---------------------------------------------------------------------
+ DEĞİŞEN — SYMLINK (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+---------------------------------------------------------------------
+ İZİN DEĞİŞEN — DOSYA (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+---------------------------------------------------------------------
+ İZİN DEĞİŞEN — DİZİN (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+---------------------------------------------------------------------
+ İZİN DEĞİŞEN — SYMLINK (0 adet)
+---------------------------------------------------------------------
+  (yok)
+
+=====================================================================
+ ÖZET
+=====================================================================
+  Metin (yeni)      :    0
+  Binary (yeni)     :    0 (rapor only)
+  Dizin (yeni)      :    0
+  Symlink (yeni)    :    0
+  Metin (değişen)   :    1
+  Binary (değişen)  :    1 (rapor only)
+  Symlink (değişen) :    0
+  İzin (dosya)      :    0
+  İzin (dizin)      :    0
+  İzin (symlink)    :    0
+=====================================================================
