@@ -1,5 +1,0 @@
-[org.gnome.evolution.mail]
-prompt-check-if-default-mailer=false
-
-[org.gnome.evolution.shell]
-skip-warning-dialog=true

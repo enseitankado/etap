@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Power Off the Board
-Name[tr]=Tahtayı Kapat
-Exec=cinnamon-session-quit --power-off
-Icon=system-shutdown
-Categories=System;

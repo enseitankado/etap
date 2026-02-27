@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Touchégg
-Comment=Multi-touch gesture recognizer
-Exec=touchegg
-Terminal=false
-Categories=Utility;
-NoDisplay=true
-StartupNotify=true

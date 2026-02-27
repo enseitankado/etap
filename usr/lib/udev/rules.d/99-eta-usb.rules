@@ -1,2 +1,0 @@
-SUBSYSTEMS=="usb", RUN+="/usr/libexec/eta-usb-trigger"
-
