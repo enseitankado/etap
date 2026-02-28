@@ -1,0 +1,43 @@
+menu, .menu, .button, .entry, .popover, .icon {
+  background: alpha(white,0.31);
+  color: black;
+  border: none;
+}
+
+menu {
+  background: alpha(white,0.55);
+}
+
+
+.text, .button, .entry {
+  color: black;
+  text-shadow: 1px 1px 3px black;
+  -gtk-icon-shadow: 1px 1px 3px white;
+}
+
+.button:disabled, .entry:disabled {
+    background: alpha(white,0.13);
+}
+
+.icon {
+    background: none;
+}
+.icon:hover, .button:hover {
+  background: alpha(white,0.50);
+}
+.icon:active, .button:active {
+  background: alpha(white,0.69);
+}
+
+.textview, .textview text {
+  background: none;
+  border: none;
+}
+
+.textview {
+  background: alpha(white,0.31);
+}
+
+.wrongpass {
+    border: 1px solid red;
+}

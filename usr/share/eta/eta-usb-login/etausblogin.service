@@ -1,0 +1,11 @@
+[Unit]
+Description=Eta Usb Login
+After=network.target
+
+[Service]
+ExecStart=python3 /usr/share/eta/eta-usb-login/main.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

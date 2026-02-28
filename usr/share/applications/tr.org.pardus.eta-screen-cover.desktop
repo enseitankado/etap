@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Eta Screen Cover
+Name[pt]=Capa de ecrã Eta
+Name[tr]=Eta Ekran Karartma
+GenericName=Screen Cover
+GenericName[pt]=Capa de ecrã
+GenericName[tr]=Ekran Karartma
+Comment=An app for covering some part of the screen for educational purposes.
+Comment[pt]=Uma aplicação para cobrir uma parte do ecrã para fins educativos.
+Comment[tr]=ETAlar için eğitim amaçlı ekranın bir bölümünü kapatma uygulaması.
+Exec=eta-screen-cover
+Icon=eta-screen-cover
+Terminal=false
+Type=Application
+Categories=Utility;X-Pardus-Apps;
+StartupNotify=true
+Keywords=pardus;screen;cover

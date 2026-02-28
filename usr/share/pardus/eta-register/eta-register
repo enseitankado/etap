@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import sys
+import os
+
+# Ensure the script can find other modules in the 'src' directory,
+# whether it's run from the project root or as an installed script.
+script_path = os.path.dirname(os.path.abspath(__file__))
+if os.path.isdir(os.path.join(script_path, 'src')):
+    # Running from project root
+    src_dir = os.path.join(script_path, 'src')
+    os.chdir(src_dir)
+    sys.path.insert(0, src_dir)
+else:
+    # Running from an installed location (e.g., /usr/bin)
+    # The 'src' dir is expected to be in a standard share location.
+    src_dir = "/usr/share/pardus/eta-register/src"
+    os.chdir(src_dir)
+    sys.path.insert(0, src_dir)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == '-c':
+        # Autostart mode, run the dispatcher
+        import dispatcher
+        dispatcher.main()
+    else:
+        # Normal UI mode, run the main application
+        import Main
+        app = Main.Application()
+        app.run(sys.argv)

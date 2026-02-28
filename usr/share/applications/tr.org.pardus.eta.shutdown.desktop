@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=ETA Shutdown Settings
+Name[tr]=ETA Kapatma Ayarları
+GenericName=Shutdown
+GenericName[tr]=Kapat
+Comment=Etap automatic shutdown settings
+Comment[tr]=Etap otomatik kapatma ayarları
+Exec=eta-shutdown
+Icon=eta-shutdown-settings
+Terminal=false
+Type=Application
+StartupNotify=true

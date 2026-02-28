@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Pardus Etap Desktop Files
+Exec=/usr/bin/python3 /usr/share/pardus/pardus-etap-settings/xdg-pardus-etap-desktops/xdg-pardus-etap-desktops
+Type=Application
+StartupNotify=false
+NoDisplay=true

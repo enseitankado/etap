@@ -1,0 +1,7 @@
+{
+ "uuid": "menu@cinnamon.org",
+ "name": "Menu",
+ "description": "Main Cinnamon menu with Pardus customizations",
+ "icon": "applications-other",
+ "max-instances": -1
+}

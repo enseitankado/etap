@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Icon=gtk-ok
+Name=Eta usb agent
+Exec=/usr/libexec/etausb-agent
+Comment=Eta Usb Login Client

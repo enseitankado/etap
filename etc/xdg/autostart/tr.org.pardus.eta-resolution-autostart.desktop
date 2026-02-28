@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ETA Çözünürlük
+Comment=Ekran çözünürlüğünü hızlıca ayarla
+Exec=eta-resolution --autostart-mode
+Icon=preferences-desktop-display-symbolic
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+StartupNotify=true
+Keywords=resolution;4k;fullhd

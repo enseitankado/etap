@@ -1,0 +1,40 @@
+#!/bin/bash
+
+scalefile="/usr/share/glib-2.0/schemas/30_etap-scale-settings.gschema.override"
+
+lightdmfile="/etc/pardus/greeter.conf.d/01-scale.conf"
+
+configuredfile="/usr/share/eta/eta-display-control/configured"
+
+if ! [[ -f "$configuredfile" ]]; then
+  if ! cat /sys/class/drm/*/modes | grep 3840x2160 &>/dev/null
+  then
+    echo "Full HD"
+    if apt list --installed | grep eta-display-config &>/dev/null
+    then
+      DEBIAN_FRONTEND=noninteractive apt -yq -o Dpkg::Options::="--force-confnew" remove eta-display-config
+    fi
+    echo "[org.cinnamon.desktop.interface]" > $scalefile
+    echo "scaling-factor = 0" >> $scalefile
+    /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+    echo "[pardus]" > $lightdmfile
+    echo "scale=1" >> $lightdmfile
+  else
+    echo "4K"
+    if ! apt list --installed | grep eta-display-config &>/dev/null
+    then
+      DEBIAN_FRONTEND=noninteractive apt -yq -o Dpkg::Options::="--force-confnew" install eta-display-config || true
+      /usr/bin/bash /usr/share/eta/eta-display-control/eta-add-4k-display
+    fi
+    echo "[org.cinnamon.desktop.interface]" > $scalefile
+    echo "scaling-factor = 2" >> $scalefile
+    /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+    echo "[pardus]" > $lightdmfile
+    echo "scale=2" >> $lightdmfile
+  fi
+  echo $(date +"%s") > $configuredfile
+fi
+
+exit 0

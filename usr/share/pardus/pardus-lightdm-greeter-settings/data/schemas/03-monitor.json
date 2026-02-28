@@ -1,0 +1,12 @@
+{
+  "pardus": {
+      "title": "Display",
+      "name": "screen"
+  },
+  "mirror": {
+    "type": "onoff"
+  },
+  "default-monitor-name": {
+    "type": "combo"
+  }
+}

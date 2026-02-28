@@ -1,0 +1,19 @@
+#!/bin/sh
+if [ -f $HOME/.wine/autologin ] || ! [ -d /run/etap/$(id -u) ]  ; then
+    # dont run common wine if non-etap
+    mkdir -p $HOME/.wine
+    touch $HOME/.wine/autologin
+    exec /usr/bin/$(basename "$0") "$@"
+fi
+export USER=wineuser
+export WINEPREFIX=/var/lib/wine-prefix
+export HOME=$WINEPREFIX
+if [ ! -f $WINEPREFIX/user.reg ] ; then
+    WINEDLLOVERRIDES="mscoree,mshtml=" /usr/bin/wineboot -u
+    #if gsettings get org.cinnamon.desktop.interface scaling-factor | grep -e "2$" ; then
+    #    /usr/bin/wine reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 0xc0 /f
+    #else
+    #    /usr/bin/wine reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 0x60 /f
+    #fi
+fi
+exec /usr/bin/$(basename "$0") "$@"

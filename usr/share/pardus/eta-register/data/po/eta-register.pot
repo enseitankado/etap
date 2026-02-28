@@ -1,0 +1,658 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the eta-register package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: eta-register\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-29 16:23+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/checks.py:309
+msgid "Error: USB subsystem not found."
+msgstr ""
+
+#: src/checks.py:314
+msgid "Error: Cannot access USB devices."
+msgstr ""
+
+#: src/checks.py:360 src/checks.py:436
+msgid "Unknown Device"
+msgstr ""
+
+#: src/checks.py:369 src/MainWindow.py:339 src/MainWindow.py:479
+msgid "No USB devices found."
+msgstr ""
+
+#: src/checks.py:477
+#, python-brace-format
+msgid "Invalid response from server: {response_body}"
+msgstr ""
+
+#. For all other non-200 cases where the key was not found.
+#: src/checks.py:480
+#, python-brace-format
+msgid "Server returned status {status_code}"
+msgstr ""
+
+#: src/checks.py:482
+#, python-brace-format
+msgid ": {msg}"
+msgstr ""
+
+#: src/installer.py:90
+msgid ""
+"Your board has been registered to Pardus. The Central Management Application "
+"(LiderAhenk) will be installed."
+msgstr ""
+
+#: src/installer.py:93
+#, python-brace-format
+msgid "Error loading UI for installer: {e}"
+msgstr ""
+
+#: src/installer.py:116
+msgid ""
+"\n"
+"Retrying installation..."
+msgstr ""
+
+#: src/installer.py:118
+msgid "Starting installation..."
+msgstr ""
+
+#: src/installer.py:121
+msgid "Updating package lists..."
+msgstr ""
+
+#: src/installer.py:142
+msgid ""
+"\n"
+"{_('Error starting update process')}: {e_message}"
+msgstr ""
+
+#: src/installer.py:149
+msgid "Package lists updated successfully.\n"
+msgstr ""
+
+#: src/installer.py:152
+msgid "apt update failed"
+msgstr ""
+
+#: src/installer.py:157
+#, python-brace-format
+msgid "Installing '{pkg}'..."
+msgstr ""
+
+#: src/installer.py:158
+msgid ""
+"\n"
+"Installing package..."
+msgstr ""
+
+#: src/installer.py:176
+msgid ""
+"\n"
+"{_('Error starting installation process')}: {e_message}"
+msgstr ""
+
+#: src/installer.py:198
+msgid "Installation command finished.\n"
+msgstr ""
+
+#: src/installer.py:200
+msgid "Installation command failed"
+msgstr ""
+
+#: src/installer.py:210
+msgid "Verifying installation..."
+msgstr ""
+
+#: src/installer.py:221
+#, python-brace-format
+msgid "Verification successful: '{pkg}' is installed correctly."
+msgstr ""
+
+#: src/installer.py:224
+msgid "Verification failed: Package is not in a correctly installed state."
+msgstr ""
+
+#: src/installer.py:233
+#, python-brace-format
+msgid ""
+"\n"
+"Error verifying installation: {e}"
+msgstr ""
+
+#: src/installer.py:243
+msgid "Enabling and starting the service..."
+msgstr ""
+
+#: src/installer.py:244
+msgid ""
+"\n"
+"Enabling and starting the service..."
+msgstr ""
+
+#. This error is for if the process fails to even start
+#: src/installer.py:262
+#, python-brace-format
+msgid "Failed to run the service helper script. Error: {error}"
+msgstr ""
+
+#. If wait_check_finish succeeds, the script exited with 0
+#: src/installer.py:270
+msgid "Service started successfully.\n"
+msgstr ""
+
+#: src/installer.py:271
+msgid "Installation successful. You can close the window."
+msgstr ""
+
+#. If wait_check_finish fails, the script exited with a non-zero code
+#: src/installer.py:275
+#, python-brace-format
+msgid ""
+"The helper script failed to start the service. See log file for details. "
+"Error: {error}\n"
+msgstr ""
+
+#. As per user request, treat this as a success with a warning, not a total failure.
+#: src/installer.py:277
+msgid "Installation successful, but service start failed."
+msgstr ""
+
+#: src/installer.py:290
+msgid ""
+"\n"
+"Attempting to fix broken packages with 'dpkg --configure -a'..."
+msgstr ""
+
+#: src/installer.py:291
+msgid "Attempting to fix system packages..."
+msgstr ""
+
+#: src/installer.py:301
+#, python-brace-format
+msgid "Failed to run 'dpkg --configure -a'. Error: {error}"
+msgstr ""
+
+#: src/installer.py:309
+msgid "'dpkg --configure -a' completed successfully.\n"
+msgstr ""
+
+#: src/installer.py:311
+#, python-brace-format
+msgid "'dpkg --configure -a' failed. Error: {error}\n"
+msgstr ""
+
+#. After trying to fix, verify again.
+#: src/installer.py:314
+msgid "Re-verifying installation after dpkg..."
+msgstr ""
+
+#: src/installer.py:328
+msgid "Verification successful after dpkg run.\n"
+msgstr ""
+
+#: src/installer.py:331
+msgid ""
+"Package still not installed after dpkg. Retrying full installation "
+"process...\n"
+msgstr ""
+
+#: src/installer.py:334
+#, python-brace-format
+msgid ""
+"\n"
+"Error during re-verification: {e}. Retrying full installation..."
+msgstr ""
+
+#: src/installer.py:341
+msgid ""
+"\n"
+"Installation failed after all attempts."
+msgstr ""
+
+#: src/installer.py:342
+msgid "Installation failed. Please check the log."
+msgstr ""
+
+#. Provide visual feedback to the user
+#: src/installer.py:359
+msgid "Copied!"
+msgstr ""
+
+#: src/Main.py:68
+msgid "Set the initial status from the dispatcher."
+msgstr ""
+
+#: src/Main.py:101
+msgid "Virtual Machine Detected"
+msgstr ""
+
+#: src/Main.py:102
+msgid "This application cannot be run inside a virtual machine."
+msgstr ""
+
+#: src/Main.py:108
+#, python-brace-format
+msgid ""
+"This application must be run by the '{required}' user, but it is run by "
+"'{current}'."
+msgstr ""
+
+#: src/Main.py:113
+msgid "Invalid User"
+msgstr ""
+
+#: src/MainWindow.py:105
+#, python-brace-format
+msgid "Error loading UI: {e}."
+msgstr ""
+
+#. Should not happen
+#: src/MainWindow.py:139
+msgid "Verifying school code..."
+msgstr ""
+
+#: src/MainWindow.py:156
+msgid "Invalid School Code"
+msgstr ""
+
+#: src/MainWindow.py:159
+msgid ""
+"The entered school code could not be found. Please check the code and try "
+"again."
+msgstr ""
+
+#. Show loading page
+#: src/MainWindow.py:190 src/MainWindow.py:386
+msgid "Configuration Error"
+msgstr ""
+
+#: src/MainWindow.py:190 src/MainWindow.py:277 src/MainWindow.py:410
+msgid "No Internet Connection"
+msgstr ""
+
+#: src/MainWindow.py:191 src/MainWindow.py:387
+msgid ""
+"Your wired network device may be missing or not loaded.\n"
+"\n"
+"MAC address could not be retrieved. ETA Register performs board registration "
+"using the wired network device's MAC address."
+msgstr ""
+
+#: src/MainWindow.py:191 src/MainWindow.py:278
+msgid "Please check your network connection and try again."
+msgstr ""
+
+#: src/MainWindow.py:201
+msgid "The '{}' package is not installed on your system."
+msgstr ""
+
+#. Update the labels for "edit mode"
+#: src/MainWindow.py:237
+msgid "Update Registration"
+msgstr ""
+
+#: src/MainWindow.py:238
+msgid "You can update your registration information below."
+msgstr ""
+
+#: src/MainWindow.py:266
+msgid "Checking connection..."
+msgstr ""
+
+#: src/MainWindow.py:303 src/MainWindow.py:443
+msgid "Unsupported Device"
+msgstr ""
+
+#: src/MainWindow.py:308 src/MainWindow.py:448 src/MainWindow.py:540
+#: ui/window.glade:1083
+msgid "Close"
+msgstr ""
+
+#: src/MainWindow.py:322 src/MainWindow.py:462
+msgid ""
+"Your touch panel vendor is not in the allowed list.\n"
+"\n"
+"Please report your vendor ID to: <b>{}</b>"
+msgstr ""
+
+#. Label for the table
+#: src/MainWindow.py:329 src/MainWindow.py:469
+msgid "Detected USB Devices:"
+msgstr ""
+
+#: src/MainWindow.py:352 src/MainWindow.py:492
+msgid "Vendor"
+msgstr ""
+
+#. Column 2: Device
+#: src/MainWindow.py:356 src/MainWindow.py:496
+msgid "Device"
+msgstr ""
+
+#. Column 3: Name
+#: src/MainWindow.py:360 src/MainWindow.py:500
+msgid "Name"
+msgstr ""
+
+#: src/MainWindow.py:381
+msgid "Connecting to ETA server..."
+msgstr ""
+
+#: src/MainWindow.py:397
+msgid "Network connection failed."
+msgstr ""
+
+#: src/MainWindow.py:411
+msgid "Could not connect to the ETA server. Please try again later."
+msgstr ""
+
+#: src/MainWindow.py:539
+msgid "Retry"
+msgstr ""
+
+#: src/MainWindow.py:626
+msgid "Fetching provinces..."
+msgstr ""
+
+#: src/MainWindow.py:641 src/MainWindow.py:700 src/MainWindow.py:759
+msgid "Error Fetching Data"
+msgstr ""
+
+#: src/MainWindow.py:642
+msgid ""
+"Could not fetch the list of provinces. Please check your connection and try "
+"again."
+msgstr ""
+
+#: src/MainWindow.py:685
+msgid "Fetching districts..."
+msgstr ""
+
+#: src/MainWindow.py:701
+msgid "Could not fetch the list of districts. Please try again."
+msgstr ""
+
+#: src/MainWindow.py:744
+msgid "Fetching schools..."
+msgstr ""
+
+#: src/MainWindow.py:760
+msgid "Could not fetch the list of schools. Please try again."
+msgstr ""
+
+#: src/MainWindow.py:899 src/MainWindow.py:904
+msgid "Unit Name Required"
+msgstr ""
+
+#: src/MainWindow.py:900
+msgid "The unit name (room name) is required and cannot be empty for update."
+msgstr ""
+
+#: src/MainWindow.py:905
+msgid ""
+"The unit name (room name) is required and cannot be empty for registration."
+msgstr ""
+
+#: src/MainWindow.py:913
+msgid "Invalid Unit Name"
+msgstr ""
+
+#: src/MainWindow.py:914
+msgid "The unit name must be between 2 and 12 characters long."
+msgstr ""
+
+#: src/MainWindow.py:922
+msgid "Updating... Please wait."
+msgstr ""
+
+#: src/MainWindow.py:928
+msgid "Update Failed"
+msgstr ""
+
+#: src/MainWindow.py:929
+msgid "Could not find the board ID for the update operation."
+msgstr ""
+
+#: src/MainWindow.py:939
+msgid "Registering... Please wait."
+msgstr ""
+
+#: src/MainWindow.py:947 src/MainWindow.py:982
+msgid "Registration Failed"
+msgstr ""
+
+#: src/MainWindow.py:948
+msgid "Could not generate the necessary data for registration."
+msgstr ""
+
+#. Construct a more user-friendly error message
+#: src/MainWindow.py:968
+msgid "An unexpected error occurred during registration."
+msgstr ""
+
+#. Fallback to the network error
+#: src/MainWindow.py:974
+msgid ""
+"Could not connect to the registration server. Please check your internet "
+"connection and try again."
+msgstr ""
+
+#: src/MainWindow.py:998
+msgid "Pardus Registration Successful"
+msgstr ""
+
+#: src/MainWindow.py:1001
+msgid ""
+"Your device has been registered with Pardus. The central management "
+"application (LiderAhenk) will now be installed."
+msgstr ""
+
+#: src/network.py:57 src/network.py:82
+msgid "Invalid URL"
+msgstr ""
+
+#: src/network.py:128
+msgid "Invalid JSON or encoding in response"
+msgstr ""
+
+#: src/network.py:133
+#, python-brace-format
+msgid "API Error: Status {status_code}"
+msgstr ""
+
+#: src/network.py:135
+#, python-brace-format
+msgid " - {response_body_get_msg}"
+msgstr ""
+
+#: src/network.py:146
+msgid "Failed to decode JSON from response"
+msgstr ""
+
+#: ui/window.glade:7 tr.org.pardus.eta-register.desktop:2
+#: tr.org.pardus.eta-register.desktop:4
+#: tr.org.pardus.eta-register-autostart.desktop:4
+msgid "ETA Register"
+msgstr ""
+
+#: ui/window.glade:46
+msgid "Checking status... Please wait."
+msgstr ""
+
+#: ui/window.glade:60
+msgid "Loading"
+msgstr ""
+
+#: ui/window.glade:74
+msgid "This device is not registered at Pardus."
+msgstr ""
+
+#: ui/window.glade:90
+msgid "Please register your device."
+msgstr ""
+
+#: ui/window.glade:114
+msgid "School Code:"
+msgstr ""
+
+#: ui/window.glade:121
+msgid "Enter School Code Here"
+msgstr ""
+
+#: ui/window.glade:161 ui/window.glade:627 ui/window.glade:665
+#: ui/window.glade:1523
+msgid "Register"
+msgstr ""
+
+#: ui/window.glade:200
+msgid ""
+"If you dont know your school code; you can register by selecting province, "
+"town and school."
+msgstr ""
+
+#: ui/window.glade:236
+msgid "Choose Province, Town and School"
+msgstr ""
+
+#: ui/window.glade:455 ui/window.glade:1349
+msgid "Enter the classroom/location of the board."
+msgstr ""
+
+#: ui/window.glade:463 ui/window.glade:1357
+msgid "e.g., 7-C or Teacher's Room."
+msgstr ""
+
+#: ui/window.glade:484 ui/window.glade:1378 ui/window.glade:1752
+msgid "Room Name:"
+msgstr ""
+
+#: ui/window.glade:491 ui/window.glade:1385
+msgid "11-A"
+msgstr ""
+
+#: ui/window.glade:538 ui/window.glade:863 ui/window.glade:1434
+msgid "Back"
+msgstr ""
+
+#: ui/window.glade:581 ui/window.glade:1477
+msgid "Cancel"
+msgstr ""
+
+#: ui/window.glade:679
+msgid "Choose Province/Town/School"
+msgstr ""
+
+#: ui/window.glade:705
+msgid "Search Provinces..."
+msgstr ""
+
+#: ui/window.glade:735
+msgid "Provinces"
+msgstr ""
+
+#: ui/window.glade:748
+msgid "Search Districts..."
+msgstr ""
+
+#: ui/window.glade:778
+msgid "Districts"
+msgstr ""
+
+#: ui/window.glade:791
+msgid "Search Schools..."
+msgstr ""
+
+#: ui/window.glade:821
+msgid "Schools"
+msgstr ""
+
+#: ui/window.glade:907 ui/window.glade:1553
+msgid "Confirm"
+msgstr ""
+
+#: ui/window.glade:937
+msgid "Selection Register"
+msgstr ""
+
+#: ui/window.glade:952
+msgid "A required package is not installed on your system."
+msgstr ""
+
+#: ui/window.glade:1005
+msgid "Installation in progress..."
+msgstr ""
+
+#: ui/window.glade:1039
+msgid "Copy Logs"
+msgstr ""
+
+#: ui/window.glade:1111
+msgid "Install"
+msgstr ""
+
+#: ui/window.glade:1137
+msgid "Installation in progress... Please wait."
+msgstr ""
+
+#: ui/window.glade:1151
+msgid "Installing"
+msgstr ""
+
+#: ui/window.glade:1568
+msgid "Your device is registered with the following information:"
+msgstr ""
+
+#: ui/window.glade:1591
+msgid "Province:"
+msgstr ""
+
+#: ui/window.glade:1630
+msgid "District:"
+msgstr ""
+
+#: ui/window.glade:1669
+msgid "Institution:"
+msgstr ""
+
+#: ui/window.glade:1708
+msgid "Institution Code:"
+msgstr ""
+
+#: ui/window.glade:1823
+msgid "Edit"
+msgstr ""
+
+#: ui/window.glade:1843
+msgid "Information"
+msgstr ""
+
+#: tr.org.pardus.eta-register.desktop:6
+#: tr.org.pardus.eta-register-autostart.desktop:6
+msgid "Register Smart Board"
+msgstr ""
+
+#: tr.org.pardus.eta-register.desktop:14
+msgid "register,smart board,eta,eta register,eta kayıt"
+msgstr ""
+
+#: tr.org.pardus.eta-register-autostart.desktop:2
+msgid "Eta Register"
+msgstr ""
+
+#: tr.org.pardus.eta-register-autostart.desktop:14
+msgid "register;eta;pardus;"
+msgstr ""

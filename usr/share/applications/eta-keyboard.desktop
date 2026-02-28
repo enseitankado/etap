@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.1
+Name=ETA Keyboard
+Name[pt]=Teclado ETA
+Name[tr]=ETA Klavye
+Type=Application
+Comment=ETAP special screen virtual keyboard
+Comment[pt]=Teclado virtual de ecrã especial ETAP
+Comment[tr]=ETAP a özel ekran sanal klavyesi
+Terminal=false
+Exec=/usr/bin/eta-keyboard show
+Icon=eta-keyboard
+Categories=Qt;Utility;
+GenericName=Virtual Keyboard
+GenericName[pt]=Teclado Virtual
+GenericName[tr]=Sanal Klavye

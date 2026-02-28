@@ -1,0 +1,29 @@
+{
+  "pardus": {
+      "title": "GTK Window",
+      "name": "gtkwindow"
+  },
+  "background": {
+      "type": "filepicker"
+  },
+  "background-blur": {
+    "type": "onoff"
+  },
+  "background-blur-level": {
+    "type": "number",
+    "min": "0",
+    "max": "100"
+  },
+  "logo": {
+    "type": "filepicker"
+  },
+  "allow-empty-password": {
+    "type": "onoff"
+  },
+  "password-cache": {
+    "type": "onoff"
+  },
+  "username-cache": {
+    "type": "onoff"
+  }
+}

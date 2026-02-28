@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Chrome
+GenericName=Web Browser
+GenericName[tr]=Web Tarayıcı
+Comment=Access the Internet
+Comment[tr]=İnternet'e erişin
+Exec=/usr/bin/google-chrome-stable --force-renderer-accessibility %U
+TryExec=/usr/bin/google-chrome-stable
+Terminal=false
+Icon=google-chrome
+Type=Application
+Categories=Network;WebBrowser;

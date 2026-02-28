@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Eta Counter
+Name[tr]=Eta Sayaç
+GenericName=Counter
+GenericName[tr]=Sayaç
+Comment=Counter clock for etap
+Comment[tr]=Etap için sayaç saati
+Exec=/usr/share/eta/eta-count/main.py
+Icon=eta-count
+Terminal=false
+Type=Application
+StartupNotify=true

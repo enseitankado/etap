@@ -1,0 +1,13 @@
+src/checks.py
+src/config.py
+src/dispatcher.py
+src/installer.py
+src/logger.py
+src/Main.py
+src/MainWindow.py
+src/network.py
+src/opr.py
+ui/window.glade
+tr.org.pardus.eta-register.desktop
+tr.org.pardus.eta-register-autostart.desktop
+tr.org.pardus.eta-register.policy

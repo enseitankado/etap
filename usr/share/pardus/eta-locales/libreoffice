@@ -1,0 +1,6 @@
+#!/bin/bash
+
+LC_CTYPE="$LANG"
+export LC_CTYPE
+export GDK_CORE_DEVICE_EVENTS=1
+exec /usr/bin/libreoffice "$@"

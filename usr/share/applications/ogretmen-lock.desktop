@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Lock Session
+Name[tr]=Oturumu Kilitle
+Exec=dm-tool lock
+Icon=lock
+Categories=System;

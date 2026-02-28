@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=ETA Restricted Access
+Name[tr]=ETA Sınırlı Erişim
+GenericName=ETA Restricted Access
+GenericName[tr]=ETA Sınırlı Erişim
+Comment=Website domain and app restriction app for ETAs.
+Comment[tr]=ETA'lar için website alan adı ve uygulamalara erişimi sınırlama uygulaması.
+
+Exec=eta-kisit
+Icon=eta-kisit
+Terminal=false
+Type=Application
+Categories=System;X-Pardus-Apps;
+Keywords=eta;restrict;kontrol;sinirlama;control;restriction;
+StartupNotify=true
+
+X-GNOME-UsesNotifications=true

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Pardus Hotspot
+Name[pt]=Hotspot Pardus
+Name[tr]=Pardus Kablosuz Erişim Noktası 
+Comment=Simple Hotspot Application
+Comment[pt]=Aplicação simples de ponto de acesso sem fios
+Comment[tr]=Basit Kablosuz Erişim Noktası Uygulaması
+Exec=pardus-hotspot --tray
+Icon=pardus-hotspot
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+StartupNotify=true
+Keywords=hotspot;wifi;wireless;network;internet;
+Keywords[pt]=hotspot;wifi;wireless;sem fios; rede;internet;
+Keywords[tr]=hotspot;wifi;kablosuz;ağ;internet;

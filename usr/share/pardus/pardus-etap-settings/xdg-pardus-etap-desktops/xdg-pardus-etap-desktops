@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 11 14:53:13 2025
+
+@author: fatih
+"""
+
+import os
+import shutil
+import subprocess
+import time
+
+user_home = os.path.expanduser('~')
+user_config_dir = os.path.join(user_home, ".config/pardus")
+user_config_file = os.path.join(user_config_dir, "etap-desktops")
+
+user_desktop_dir = subprocess.check_output(["xdg-user-dir", "DESKTOP"]).strip()
+user_desktop_dir = user_desktop_dir.decode("utf-8")
+
+desktop_files = [
+{"path": "/usr/share/applications/", "file": "eta-poweroff.desktop"},
+{"path": "/usr/share/applications/", "file": "ogretmen-lock.desktop"},
+{"path": "/usr/share/applications/", "file": "org.gnome.Screenshot.desktop"},
+{"path": "/usr/share/applications/", "file": "org.gnome.Terminal.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.eta.kisit.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.eta.count.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.eta-screen-cover.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.software.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.usb-formatter.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.night-light.desktop"},
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.eta-help.desktop"}
+]
+
+if not os.path.isfile(user_config_file):
+    if not os.path.isdir(user_config_dir):
+        os.makedirs(user_config_dir, exist_ok=True)
+    with open(user_config_file, "w") as ucf:
+        ucf.write("{}".format(time.time()))
+    if os.path.isdir(user_desktop_dir):
+        for desktop_file in desktop_files:
+            if not os.path.exists(os.path.join(user_desktop_dir, desktop_file["file"])):
+                src_file = desktop_file["path"] + desktop_file["file"]
+                dst_file = os.path.join(user_desktop_dir, desktop_file["file"])
+                if os.path.isfile(src_file):
+                    shutil.copy2(src_file, dst_file)
+                    os.chmod(dst_file, 0o0755)
+                    print("{} created".format(dst_file))
+                else:
+                    print("{} file not exists".format(src_file))
+            else:
+                print("{} is already exists".format(os.path.join(user_desktop_dir, desktop_file["file"])))

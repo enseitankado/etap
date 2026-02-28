@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Appimage Loader
+Exec=appimage-loader %f
+MimeType=application/vnd.appimage;
+Icon=gnome-mime-application-x-jar
+NoDisplay=true
+StartupNotify=true

@@ -1,0 +1,3 @@
+.sources-button{
+    background-color: alpha(@unfocused_borders, 0.53);
+}

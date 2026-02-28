@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=About Pardus
+Name[pt]=Sobre o Pardus
+Name[tr]=Pardus Hakkında
+GenericName=About
+GenericName[pt]=Sobre
+GenericName[tr]=Hakkında
+Comment=Get info about your Pardus system.
+Comment[pt]=Saiba mais sobre o seu sistema Pardus.
+Comment[tr]=Pardus sisteminiz hakkında bilgi edinin.
+Exec=pardus-about
+Icon=pardus-about
+Terminal=false
+Type=Application
+Categories=Settings;X-XFCE-SettingsDialog;X-Pardus-Apps;
+StartupNotify=true
+Keywords=about;info;system;
+Keywords[pt]=sobre;informação;sistema;
+Keywords[tr]=hakkında;bilgi;sistem;
