@@ -48,10 +48,41 @@ def run_installation():
     """
     Runs the package installation command and prints its output in real-time.
     """
-    command = ["apt-get", "install", "-y", PACKAGE_TO_INSTALL]
-    
-    logger.info("Executing command: {command}".format(command=' '.join(command)))
 
+    update_command = ["apt", "update"]
+    logger.info("Executing command: {command}".format(command=' '.join(update_command)))
+
+    try:
+        process = subprocess.Popen(
+            update_command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1
+        )
+        for line in iter(process.stdout.readline, ''):
+            line = line.strip()
+            if line:
+                print(line, flush=True)
+                logger.info("[apt] {line}".format(line=line))
+
+        process.stdout.close()
+        return_code = process.wait()
+
+        if return_code != 0:
+            logger.error("Update failed with exit code {return_code}.".format(return_code=return_code))
+            return return_code
+        else:
+            logger.info("Update completed successfully.")
+
+    except Exception as e:
+        logger.error("An unexpected error occurred: {e}".format(e=e))
+        return 1
+    
+    
+    
+    command = ["apt", "install", "-y", PACKAGE_TO_INSTALL]
+    
     try:
         # Start the subprocess
         process = subprocess.Popen(

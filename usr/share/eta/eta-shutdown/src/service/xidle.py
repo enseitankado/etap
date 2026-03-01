@@ -21,10 +21,13 @@ def get_idle_time(display=None):
     xssinfo = xss.XScreenSaverAllocInfo()
     window = xlib.XDefaultRootWindow(display)
     if xssinfo is None or window <= 0:
+        xlib.XCloseDisplay(display)
         return 0
     xss.XScreenSaverQueryInfo(display, window, xssinfo)
+    idle = xssinfo.contents.idle
+    xlib.XCloseDisplay(display)
 
-    return xssinfo.contents.idle
+    return idle
 
 if __name__ == "__main__":
     import os

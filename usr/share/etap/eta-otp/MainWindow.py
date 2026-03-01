@@ -183,7 +183,7 @@ class MainWindow:
             action=Gtk.FileChooserAction.SAVE
         )
         dialog.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
-        dialog.add_button(Gtk.STOCK_OPEN, Gtk.ResponseType.OK)
+        dialog.add_button(Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
 
         filter = Gtk.FileFilter()
         filter.set_name(_("Pin keys"))

@@ -280,6 +280,11 @@ class MainWindow:
             )
             return
         
+        # 200 but response was not valid JSON (e.g. vendor list URL returned HTML/plain text)
+        if status_code == 200 and isinstance(response_data, dict) and response_data.get("_json_error") and response_data.get("_raw_body"):
+            self._show_raw_response_dialog(response_data["_raw_body"])
+            return
+        
         # Connectivity is OK, now check for allowed touch vendors
         logger.info("Connectivity OK. Checking touch vendor...")
         
@@ -291,6 +296,52 @@ class MainWindow:
         else:
              logger.error("Touch vendor check failed.")
              self.show_vendor_error_dialog()
+
+    def _show_raw_response_dialog(self, raw_text):
+        """
+        Shows the raw response body when server returned 200 but body was not valid JSON.
+        User can click OK to close and exit.
+        """
+        dialog = Gtk.Dialog(
+            title=_("Invalid Server Response"),
+            transient_for=self.main_window,
+            modal=True,
+            destroy_with_parent=True
+        )
+        dialog.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+        dialog.set_default_size(560, 380)
+        
+        content = dialog.get_content_area()
+        content.set_spacing(8)
+        content.set_margin_top(10)
+        content.set_margin_bottom(10)
+        content.set_margin_start(10)
+        content.set_margin_end(10)
+        
+        label = Gtk.Label(label=_("Server returned 200 but the response was not valid JSON. Raw body:"))
+        label.set_line_wrap(True)
+        label.set_xalign(0)
+        content.pack_start(label, False, False, 0)
+        
+        scrolled = Gtk.ScrolledWindow()
+        scrolled.set_vexpand(True)
+        scrolled.set_hexpand(True)
+        scrolled.set_min_content_height(200)
+        
+        textview = Gtk.TextView()
+        textview.set_editable(False)
+        textview.set_cursor_visible(False)
+        textview.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
+        textview.get_buffer().set_text(raw_text)
+        textview.set_left_margin(6)
+        textview.set_right_margin(6)
+        scrolled.add(textview)
+        content.pack_start(scrolled, True, True, 0)
+        
+        dialog.show_all()
+        dialog.run()
+        dialog.destroy()
+        self.app_ref.quit()
 
     def show_vendor_error_dialog(self):
         """
