@@ -1,8 +1,16 @@
 # ISO=2Pardus-23.4-ETAP-20260212-1645-amd64.iso
-# TARIH=2026-03-01 23:47:38
-# IZLENEN=/etc/cinnamon /etc/dconf /etc/etap /etc/lightdm /etc/pardus /etc/systemd /etc/xdg /etc/xdg/autostart /etc/xdg/xfce4 /lib /usr/bin/dbus-daemon /usr/bin/login /usr/bin/OpticalService* /usr/bin/OtdTouchServer* /usr/bin/touchegg /usr/bin/udevadm /usr/bin/VGAuthService /usr/bin/vmtoolsd /usr/lib/cinnamon-settings-daemon /usr/lib/etap /usr/libexec/accounts-daemon /usr/libexec/colord /usr/libexec/rtkit-daemon /usr/libexec/udisks2/udisksd /usr/libexec/upowerd /usr/lib/pardus /usr/lib/polkit-1/polkitd /usr/lib/systemd/systemd /usr/lib/systemd/systemd-journald /usr/lib/systemd/systemd-logind /usr/lib/systemd/systemd-timesyncd /usr/sbin/agetty /usr/sbin/avahi-daemon /usr/sbin/cron /usr/sbin/cups-browsed /usr/sbin/cupsd /usr/sbin/lightdm /usr/sbin/ModemManager /usr/sbin/NetworkManager /usr/sbin/sshd /usr/sbin/wpa_supplicant /usr/share/applications /usr/share/cinnamon /usr/share/cinnamon-background-properties /usr/share/dconf /usr/share/eta /usr/share/eta/eta-kisit/src/UserCheckService.py /usr/share/eta/eta-qr-login/service.py /usr/share/eta/eta-right-click/main.py /usr/share/eta/eta-shutdown/src/service/main.py /usr/share/eta/eta-usb-login/main.py /usr/share/etap /usr/share/glib-2.0/schemas /usr/share/gnome-shell/extensions /usr/share/lightdm /usr/share/pardus /usr/share/plymouth /usr/share/polkit-1 /usr/share/web-greeter /usr/share/xfce4 /usr/share/xfwm4 /usr/share/xgreeters /usr/src
+# TARIH=2026-03-01 23:55:39
+# IZLENEN=/bin/bash /bin/kill /bin/kmod /bin/live-config /bin/plymouth /bin/systemd-repart /bin/systemd-tty-ask-password-agent /bin/true /etc/cinnamon /etc/dconf /etc/etap /etc/lightdm /etc/pardus /etc/rc.local /etc/systemd /etc/xdg /etc/xdg/autostart /etc/xdg/xfce4 'if 'ifup journalctl /lib /lib/apparmor/apparmor.systemd /lib/console-setup/console-setup.sh /lib/console-setup/keyboard-setup.sh /lib/ifupdown/wait-online.sh /lib/systemd/systemd /lib/systemd/systemd-backlight /lib/systemd/systemd-binfmt /lib/systemd/systemd-boot-check-no-failures /lib/systemd/systemd-fsck /lib/systemd/systemd-fsckd /lib/systemd/systemd-hibernate-resume /lib/systemd/systemd-hostnamed /lib/systemd/systemd-initctl /lib/systemd/systemd-journald /lib/systemd/systemd-localed /lib/systemd/systemd-logind /lib/systemd/systemd-modules-load /lib/systemd/systemd-networkd /lib/systemd/systemd-networkd-wait-online /lib/systemd/systemd-network-generator /lib/systemd/systemd-pcrphase /lib/systemd/systemd-pstore /lib/systemd/systemd-quotacheck /lib/systemd/systemd-random-seed /lib/systemd/systemd-remount-fs /lib/systemd/systemd-rfkill /lib/systemd/systemd-sleep /lib/systemd/systemd-sulogin-shell /lib/systemd/systemd-sysctl /lib/systemd/systemd-timedated /lib/systemd/systemd-timesyncd /lib/systemd/systemd-time-wait-sync /lib/systemd/systemd-udevd /lib/systemd/systemd-update-utmp /lib/systemd/systemd-user-runtime-dir /lib/systemd/systemd-user-sessions /lib/systemd/systemd-volatile-root /lib/systemd/system-generators/systemd-fstab-generator /lib/udev/udev-configure-printer networkctl rm /sbin/agetty /sbin/blkdeactivate /sbin/dmeventd /sbin/e2scrub /sbin/e2scrub_all /sbin/fstrim /sbin/ifdown /sbin/ifup /sbin/ipp-usb /sbin/lvm /sbin/lvmpolld /sbin/modprobe /sbin/pam_namespace_helper /sbin/quotaon /sbin/wpa_supplicant systemctl systemd-firstboot systemd-machine-id-setup systemd-sysext systemd-sysusers systemd-tmpfiles systemd-tty-ask-password-agent udevadm /usr/bin/busctl /usr/bin/dbus-daemon /usr/bin/dbus-send /usr/bin/find /usr/bin/install /usr/bin/isdv4-serial-inputattach /usr/bin/login /usr/bin/mandb /usr/bin/nm-online /usr/bin/OpticalService* /usr/bin/OtdTouchServer* /usr/bin/plymouth /usr/bin/rsync /usr/bin/sensors /usr/bin/touch /usr/bin/touchdrv_install /usr/bin/touchegg /usr/bin/true /usr/bin/udevadm /usr/bin/VGAuthService /usr/bin/vmtoolsd /usr/lib/apt/apt-helper /usr/lib/apt/apt.systemd.daily /usr/lib/cinnamon-settings-daemon /usr/lib/etap /usr/libexec/accounts-daemon /usr/libexec/blueman-mechanism /usr/libexec/bluetooth/bluetoothd /usr/libexec/colord /usr/libexec/dpkg/dpkg-db-backup /usr/libexec/geoclue /usr/libexec/nm-dispatcher /usr/libexec/rtkit-daemon /usr/libexec/udisks2/udisksd /usr/libexec/upowerd /usr/lib/NetworkManager/nm-dispatcher /usr/lib/NetworkManager/nm-priv-helper /usr/lib/pardus /usr/lib/polkit-1/polkitd /usr/lib/systemd/systemd /usr/lib/systemd/systemd-journald /usr/lib/systemd/systemd-logind /usr/lib/systemd/systemd-pstore /usr/lib/systemd/systemd-timesyncd /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_fail /usr/sbin/agetty /usr/sbin/alsactl /usr/sbin/anacron /usr/sbin/avahi-daemon /usr/sbin/blkdeactivate /usr/sbin/cron /usr/sbin/cups-browsed /usr/sbin/cupsd /usr/sbin/ifdown /usr/sbin/ifup /usr/sbin/iio-sensor-proxy /usr/sbin/lightdm /usr/sbin/logrotate /usr/sbin/lvm /usr/sbin/ModemManager /usr/sbin/NetworkManager /usr/sbin/nft /usr/sbin/plymouthd /usr/sbin/saned /usr/sbin/sshd /usr/sbin/updatedb.plocate /usr/sbin/usb_modeswitch_dispatcher /usr/sbin/usbmuxd /usr/sbin/uuidd /usr/sbin/wpa_supplicant /usr/sbin/zramswap /usr/share/applications /usr/share/cinnamon /usr/share/cinnamon-background-properties /usr/share/dconf /usr/share/eta /usr/share/eta/eta-display-control/eta-display-control /usr/share/eta/eta-kisit/src/UserCheckService.py /usr/share/eta/eta-qr-login/service.py /usr/share/eta/eta-right-click/main.py /usr/share/eta/eta-shutdown/src/service/main.py /usr/share/eta/eta-usb-login/main.py /usr/share/etap /usr/share/glib-2.0/schemas /usr/share/gnome-shell/extensions /usr/share/lightdm /usr/share/pardus /usr/share/plymouth /usr/share/polkit-1 /usr/share/web-greeter /usr/share/xfce4 /usr/share/xfwm4 /usr/share/xgreeters /usr/src
 # HARIC=/usr/share/cinnamon/theme* /usr/share/cinnamon/thumbnails* /usr/share/glib* /usr/share/plymouth* /usr/src/linux*
 # SUTUNLAR=PATIKA|TUR|SYM|OCT|SAHIP|GRUP|MD5
+# BULUNAMADI=/bin/bash
+# BULUNAMADI=/bin/kill
+# BULUNAMADI=/bin/kmod
+# BULUNAMADI=/bin/live-config
+# BULUNAMADI=/bin/plymouth
+# BULUNAMADI=/bin/systemd-repart
+# BULUNAMADI=/bin/systemd-tty-ask-password-agent
+# BULUNAMADI=/bin/true
 # BULUNAMADI=/etc/cinnamon
 /etc/dconf|directory|drwxr-xr-x|755|root|root|-
 /etc/dconf/db|directory|drwxr-xr-x|755|root|root|-
@@ -25,6 +33,7 @@
 /etc/pardus/greeter.conf.d|directory|drwxr-xr-x|755|root|root|-
 /etc/pardus/greeter.conf.d/00-etap.conf|text/plain|-rw-r--r--|644|root|root|3f653d79133d75bd11344ff5b45daaa1
 /etc/pardus/pardus-software.conf|text/plain|-rw-r--r--|644|root|root|02eca154fc02d1c00a714cb72b62bcf2
+# BULUNAMADI=/etc/rc.local
 /etc/systemd|directory|drwxr-xr-x|755|root|root|-
 /etc/systemd/journald.conf|text/plain|-rw-r--r--|644|root|root|d2187d732ab2911016a4d4017c155dbb
 /etc/systemd/logind.conf|text/plain|-rw-r--r--|644|root|root|8276eeafa20aa65e6a5dca3bdcddafb4
@@ -280,38 +289,145 @@
 /etc/xdg/xfce4/xfconf|directory|drwxr-xr-x|755|root|root|-
 /etc/xdg/xfce4/xfconf/xfce-perchannel-xml|directory|drwxr-xr-x|755|root|root|-
 /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml|text/xml|-rw-r--r--|644|root|root|c6b7a6ce3eb1c51b76050a09552ac301
+# BULUNAMADI='if
+# BULUNAMADI='ifup
+# BULUNAMADI=journalctl
 /lib|symlink|lrwxrwxrwx|777|root|root|-
+# BULUNAMADI=/lib/apparmor/apparmor.systemd
+# BULUNAMADI=/lib/console-setup/console-setup.sh
+# BULUNAMADI=/lib/console-setup/keyboard-setup.sh
+# BULUNAMADI=/lib/ifupdown/wait-online.sh
+# BULUNAMADI=/lib/systemd/systemd
+# BULUNAMADI=/lib/systemd/systemd-backlight
+# BULUNAMADI=/lib/systemd/systemd-binfmt
+# BULUNAMADI=/lib/systemd/systemd-boot-check-no-failures
+# BULUNAMADI=/lib/systemd/systemd-fsck
+# BULUNAMADI=/lib/systemd/systemd-fsckd
+# BULUNAMADI=/lib/systemd/systemd-hibernate-resume
+# BULUNAMADI=/lib/systemd/systemd-hostnamed
+# BULUNAMADI=/lib/systemd/systemd-initctl
+# BULUNAMADI=/lib/systemd/systemd-journald
+# BULUNAMADI=/lib/systemd/systemd-localed
+# BULUNAMADI=/lib/systemd/systemd-logind
+# BULUNAMADI=/lib/systemd/systemd-modules-load
+# BULUNAMADI=/lib/systemd/systemd-networkd
+# BULUNAMADI=/lib/systemd/systemd-networkd-wait-online
+# BULUNAMADI=/lib/systemd/systemd-network-generator
+# BULUNAMADI=/lib/systemd/systemd-pcrphase
+# BULUNAMADI=/lib/systemd/systemd-pstore
+# BULUNAMADI=/lib/systemd/systemd-quotacheck
+# BULUNAMADI=/lib/systemd/systemd-random-seed
+# BULUNAMADI=/lib/systemd/systemd-remount-fs
+# BULUNAMADI=/lib/systemd/systemd-rfkill
+# BULUNAMADI=/lib/systemd/systemd-sleep
+# BULUNAMADI=/lib/systemd/systemd-sulogin-shell
+# BULUNAMADI=/lib/systemd/systemd-sysctl
+# BULUNAMADI=/lib/systemd/systemd-timedated
+# BULUNAMADI=/lib/systemd/systemd-timesyncd
+# BULUNAMADI=/lib/systemd/systemd-time-wait-sync
+# BULUNAMADI=/lib/systemd/systemd-udevd
+# BULUNAMADI=/lib/systemd/systemd-update-utmp
+# BULUNAMADI=/lib/systemd/systemd-user-runtime-dir
+# BULUNAMADI=/lib/systemd/systemd-user-sessions
+# BULUNAMADI=/lib/systemd/systemd-volatile-root
+# BULUNAMADI=/lib/systemd/system-generators/systemd-fstab-generator
+# BULUNAMADI=/lib/udev/udev-configure-printer
+# BULUNAMADI=networkctl
+# BULUNAMADI=rm
+# BULUNAMADI=/sbin/agetty
+# BULUNAMADI=/sbin/blkdeactivate
+# BULUNAMADI=/sbin/dmeventd
+# BULUNAMADI=/sbin/e2scrub
+# BULUNAMADI=/sbin/e2scrub_all
+# BULUNAMADI=/sbin/fstrim
+# BULUNAMADI=/sbin/ifdown
+# BULUNAMADI=/sbin/ifup
+# BULUNAMADI=/sbin/ipp-usb
+# BULUNAMADI=/sbin/lvm
+# BULUNAMADI=/sbin/lvmpolld
+# BULUNAMADI=/sbin/modprobe
+# BULUNAMADI=/sbin/pam_namespace_helper
+# BULUNAMADI=/sbin/quotaon
+# BULUNAMADI=/sbin/wpa_supplicant
+# BULUNAMADI=systemctl
+# BULUNAMADI=systemd-firstboot
+# BULUNAMADI=systemd-machine-id-setup
+# BULUNAMADI=systemd-sysext
+# BULUNAMADI=systemd-sysusers
+# BULUNAMADI=systemd-tmpfiles
+# BULUNAMADI=systemd-tty-ask-password-agent
+# BULUNAMADI=udevadm
+/usr/bin/busctl|application/x-pie-executable|-rwxr-xr-x|755|root|root|f08b3e6c0e5b6468937becbfa79a6677
 /usr/bin/dbus-daemon|application/x-pie-executable|-rwxr-xr-x|755|root|root|4b3727fe59905370dd492a723783b534
+/usr/bin/dbus-send|application/x-pie-executable|-rwxr-xr-x|755|root|root|cfca563775eefa2c4e6cf6192eae17e4
+/usr/bin/find|application/x-pie-executable|-rwxr-xr-x|755|root|root|77c69f8faad395a584cc682952786dfc
+/usr/bin/install|application/x-pie-executable|-rwxr-xr-x|755|root|root|a21d765038f77f69d324d3da05d9d116
+/usr/bin/isdv4-serial-inputattach|application/x-pie-executable|-rwxr-xr-x|755|root|root|0891e501a74c510e2827c45aba17c904
 /usr/bin/login|application/x-pie-executable|-rwxr-xr-x|755|root|root|ba847752a178da3c43dc865736520deb
+/usr/bin/mandb|application/x-pie-executable|-rwxr-xr-x|755|root|root|0af1751d629ac4a7b8e991521befea0d
+/usr/bin/nm-online|application/x-pie-executable|-rwxr-xr-x|755|root|root|a976179c1288770a369b40e84ea97720
 /usr/bin/OpticalService|application/x-executable|-rwxr-xr-x|755|root|root|f3fefcab2f300ca2d0be9ffed1cc8634
 /usr/bin/OtdTouchServer.x86_64|application/x-executable|-rwxr-xr-x|755|root|root|9a8956d4ff79ec4c10b294a8edb783af
+/usr/bin/plymouth|application/x-pie-executable|-rwxr-xr-x|755|root|root|bc9229fe77013a3c62d1bbfc0c8f0479
+/usr/bin/rsync|application/x-pie-executable|-rwxr-xr-x|755|root|root|4156356549f90284f726b2917a2e4013
+/usr/bin/sensors|application/x-pie-executable|-rwxr-xr-x|755|root|root|425dd99453c680629b37ccde69990672
+/usr/bin/touch|application/x-pie-executable|-rwxr-xr-x|755|root|root|9f47a295ca6d22e1ede03e13dfb3d7a9
+/usr/bin/touchdrv_install|text/x-shellscript|-rwxr-xr-x|755|root|root|2dfc1468ec0fa076674dcc3c3e7ab6a6
 /usr/bin/touchegg|application/x-pie-executable|-rwxr-xr-x|755|root|root|d66bbcf8ad2afeaa9fd7a3a6ece40680
+/usr/bin/true|application/x-pie-executable|-rwxr-xr-x|755|root|root|7a52c94ace40d9c052cf40f3541637c3
 /usr/bin/udevadm|application/x-pie-executable|-rwxr-xr-x|755|root|root|c5507b4e6f29d263718853a1938e73b2
 # BULUNAMADI=/usr/bin/VGAuthService
 # BULUNAMADI=/usr/bin/vmtoolsd
+/usr/lib/apt/apt-helper|application/x-pie-executable|-rwxr-xr-x|755|root|root|ddcb610a558ce578efe07fe37ef033a3
+/usr/lib/apt/apt.systemd.daily|text/x-affix|-rwxr-xr-x|755|root|root|25a7e8b4d72b7eafa17d47a5e29544f7
 # BULUNAMADI=/usr/lib/cinnamon-settings-daemon
 # BULUNAMADI=/usr/lib/etap
 /usr/libexec/accounts-daemon|application/x-pie-executable|-rwxr-xr-x|755|root|root|ecc0f7d8595db7d36bd5b32e05093596
+/usr/libexec/blueman-mechanism|text/x-script.python|-rwxr-xr-x|755|root|root|54a37d3b1577c01acead87af3d7519b8
+/usr/libexec/bluetooth/bluetoothd|application/x-pie-executable|-rwxr-xr-x|755|root|root|7dbc1719bd2cc65fb388fdc3b9284d41
 /usr/libexec/colord|application/x-pie-executable|-rwxr-xr-x|755|root|root|2b7895bcb9b5d4cd6e2c06fa9279008b
+/usr/libexec/dpkg/dpkg-db-backup|text/x-shellscript|-rwxr-xr-x|755|root|root|ff2a4444fff126e0d0a727087c001953
+/usr/libexec/geoclue|application/x-pie-executable|-rwxr-xr-x|755|root|root|ec349522d8fe38f6e9b5c53d00fd2bf5
+# BULUNAMADI=/usr/libexec/nm-dispatcher
 /usr/libexec/rtkit-daemon|application/x-pie-executable|-rwxr-xr-x|755|root|root|15a96bb6f42a7cb7bc84799707afdca6
 /usr/libexec/udisks2/udisksd|application/x-pie-executable|-rwxr-xr-x|755|root|root|9c4f4cbf29f91e0d098af56d7014351f
 /usr/libexec/upowerd|application/x-pie-executable|-rwxr-xr-x|755|root|root|2527eb721c644422e600fcd3f7e3c7d4
+/usr/lib/NetworkManager/nm-dispatcher|application/x-pie-executable|-rwxr-xr-x|755|root|root|fab6fca222b26fa2c5a1053a0367897f
+/usr/lib/NetworkManager/nm-priv-helper|application/x-pie-executable|-rwxr-xr-x|755|root|root|6b11826b65e692d052d5ab8dee827b76
 # BULUNAMADI=/usr/lib/pardus
 /usr/lib/polkit-1/polkitd|application/x-pie-executable|-rwxr-xr-x|755|root|root|e12a2e49bfd88b16867a78cfc08afd71
 /usr/lib/systemd/systemd|application/x-pie-executable|-rwxr-xr-x|755|root|root|584a461c1ea274216bc4f71ce8c376c7
 /usr/lib/systemd/systemd-journald|application/x-pie-executable|-rwxr-xr-x|755|root|root|6dea4cdf20d5b81e44281438ac941a3b
 /usr/lib/systemd/systemd-logind|application/x-pie-executable|-rwxr-xr-x|755|root|root|2a39b2e5058406c329b734e83b2c991d
+/usr/lib/systemd/systemd-pstore|application/x-pie-executable|-rwxr-xr-x|755|root|root|e24f3d253259225270c780cc474a5c63
 /usr/lib/systemd/systemd-timesyncd|application/x-pie-executable|-rwxr-xr-x|755|root|root|cf7d9b0839f5b424f887fd16c448150a
+/usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_fail|text/x-shellscript|-rwxr-xr-x|755|root|root|7cadd12f72ba9663414849b5abe98649
 /usr/sbin/agetty|application/x-pie-executable|-rwxr-xr-x|755|root|root|a5b67b2c174d5671e2ef0ec17baff769
+/usr/sbin/alsactl|application/x-pie-executable|-rwxr-xr-x|755|root|root|cbbcb4bd125fa560e674a4105ed93352
+/usr/sbin/anacron|application/x-pie-executable|-rwxr-xr-x|755|root|root|58042f1419e0d2725c83d9e5a6045587
 /usr/sbin/avahi-daemon|application/x-pie-executable|-rwxr-xr-x|755|root|root|6f76ba5ecbac09d5e0fe1be60d57b164
+/usr/sbin/blkdeactivate|text/x-shellscript|-rwxr-xr-x|755|root|root|edb3e0c3d10c15a879a569109f56eaa0
 /usr/sbin/cron|application/x-pie-executable|-rwxr-xr-x|755|root|root|0ccca40116843b58eb10ab88da39ec70
 /usr/sbin/cups-browsed|application/x-pie-executable|-rwxr-xr-x|755|root|root|3e75ad58f8aebe2459feb3574abc9f8e
 /usr/sbin/cupsd|application/x-pie-executable|-rwxr-xr-x|755|root|root|3d4001a1a1218eca6f99be48b7b92361
+/usr/sbin/ifdown|symlink|lrwxrwxrwx|777|root|root|-
+/usr/sbin/ifup|application/x-pie-executable|-rwxr-xr-x|755|root|root|d5972780da877a4a6e504bc24273ec12
+/usr/sbin/iio-sensor-proxy|application/x-pie-executable|-rwxr-xr-x|755|root|root|97eb507add643ea86bad3bcb4c12324a
 /usr/sbin/lightdm|application/x-pie-executable|-rwxr-xr-x|755|root|root|210d7ec4fdbbc453b6d9287711dc55db
+/usr/sbin/logrotate|application/x-pie-executable|-rwxr-xr-x|755|root|root|a8d6feea73672c0bb493682561d38780
+/usr/sbin/lvm|application/x-pie-executable|-rwxr-xr-x|755|root|root|14b0378348acfc116c0081f461c29a9c
 /usr/sbin/ModemManager|application/x-pie-executable|-rwxr-xr-x|755|root|root|9b65ee09a201ad18cfd28abfc83ea6d9
 /usr/sbin/NetworkManager|application/x-pie-executable|-rwxr-xr-x|755|root|root|ecbb960ac1a969cc5b704964b9ffdde5
+/usr/sbin/nft|application/x-pie-executable|-rwxr-xr-x|755|root|root|da35da396673e26ac4f07ccc5d970ba2
+/usr/sbin/plymouthd|application/x-pie-executable|-rwxr-xr-x|755|root|root|84e54db4a760e549d60de0fa6358f625
+/usr/sbin/saned|application/x-pie-executable|-rwxr-xr-x|755|root|root|c7bba6afe2dafb61d594978167b7f497
 # BULUNAMADI=/usr/sbin/sshd
+/usr/sbin/updatedb.plocate|application/x-pie-executable|-rwxr-xr-x|755|root|root|a6cd807c1c2b350d5a1104afd85bd974
+/usr/sbin/usb_modeswitch_dispatcher|application/x-pie-executable|-rwxr-xr-x|755|root|root|370d99d1dd01a4762d050befea62f7e2
+/usr/sbin/usbmuxd|application/x-pie-executable|-rwxr-xr-x|755|root|root|05163cd343c0d9d6ef3a1f3b505df838
+/usr/sbin/uuidd|application/x-pie-executable|-rwxr-xr-x|755|root|root|8fff46b168b3ab9c521d5c894e9c0983
 /usr/sbin/wpa_supplicant|application/x-pie-executable|-rwxr-xr-x|755|root|root|065e02058daf32ee0954deab808077ff
+/usr/sbin/zramswap|text/x-shellscript|-rwxr-xr-x|755|root|root|657b588307b0c14d8a793696b9dd6f3a
 /usr/share/applications|directory|drwxr-xr-x|755|root|root|-
 /usr/share/applications/appimage.desktop|text/plain|-rw-r--r--|644|root|root|ed0ba9a881260ab852bc3709ad1c7e66
 /usr/share/applications/blueman-adapters.desktop|text/plain|-rw-r--r--|644|root|root|8c74cd94c5c8a549e8c488caf77e7ba7
@@ -990,6 +1106,7 @@
 /usr/share/eta/eta-usb-register/src/USBDeviceManager.py|text/x-script.python|-rw-r--r--|644|root|root|8d89821fd2b1c376a03dab2b5c3bf10a
 /usr/share/eta/eta-usb-register/ui|directory|drwxr-xr-x|755|root|root|-
 /usr/share/eta/eta-usb-register/ui/MainWindow.glade|text/xml|-rw-r--r--|644|root|root|cbf91effffb5a514289a8937ce55760d
+/usr/share/eta/eta-display-control/eta-display-control|text/x-shellscript|-rwxr-xr-x|755|root|root|5ae4527d788b4f12cd3891954d1cbbd9
 /usr/share/eta/eta-kisit/src/UserCheckService.py|text/x-script.python|-rwxr-xr-x|755|root|root|3845a489cca1291a7ad297961777a001
 /usr/share/eta/eta-qr-login/service.py|text/x-script.python|-rw-r--r--|644|root|root|d551395232b1cac48d0652126d3f55e5
 /usr/share/eta/eta-right-click/main.py|text/x-script.python|-rw-r--r--|644|root|root|93d32757a5bbf2d4a7a4973c9f0497c4
