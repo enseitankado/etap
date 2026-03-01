@@ -1,0 +1,315 @@
+#!/bin/bash
+
+# Kullanım kontrolü
+if [ "$#" -ne 2 ]; then
+    echo "Kullanım: $0 <1.iso> <2.iso>"
+    exit 1
+fi
+
+ISO1="$1"
+ISO2="$2"
+
+# ISO dosyalarının varlığını kontrol et
+if [ ! -f "$ISO1" ]; then
+    echo "Hata: $ISO1 dosyası bulunamadı!"
+    exit 1
+fi
+
+if [ ! -f "$ISO2" ]; then
+    echo "Hata: $ISO2 dosyası bulunamadı!"
+    exit 1
+fi
+
+# NOT: Değişken adlarında Türkçe karakter kullanılmıyor (aritmetik hata verir)
+T_BASLANGIC=$(date +%s)
+
+echo "=========================================="
+echo " REPO GÜNCELLEME BAŞLIYOR"
+echo " ISO1: $ISO1"
+echo " ISO2: $ISO2"
+echo " Başlangıç: $(date '+%Y-%m-%d %H:%M:%S')"
+echo "=========================================="
+
+# -----------------------------------------------------------
+# ADIM 1: Servis patikalarını listele ve izlenen-dizinler.txt
+#          ile birleştir, sırala, tekrarlıları temizle
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 1] Servis patikaları listeleniyor ve izlenen-dizinler.txt güncelleniyor..."
+
+for ISO in "$ISO1" "$ISO2"; do
+    echo "  -> iso-servis-patikalarini-listele.sh çalıştırılıyor: $ISO"
+    ./iso-servis-patikalarini-listele.sh "$ISO"
+    if [ $? -ne 0 ]; then
+        echo "  HATA: iso-servis-patikalarini-listele.sh başarısız oldu ($ISO)"
+        exit 1
+    fi
+
+    SERVIS_LST="${ISO}.servisler.lst"
+    if [ ! -f "$SERVIS_LST" ]; then
+        echo "  HATA: $SERVIS_LST dosyası oluşturulmadı!"
+        exit 1
+    fi
+
+    echo "  -> $SERVIS_LST ile izlenen-dizinler.txt birleştiriliyor..."
+    cat izlenen-dizinler.txt "$SERVIS_LST" | sort -u > izlenen-dizinler.txt.tmp
+    mv izlenen-dizinler.txt.tmp izlenen-dizinler.txt
+    echo "  -> izlenen-dizinler.txt güncellendi."
+done
+
+echo "[ADIM 1] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 2: Her ISO için izlenenleri listele (*.iso.lst oluştur)
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 2] ISO izlenen dosya listeleri oluşturuluyor..."
+
+for ISO in "$ISO1" "$ISO2"; do
+    echo "  -> iso-izlenenleri-listele.sh çalıştırılıyor: $ISO"
+    ./iso-izlenenleri-listele.sh "$ISO"
+    if [ $? -ne 0 ]; then
+        echo "  HATA: iso-izlenenleri-listele.sh başarısız oldu ($ISO)"
+        exit 1
+    fi
+
+    LST_DOSYA="${ISO}.lst"
+    if [ ! -f "$LST_DOSYA" ]; then
+        echo "  HATA: $LST_DOSYA dosyası oluşturulmadı!"
+        exit 1
+    fi
+    echo "  -> $LST_DOSYA oluşturuldu."
+done
+
+echo "[ADIM 2] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 3: ISO farkını repoya kopyala
+#          Parametreler: 1.iso.lst  2.iso.lst  2.iso  repo
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 3] ISO farkı repoya kopyalanıyor..."
+echo "  -> iso-farki-repoya-kopyala.sh ${ISO1}.lst ${ISO2}.lst ${ISO2} repo"
+
+./iso-farki-repoya-kopyala.sh "${ISO1}.lst" "${ISO2}.lst" "${ISO2}" repo
+if [ $? -ne 0 ]; then
+    echo "  HATA: iso-farki-repoya-kopyala.sh başarısız oldu!"
+    exit 1
+fi
+
+echo "[ADIM 3] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 4: GitHub reposuna push et
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 4] Değişiklikler GitHub reposuna gönderiliyor..."
+
+# ISO2'den commit mesajı üret:
+# Örn: 2Pardus-23.4-ETAP-20260212-1645-amd64.iso
+#   -> Pardus-23.4-ETAP-20260212-1645-amd64
+COMMIT_MESAJ=$(basename "$ISO2" .iso | sed 's/^[0-9]*//')
+
+cd repo || { echo "  HATA: repo dizinine geçilemedi!"; exit 1; }
+
+echo "  -> git add ."
+git add .
+if [ $? -ne 0 ]; then
+    echo "  HATA: git add başarısız oldu!"
+    cd ..
+    exit 1
+fi
+
+echo "  -> git commit -m \"$COMMIT_MESAJ\""
+git commit -m "$COMMIT_MESAJ"
+COMMIT_SONUC=$?
+if [ $COMMIT_SONUC -ne 0 ]; then
+    echo "  UYARI: git commit başarısız oldu veya commit edilecek değişiklik yok (çıkış kodu: $COMMIT_SONUC)"
+    # Commit yoksa push'a gerek yok ama fatal değil, devam et
+fi
+
+echo "  -> git push"
+git push
+if [ $? -ne 0 ]; then
+    echo "  HATA: git push başarısız oldu!"
+    cd ..
+    exit 1
+fi
+
+cd ..
+echo "[ADIM 4] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 5: Toplam süreyi hesapla ve ekrana bas
+# -----------------------------------------------------------
+T_BITIS=$(date +%s)
+T_SURE=$(( T_BITIS - T_BASLANGIC ))
+T_SAAT=$(( T_SURE / 3600 ))
+T_DAKIKA=$(( (T_SURE % 3600) / 60 ))
+T_SANIYE=$(( T_SURE % 60 ))
+
+echo ""
+echo "=========================================="
+echo " REPO GÜNCELLEME TAMAMLANDI"
+echo " Bitiş : $(date '+%Y-%m-%d %H:%M:%S')"
+printf " Toplam Süre: %02d:%02d:%02d (ss:dd:sn)\n" $T_SAAT $T_DAKIKA $T_SANIYE
+echo "=========================================="#!/bin/bash
+
+# Kullanım kontrolü
+if [ "$#" -ne 2 ]; then
+    echo "Kullanım: $0 <1.iso> <2.iso>"
+    exit 1
+fi
+
+ISO1="$1"
+ISO2="$2"
+
+# ISO dosyalarının varlığını kontrol et
+if [ ! -f "$ISO1" ]; then
+    echo "Hata: $ISO1 dosyası bulunamadı!"
+    exit 1
+fi
+
+if [ ! -f "$ISO2" ]; then
+    echo "Hata: $ISO2 dosyası bulunamadı!"
+    exit 1
+fi
+
+# NOT: Değişken adlarında Türkçe karakter kullanılmıyor (aritmetik hata verir)
+T_BASLANGIC=$(date +%s)
+
+echo "=========================================="
+echo " REPO GÜNCELLEME BAŞLIYOR"
+echo " ISO1: $ISO1"
+echo " ISO2: $ISO2"
+echo " Başlangıç: $(date '+%Y-%m-%d %H:%M:%S')"
+echo "=========================================="
+
+# -----------------------------------------------------------
+# ADIM 1: Servis patikalarını listele ve izlenen-dizinler.txt
+#          ile birleştir, sırala, tekrarlıları temizle
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 1] Servis patikaları listeleniyor ve izlenen-dizinler.txt güncelleniyor..."
+
+for ISO in "$ISO1" "$ISO2"; do
+    echo "  -> iso-servis-patikalarini-listele.sh çalıştırılıyor: $ISO"
+    ./iso-servis-patikalarini-listele.sh "$ISO"
+    if [ $? -ne 0 ]; then
+        echo "  HATA: iso-servis-patikalarini-listele.sh başarısız oldu ($ISO)"
+        exit 1
+    fi
+
+    SERVIS_LST="${ISO}.servisler.lst"
+    if [ ! -f "$SERVIS_LST" ]; then
+        echo "  HATA: $SERVIS_LST dosyası oluşturulmadı!"
+        exit 1
+    fi
+
+    echo "  -> $SERVIS_LST ile izlenen-dizinler.txt birleştiriliyor..."
+    cat izlenen-dizinler.txt "$SERVIS_LST" | sort -u > izlenen-dizinler.txt.tmp
+    mv izlenen-dizinler.txt.tmp izlenen-dizinler.txt
+    echo "  -> izlenen-dizinler.txt güncellendi."
+done
+
+echo "[ADIM 1] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 2: Her ISO için izlenenleri listele (*.iso.lst oluştur)
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 2] ISO izlenen dosya listeleri oluşturuluyor..."
+
+for ISO in "$ISO1" "$ISO2"; do
+    echo "  -> iso-izlenenleri-listele.sh çalıştırılıyor: $ISO"
+    ./iso-izlenenleri-listele.sh "$ISO"
+    if [ $? -ne 0 ]; then
+        echo "  HATA: iso-izlenenleri-listele.sh başarısız oldu ($ISO)"
+        exit 1
+    fi
+
+    LST_DOSYA="${ISO}.lst"
+    if [ ! -f "$LST_DOSYA" ]; then
+        echo "  HATA: $LST_DOSYA dosyası oluşturulmadı!"
+        exit 1
+    fi
+    echo "  -> $LST_DOSYA oluşturuldu."
+done
+
+echo "[ADIM 2] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 3: ISO farkını repoya kopyala
+#          Parametreler: 1.iso.lst  2.iso.lst  2.iso  repo
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 3] ISO farkı repoya kopyalanıyor..."
+echo "  -> iso-farki-repoya-kopyala.sh ${ISO1}.lst ${ISO2}.lst ${ISO2} repo"
+
+./iso-farki-repoya-kopyala.sh "${ISO1}.lst" "${ISO2}.lst" "${ISO2}" repo
+if [ $? -ne 0 ]; then
+    echo "  HATA: iso-farki-repoya-kopyala.sh başarısız oldu!"
+    exit 1
+fi
+
+echo "[ADIM 3] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 4: GitHub reposuna push et
+# -----------------------------------------------------------
+echo ""
+echo "[ADIM 4] Değişiklikler GitHub reposuna gönderiliyor..."
+
+# ISO2'den commit mesajı üret:
+# Örn: 2Pardus-23.4-ETAP-20260212-1645-amd64.iso
+#   -> Pardus-23.4-ETAP-20260212-1645-amd64
+COMMIT_MESAJ=$(basename "$ISO2" .iso | sed 's/^[0-9]*//')
+
+cd repo || { echo "  HATA: repo dizinine geçilemedi!"; exit 1; }
+
+echo "  -> git add ."
+git add .
+if [ $? -ne 0 ]; then
+    echo "  HATA: git add başarısız oldu!"
+    cd ..
+    exit 1
+fi
+
+echo "  -> git commit -m \"$COMMIT_MESAJ\""
+git commit -m "$COMMIT_MESAJ"
+COMMIT_SONUC=$?
+if [ $COMMIT_SONUC -ne 0 ]; then
+    echo "  UYARI: git commit başarısız oldu veya commit edilecek değişiklik yok (çıkış kodu: $COMMIT_SONUC)"
+    # Commit yoksa push'a gerek yok ama fatal değil, devam et
+fi
+
+echo "  -> git push"
+git push
+if [ $? -ne 0 ]; then
+    echo "  HATA: git push başarısız oldu!"
+    cd ..
+    exit 1
+fi
+
+cd ..
+echo "[ADIM 4] TAMAMLANDI."
+
+# -----------------------------------------------------------
+# ADIM 5: Toplam süreyi hesapla ve ekrana bas
+# -----------------------------------------------------------
+T_BITIS=$(date +%s)
+T_SURE=$(( T_BITIS - T_BASLANGIC ))
+T_SAAT=$(( T_SURE / 3600 ))
+T_DAKIKA=$(( (T_SURE % 3600) / 60 ))
+T_SANIYE=$(( T_SURE % 60 ))
+
+echo ""
+echo "=========================================="
+echo " REPO GÜNCELLEME TAMAMLANDI"
+echo " Bitiş : $(date '+%Y-%m-%d %H:%M:%S')"
+printf " Toplam Süre: %02d:%02d:%02d (ss:dd:sn)\n" $T_SAAT $T_DAKIKA $T_SANIYE
+echo "=========================================="
+
+
+
+
