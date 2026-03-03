@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+
+import sys, os
+
+os.chdir("/usr/share/pardus/eta-register/src/")
+sys.path.insert(0, "/usr/share/pardus/eta-register/src/")
+import Main

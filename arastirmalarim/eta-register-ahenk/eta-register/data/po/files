@@ -1,0 +1,10 @@
+ui/ui.glade
+src/MainWindow.py
+src/SchoolCode.py
+src/constants.py
+src/enums.py
+src/Main.py
+src/ServerGet.py
+src/ServerPost.py
+src/std_opr.py
+src/utils.py

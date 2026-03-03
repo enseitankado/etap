@@ -1,0 +1,29 @@
+.login_window, .loginscreen_overlay {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-origin: content-box;
+  background: none;
+}
+
+.entry, .button {
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 16px;
+}
+
+.button_left {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+}
+
+.button_right {
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+}
+
+.textview {
+  border-radius: 8px;
+  padding: 8px;
+}

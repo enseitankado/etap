@@ -1,0 +1,10 @@
+ sudo evtest /dev/input/event7 
+
+dokunulan kordinatları görmek
+
+
+sudo lsof | grep OtdUsbRaw000
+raw aygtı okuyan prosess
+
+sudo strace -p 736 -s 1000 -e read
+prosesin cihazdan okuduğu veri

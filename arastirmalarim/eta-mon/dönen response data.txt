@@ -1,0 +1,571 @@
+{
+    "operationMessage": "success",
+    "operationCode": 200,
+    "success": true,
+    "userInfoData": {
+        "userId": "2d383786bccd0eesadfasfd65c1683e8d1fd0062",
+        "name": "ÖZGÜR",
+        "surname": "KOCA",
+        "role": 2,
+        "gender": null,
+        "profession": null,
+        "mobilePhone": null,
+        "school": {
+            "id": "6c9c513b05daasdfsadf972e5e7b885ada528cd4",
+            "name": "Samsun Şehit İlhan Hamlı Mesleki ve Teknik Anadolu Lisesi",
+            "corporation": {
+                "id": "91e85dd1570a4908a5b378asdfasdf0565feabef",
+                "name": "MEB",
+                "createDate": 1517530013274,
+                "deleted": false
+            },
+            "typeId": 2,
+            "subtypeId": 8,
+            "isdefault": false,
+            "schoolDetail": null,
+            "schoolCity": null,
+            "institutionType": "308",
+            "corporate": false
+        },
+        "schoolList": [
+            {
+                "id": "6c9c513b05da972e5asfdsdfe7b885ada528cd4",
+                "name": "Samsun Şehit İlhan Hamlı Mesleki ve Teknik Anadolu Lisesi",
+                "corporation": {
+                    "id": "91e85dd1570a4908a5b3780565feabef",
+                    "name": "MEB",
+                    "createDate": 1517530013274,
+                    "deleted": false
+                },
+                "typeId": 2,
+                "subtypeId": 8,
+                "isdefault": false,
+                "schoolDetail": null,
+                "schoolCity": null,
+                "institutionType": "308",
+                "corporate": false
+            },
+            {
+                "id": "6c9c513b05da972e5e7asfdasdfb885ada528cd4",
+                "name": "Samsun Şehit İlhan Hamlı Mesleki ve Teknik Anadolu Lisesi",
+                "corporation": {
+                    "id": "91e85dd1570a4908a5b3780565feabef",
+                    "name": "MEB",
+                    "createDate": 1517530013274,
+                    "deleted": false
+                },
+                "typeId": 2,
+                "subtypeId": 8,
+                "isdefault": false,
+                "schoolDetail": null,
+                "schoolCity": null,
+                "institutionType": "308",
+                "corporate": false
+            },
+            {
+                "id": "6c9c513b05asfsdfda972e5e7b885ada528cd4",
+                "name": "Samsun Şehit İlhan Hamlı Mesleki ve Teknik Anadolu Lisesi",
+                "corporation": {
+                    "id": "91e85dd1570a490asdf8a5b3780565feabef",
+                    "name": "MEB",
+                    "createDate": 1517530013274,
+                    "deleted": false
+                },
+                "typeId": 2,
+                "subtypeId": 8,
+                "isdefault": false,
+                "schoolDetail": null,
+                "schoolCity": null,
+                "institutionType": "308",
+                "corporate": false
+            }
+        ],
+        "avatarPath": null,
+        "preferredClass": 9,
+        "classroom": {
+            "id": -1,
+            "name": null,
+            "locked": false,
+            "base": false,
+            "nodeId": null,
+            "raunt": false,
+            "corpYearlyPlan": null,
+            "iyproducible": false,
+            "ssproducible": false,
+            "associatedWithPointType": false,
+            "schoolSubTypeList": null
+        },
+        "readClassroomList": null,
+        "writeSSClassroomList": null,
+        "writeIYClassroomList": null,
+        "userCategory": null,
+        "userBranch": {
+            "id": 14,
+            "name": "Bilişim Teknolojileri"
+        },
+        "classroomList": [
+            {
+                "id": -2,
+                "name": "Okul Öncesi",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 1,
+                "name": "1. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 2,
+                "name": "2. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 3,
+                "name": "3. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 4,
+                "name": "4. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 5,
+                "name": "5. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 6,
+                "name": "6. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 7,
+                "name": "7. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 8,
+                "name": "8. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 9,
+                "name": "9. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 10,
+                "name": "10. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 11,
+                "name": "11. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 12,
+                "name": "12. Sınıf",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 13,
+                "name": "Usta Öğreticilik Kursu",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            },
+            {
+                "id": 14,
+                "name": "Hazırlık Sınıfı",
+                "locked": false,
+                "base": false,
+                "nodeId": null,
+                "raunt": false,
+                "corpYearlyPlan": null,
+                "iyproducible": true,
+                "ssproducible": true,
+                "associatedWithPointType": false,
+                "schoolSubTypeList": null
+            }
+        ],
+        "userConfiguration": "<userSettings><latestNotificationViewDate>0</latestNotificationViewDate><vcAllLessonsInformationPopupShown>true</vcAllLessonsInformationPopupShown></userSettings>",
+        "serverTime": 1737064590962,
+        "redirectURL": "https://www.eba.gov.tr",
+        "permission": 0,
+        "ebaUid": "H1A2RIafx00AUe0bGA086",
+        "help": null,
+        "externalResource": null,
+        "coverImagePath": null,
+        "child": null,
+        "children": null,
+        "commonExamExist": false,
+        "corpModerationLevel": 2,
+        "authorities": [
+            {
+                "id": "ROLE_BASE_COMPETENCYREPORT",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_COMPETENCYREPORT"
+            },
+            {
+                "id": "ROLE_BASE_COURSE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_COURSE"
+            },
+            {
+                "id": "ROLE_BASE_HOMEWORKREPORT",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_HOMEWORKREPORT"
+            },
+            {
+                "id": "ROLE_BASE_MY_FILES",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_MY_FILES"
+            },
+            {
+                "id": "ROLE_BASE_MYGROUPS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_MYGROUPS"
+            },
+            {
+                "id": "ROLE_BASE_MYPORTFOLIO",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_MYPORTFOLIO"
+            },
+            {
+                "id": "ROLE_BASE_PROFESSIONALDEV",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_PROFESSIONALDEV"
+            },
+            {
+                "id": "ROLE_BASE_PROFESSIONALDEVGROUPS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_PROFESSIONALDEVGROUPS"
+            },
+            {
+                "id": "ROLE_BASE_STATISTICSREPORT",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_STATISTICSREPORT"
+            },
+            {
+                "id": "ROLE_BASE_TRACKHOMEWORK",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_TRACKHOMEWORK"
+            },
+            {
+                "id": "ROLE_BASE_USAGEREPORT",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_USAGEREPORT"
+            },
+            {
+                "id": "ROLE_BASE_VFABRIKA",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_VFABRIKA"
+            },
+            {
+                "id": "ROLE_BASE_VIEWEXAMS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_VIEWEXAMS"
+            },
+            {
+                "id": "ROLE_BASE_VIEWLESSONPLANS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_VIEWLESSONPLANS"
+            },
+            {
+                "id": "ROLE_BASE_VIEWMYPAGE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_VIEWMYPAGE"
+            },
+            {
+                "id": "ROLE_BASE_VIEWTOPICS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_BASE_VIEWTOPICS"
+            },
+            {
+                "id": "ROLE_CREATE_ASSIGNMENT",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_CREATE_ASSIGNMENT"
+            },
+            {
+                "id": "ROLE_CRUD_CORP_WRITTEN_EXAM",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_CRUD_CORP_WRITTEN_EXAM"
+            },
+            {
+                "id": "ROLE_IYS_EXAM",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_IYS_EXAM"
+            },
+            {
+                "id": "ROLE_IYS_LOGIN",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_IYS_LOGIN"
+            },
+            {
+                "id": "ROLE_JOIN_PROFESSIONALDEVGROUPS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_JOIN_PROFESSIONALDEVGROUPS"
+            },
+            {
+                "id": "ROLE_LIST_CORP_WRITTEN_EXAM",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_LIST_CORP_WRITTEN_EXAM"
+            },
+            {
+                "id": "ROLE_PD_LT_LIST",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_PD_LT_LIST"
+            },
+            {
+                "id": "ROLE_POST_MESSAGE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_POST_MESSAGE"
+            },
+            {
+                "id": "ROLE_RECALL_MESSAGE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_RECALL_MESSAGE"
+            },
+            {
+                "id": "ROLE_REPLY_MESSAGE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_REPLY_MESSAGE"
+            },
+            {
+                "id": "ROLE_RESOURCE_SHARE_CORP",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_RESOURCE_SHARE_CORP"
+            },
+            {
+                "id": "ROLE_RESOURCE_SHARE_SCHOOL",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_RESOURCE_SHARE_SCHOOL"
+            },
+            {
+                "id": "ROLE_VCLOUD_LOGIN",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VCLOUD_LOGIN"
+            },
+            {
+                "id": "ROLE_VGRID_COMMENT_WRITE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VGRID_COMMENT_WRITE"
+            },
+            {
+                "id": "ROLE_VGRID_INTERACT",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VGRID_INTERACT"
+            },
+            {
+                "id": "ROLE_VGRID_POST_WRITE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VGRID_POST_WRITE"
+            },
+            {
+                "id": "ROLE_VIEW_MUSEUM",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VIEW_MUSEUM"
+            },
+            {
+                "id": "ROLE_VIEW_STUDENT_PORTFOLIOS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VIEW_STUDENT_PORTFOLIOS"
+            },
+            {
+                "id": "ROLE_EXTERNAL_VIRTUAL_CLASSROOM_CREATE",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_EXTERNAL_VIRTUAL_CLASSROOM_CREATE"
+            },
+            {
+                "id": "ROLE_EXTERNAL_VIRTUAL_CLASSROOM_VIEW",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_EXTERNAL_VIRTUAL_CLASSROOM_VIEW"
+            },
+            {
+                "id": "ROLE_VIRTUAL_CLASSROOM_CREATE_TEAMS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VIRTUAL_CLASSROOM_CREATE_TEAMS"
+            },
+            {
+                "id": "ROLE_VIRTUAL_CLASSROOM_VIEW_TEAMS",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_VIRTUAL_CLASSROOM_VIEW_TEAMS"
+            },
+            {
+                "id": "ROLE_MEB_UH_USER",
+                "name": null,
+                "scopes": null,
+                "authority": "ROLE_MEB_UH_USER"
+            }
+        ],
+        "userRoleList": [
+            {
+                "id": 39,
+                "name": "Veli",
+                "userAuthorities": null
+            },
+            {
+                "id": 2,
+                "name": "Öğretmen",
+                "userAuthorities": null
+            }
+        ],
+        "agreementStateList": {
+            "eba-iys": true
+        },
+        "vclassStatus": false,
+        "homepage": 0,
+        "city": "SAMSUN"
+    },
+    "authority": false
+}

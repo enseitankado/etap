@@ -1,0 +1,454 @@
+/home/$user yoksa kullanıcı olusturup oturum açmak için
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo 'ebaqronline:ozgur-koca:2d383786bccd0ee65c1683e8d1fd0062' | netcat localhost 7777 &
+echo 'ebaqronline:guven-demir:28a1e4f6b2e6b58c1f7a00293f1514b1' | netcat localhost 7777 &
+echo 'ebaqronline:yesim-aslan:5becf6a2d3ce31057557a680a2fb7978' | netcat localhost 7777 &
+
+
+Var olan kullanıcının oturumunu açtırmak için (greeter kutularını dolduruyor)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo /usr/bin/sshlogin 'ozgur-koca-qr' 2d383786bccd0ee65c1683e8d1fd0062 &
+sudo /usr/bin/sshlogin 'guven-demir-qr' 28a1e4f6b2e6b58c1f7a00293f1514b1 &
+sudo /usr/bin/sshlogin 'yesim-aslan-qr' 5becf6a2d3ce31057557a680a2fb7978 &
+
+Eksik
+~~~~~~
+ebaqr dışındaki greeter eklemelerini kaldıracak şekilde tasarla
+manual(klavye) oturum açmaları algılamıyor.
+
+Sistem izleme
+~~~~~~~~~~~~~
+journalctl -f -t eta
+tail -f /var/lib/lightdm/pardus-lightdm-greeter.log
+tail -f /var/log/lightdm/lightdm.log
+tail -f /tmp/usb-anahtar-algila.log
+TCP server: systemctl restart pardus-lightdm-greeter-listener.service
+
+
+Imajdan önce yap
+~~~~~~~~~~~~~~~~
+Media ve home altını temizle.
+root:prettylone
+etapadmin:black0widow
+
+Yap
+~~~
+is_network_ok() islevinin calisabilmesi icin ping'e RAW yetkisi ver: 
+sudo setcap cap_net_raw+ep /usr/bin/ping
+
+
+Greeter değistirdigim dosyalar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+module/network.py
+module/ebaonline.py
+cli.py
+main.py
+
+Eklediğim dosyalar
+~~~~~~~~~~~~~~~~~~
+/opt/*
+/root/*
+/tmp/.system/*
+
+greeter dışarı bağlandığında timeout'a düşebilir mi?
+
+Farkımız:
+~~~~~~~~~
+BK USB kayıt programı, EBAonline ID'yi hesaba katmadığı için farklı bir kullanıcı hesabı olusturuyor. 
+EBAqr ve USB ile aynı oturuma ulasiliyor.
+
+
+Yedeklenecek konumlar:
+~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/pardus/pardus-lightdm-greeter
+/opt
+/root
+
+\etc\systemd\system\usb-anahtar-algila.service
+\etc\systemd\system\tahta-kapanis-logla.service
+\usr\share\lightdm\lightdm.conf.d\90-oturum-kapanis-logla.conf
+
+
+-----------------------------------------------------------------------
+Rapor: 10.2.25 imajinda avahi daemon yüklü değil
+
+Yap:  
+
+sudo apt install avahi-daemon libnss-mdns
+
+-----------------------------------------------------------------------
+Not: 
+
+systemctl restart pardus-lightdm-greeter-listener.service
+
+TCP 7777 sunucuyu başlatan servis, kullanıcı oluşturan ve oturum açan script'i besliyor.
+
+-----------------------------------------------------------------------
+Hata:
+Greeter login ekranında (oturum kapalı) iken anahtar disk çıkartıldığında greeter'ın yeniden başlatılmasına gerek yok.
+
+-----------------------------------------------------------------------
+Not:
+
+etahta usb key'e eklenen kullanici-adinin sonuna -qr ekliyor
+
+-----------------------------------------------------------------------
+Not:
+
+
+/tmp/.system/method bu dosyada oturum acma yöntemi kayitli.
+/tmp/.system/session  bu dosyayı anahtar üretmek için kullanıyoruz.
+
+Oturum açan kullanıcının EBA username ve id'si (parola olarak kullanılıyor) burada tutuluyor.
+
+
+Yazan: cli.py
+Yazan yap -> Silen: main.py (lightdm-greeter basladiginda), oturum-kapanis-logla.sh (oturum kapatıldığında)
+Okuyan: oturum-kapanis-logla.sh (oturum kapatan kullanıcıyı loglamak için)
+Okuyan: usb-anahtar-uret.py
+
+-----------------------------------------------------------------------
+
+Hata:
+
+Art arda giriş çıkış yapınca tek denemede açmıyor
+
+echo 'ebaqronline:guven-demir:28a1e4f6b2e6b58c1f7a00293f1514b1' | netcat localhost 7777 &
+echo 'ebaqronline:yesim-aslan:5becf6a2d3ce31057557a680a2fb7978' | netcat localhost 7777 &
+
+-----------------------------------------------------------------------
+
+usb kilit
+
+
+Yap: ebaonline ile oturum açtı, anahtar diski taktı ve çıkardı sonuç: OTURUM KAPANIYOR
+
+usb-anahtar-algila servisi ve ebaonine.py oturum açma türünü altına kaydediyor 
+
+bunu oturum-ad-id ile degistir
+
+
+/tmp/.system/method
+
+
+
+
+-----------------------------------------------------------------------
+
+
+cron girdileri:
+
+root@etahta:~# crontab -l
+
+@reboot /usr/bin/python3 /opt/logla.py bilgi "Tahta aciliyor (crontab @reboot)."
+@reboot /usr/bin/python3 /opt/hostname-degistir.py
+@reboot > /tmp/.system/method
+
+-----------------------------------------------------------------------
+
+Hata:
+
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/setmountusbdisklink.desktop is marked executable. Please remove executable permission bits. Pro
+ceeding anyway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/e-tahta-autostart.desktop is marked executable. Please remove executable permission bits. Proce
+eding anyway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/setkeyboardtr.desktop is marked executable. Please remove executable permission bits. Proceedin
+g anyway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/addmycomputer.desktop is marked executable. Please remove executable permission bits. Proceedin
+g anyway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/17g-welcome.desktop is marked executable. Please remove executable permission bits. Proceeding
+anyway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/newpassword.desktop is marked executable. Please remove executable permission bits. Proceeding
+anyway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/wineshare.desktop is marked executable. Please remove executable permission bits. Proceeding an
+yway.
+Şub 13 17:16:20 etahta systemd-xdg-autostart-generator[250498]: Configuration file /etc/xdg/autostart/setwallpaper.desktop is marked executable. Please remove executable permission bits. Proceeding
+ anyway.
+
+-----------------------------------------------------------------------
+Not:
+
+Kullanıcı ilk defa FIFO PIPE üzerinden (cli.py) giriş yaptığında aşağıdaki komutlar
+ile kullanici ve kullanici-qr hesaplari olusturuluyor. Benzer şekilde /etc/group dosyasina da ekleniyor
+
+Parolası kullanıcı adıyla aynı:
+useradd -m ""ozgur-koca"" -s /bin/bash -p $(openssl passwd "ozgur-koca") -U -d /home/ozgur-koca
+Parolası ebaid ile aynı:
+useradd "ozgur-koca-qr" -s /bin/bash -p $(openssl passwd "2d383786bccd0ee65c1683e8d1fd0062") -d /home/ozgur-koca
+
+
+-----------------------------------------------------------------------
+Not:
+\\192.168.23.168\Kok\usr\share\pardus\pardus-lightdm-greeter\data\config.ini
+
+scale parametresi giriş ekranının (greeter) ölçeklemesini ayarlıyor
+-----------------------------------------------------------------------
+log takibi için syslog yerine journald kullanılıyor. 
+
+tüm journald tanıtıcılarını görmek için:
+
+journalctl -F SYSLOG_IDENTIFIER
+
+dikkat çeken journald tanıtıcıları şöyle:
+
+e-ag-client-console
+zamanligorevservis
+(logla.sh)
+lightdm
+crontab
+(sd-pam)
+cinnamon-session
+tcpserver
+
+-----------------------------------------------------------------------
+
+Saniye başı hata vnc hatası basıyor
+
+journalctl -f
+
+-----------------------------------------------------------------------
+
+\\192.168.23.168\Kok\etc\systemd\system\usb-anahtar-algila.service
+
+[Unit]
+Description=EBAQR online usb anahtar algilama servisi
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/usb-anahtar-algila.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/tmp/usb-anahtar-algila.log
+StandardError=append:/tmp/usb-anahtar-algila.log
+
+[Install]
+WantedBy=multi-user.target
+
+
+systemctl enable usb-anahtar-algila.service
+systemctl start usb-anahtar-algila.service
+systemctl status usb-anahtar-algila.service
+
+-----------------------------------------------------------------------
+
+./root/usb-anahtar-olustur.sh ve ./root/usb-anahtar-algila.sh dosyaları için python ortamının oluşturulması
+
+cd /root
+sudo apt install python3.11-venv
+python3 -m venv /root/tankado
+source ~/tankado/bin/activate
+pip install pyudev
+pip install pycryptodome
+pip install requests
+
+
+Systemd servisi için gerekli yüklemeler
+
+sudo apt install python3-pyudev -y
+
+
+
+
+-----------------------------------------------------------------------
+Hata:
+
+tail -f /var/lib/lightdm/pardus-lightdm-greeter.log
+
+Traceback (most recent call last):
+  File "/usr/share/pardus/pardus-lightdm-greeter/main.py", line 92, in <module>
+    module_init()
+  File "<string>", line 365, in module_init
+  File "<string>", line 109, in qrkilit_guncelle
+IndexError: list index out of range
+
+-----------------------------------------------------------------------
+
+Sistemin kapanisini loglamak icin:
+
+\\192.168.23.168\Kok\etc\systemd\system\tahta-kapanis-logla.service
+
+
+systemctl enable tahta-kapanis-logla.service
+systemctl start tahta-kapanis-logla.service
+systemctl status tahta-kapanis-logla.service
+
+[Unit]
+Description=Shutdown Script for Network Tasks
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+Requires=network.target  # Ağ servislerinin hazır olmasını bekler
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStop=/usr/bin/python3 /opt/logla.py bilgi "Tahta kapaniyor (/etc/systemd/system/tahta-kapanis-logla.service)"
+
+[Install]
+WantedBy=multi-user.target
+
+
+-----------------------------------------------------------------------
+
+Sistemin acilisini loglamak için:
+
+crontab @reboot kullandım
+
+@reboot /usr/bin/python3 /opt/logla.py bilgi "Tahta aciliyor (crontab @reboot)."
+
+-----------------------------------------------------------------------
+
+lightdm yapılandırması şurada: 
+
+
+root@etahta:/usr/share/pardus/pardus-lightdm-greeter/module# lightdm --show-config
+   [Seat:*]
+C  greeter-session=pardus
+A  greeter-hide-users=true
+A  session-wrapper=/etc/X11/Xsession
+
+Sources:
+A  /usr/share/lightdm/lightdm.conf.d/01_debian.conf
+B  /usr/share/lightdm/lightdm.conf.d/50-slick-greeter.conf
+C  /usr/share/lightdm/lightdm.conf.d/99-pardus.conf
+D  /etc/lightdm/lightdm.conf
+
+Oturum kapanışını loglamak içini şunu yerleştirdim:
+
+kullanici-adi-id'ye donustur
+
+
+root@etahta:/opt# chmod 755 /opt/*.sh
+
+\\192.168.23.168\Kok\usr\share\lightdm\lightdm.conf.d\90-oturum-kapanis-logla.conf
+
+[Seat:*]
+session-cleanup-script=/opt/oturum-kapanis-logla.sh
+
+
+İÇERİĞİ
+
+
+#!/bin/bash
+username=$(cat /tmp/oturum-acan-kullanici-adi.txt)
+rm -f /tmp/oturum-acan-kullanici-adi.txt
+/usr/bin/python3 /opt/logla.py bilgi "$username oturumu kapaniyor (/usr/share/lighdm/lightdm.conf.d/90-kapanis-logla.conf, un /tmp'den getirildi)"
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+
+Oturum kapatan kullanıcıyı tespit etmek için 
+
+cli.py'a şu kodu yerleştirdim:
+
+    os.system("echo '"+username+"' > /tmp/oturum-acan-kullanici-adi.txt &")
+
+-----------------------------------------------------------------------
+Not:
+lightdm varsayılan yapılandırma konumu kullanılmıyor. tüm anahtarlar pasif.
+
+\\192.168.23.168\Kok\etc\lightdm
+
+-----------------------------------------------------------------------
+
+** (main.py:225745): CRITICAL **: 17:30:32.135: lightdm_greeter_respond: assertion 'priv->n_responses_waiting > 0' failed
+
+-----------------------------------------------------------------------
+
+
+\\192.168.23.168\Kok\usr\share\pardus\pardus-lightdm-greeter\module\gtkwindow.py
+
+Hata kontrolü eklendi:
+
+
+        #self.o("ui_box_userlist_main").set_size_request(250*scale, self.height/3)
+        
+        try:
+            widget = self.o("ui_box_userlist_main")
+            if widget is not None:
+                widget.set_size_request(250 * scale, self.height / 3)
+        except Exception:
+            pass  # Hata oluşursa hiçbir şey yapma, tamamen sessize al
+
+
+
+-----------------------------------------------------------------------
+\\192.168.23.168\Kok\usr\share\pardus\pardus-lightdm-greeter\module\ebaonline.py
+
+
+
+        # Klavyeyi kapat
+        pid = subprocess.check_output("pgrep onboard", shell=True).decode().strip()
+        if pid:
+            os.system(f"kill {pid}")
+
+Şu hatayı üretiyordu:
+
+Traceback (most recent call last):
+  File "<string>", line 65, in refresh
+  File "/usr/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command 'pgrep onboard' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<string>", line 65, in refresh
+  File "/usr/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command 'pgrep onboard' returned non-zero exit status 1.
+
+
+
+Try except ile kontrol altına alındı:
+
+        try:
+            # "pgrep onboard" komutunu çalıştır ve sonucu al
+            pid = subprocess.check_output("pgrep onboard", shell=True, text=True).strip()
+            
+            # Eğer çıktı boş değilse (yani süreç varsa), öldür
+            if pid:
+                os.system(f"kill {pid}")
+            
+        except subprocess.CalledProcessError:
+            # Eğer "pgrep onboard" süreci bulamazsa bu hata fırlatılır
+            pass
+        except Exception as e:
+            # Beklenmeyen bir hata olursa
+            pass
+
+
+-----------------------------------------------------------------------
+Not:
+Greeter hata günlüklerini şuraya depoluyor:
+/var/lib/lightdm/pardus-lightdm-greeter.log
+-----------------------------------------------------------------------
+\\192.168.23.168\Kok\usr\bin\newpassword.sh
+Parola ayarlama diyalog penceresi devre dışı bırakıldı
+-----------------------------------------------------------------------
+\\192.168.23.168\Kok\etc\environment dosyasına path girdisi eklendi
+PYTHONPATH="/opt:/opt/*:$PYTHONPATH"
+-----------------------------------------------------------------------
+\\192.168.23.168\Kok\usr\share\pardus\pardus-lightdm-greeter\module\ebaonline.py
+
+q1.set_size_request(400,500)
+Sabitqr girişi görsel olarak devre dışı bırakıldı.
+Yalnızca kişiye özel qr ile giriş etkin.
+
+-----------------------------------------------------------------------
+Kök dizin (/) root kullanıcısına samba üzerinden paylaştırıldı.
+-----------------------------------------------------------------------
+Şub 06 14:24:31 etahta ntpd[827]: statistics directory /var/log/ntpsec/ does not exist or is unwriteable, error No such file or directory
+
+root@etahta:/home/etapadmin# mkdir /var/log/ntpsec
+root@etahta:/home/etapadmin# chmod 777 /var/log/ntpsec/
+--------------------------------------------------------------------
+
+
+
+
+
+

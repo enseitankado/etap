@@ -1,0 +1,81 @@
+sudo -u etapadmin python3 /usr/bin/eta-register -c
+
+-c: Daha önce kaydedilmiş ise arabirimi görüntülemez.
+
+
+Adım 1: Başlangıçta kendisini çalıştıran kullanıcının etapadmin olup olmadığına bakıyor, değilse çıkıyor. 
+
+Adım 2: Çevrimiçi olup olmadığını api-etap.eba.gov.tr:1000 adresine bağlanarak kontrol ediyor. Eski kodda 161.9.194.180, 172.16.102.248 ve port 3000 kullanılmış. 
+
+Adım 3: Çevrimiçi ise tahtanın kayıtlı olup olmadığını kontrol ettiği API uç noktası (board_id dönüyor): 
+
+	api-etap.eba.gov.tr/board/check?mac=de:ad:de:ad:de:ad
+	
+Tahta kaydının ardından ahenk kurulumu başlıyor.	
+
+Ayrıyeten şu komutla kayıt yapılabilir:
+
+//Adana
+sudo -u root python3 /usr/share/pardus/eta-register/src/opr.py register-board 1 1 751308 21
+
+//ŞİH MTAL yeni ekle
+sudo -u root python3 /usr/share/pardus/eta-register/src/opr.py register-board 55 771 967657 ARGE2
+
+//ŞİH MTAL güncelle
+Daha önce kaydedilmiş bir tahtanın mac id'sinden board id'sini elde etmek için:
+http://api-etap.eba.gov.tr:1000/api/board/check?mac=08:00:27:72:1e:d4
+
+sudo -u root python3 /usr/share/pardus/eta-register/src/opr.py update-board 967657 4352 ARGE2
+
+// Ahenk yükle
+sudo -u root python3 /usr/share/pardus/eta-register/src/opr.py install-ahenk
+
+
+
+
+
+Get ve Post iletişiminde şu header ekleniyor: secure_connection_header = {"etap-app-code": "eta_register!"}
+
+
+
+Sunucuya şu bilgileri JSON olarak gönderiyor:
+
+        "city_id": int(city_id),
+        "town_id": int(town_id),
+        "school_code": int(school_code),
+        "mac_id": network_device.mac,
+        "usb": sys_info["usb"],
+        "gpu": sys_info["gpu"],
+        "cpu": sys_info["cpu"],
+        "net": sys_info["net"],
+        "mobo": sys_info["mobo"],
+        "disk": sys_info["disk"],
+        "unit_name": unit_name,
+
+
+Şehir listesi: http://api-etap.eba.gov.tr:1000/api/city
+Şehrin ilçeleri: http://api-etap.eba.gov.tr:1000/api/town/id/1
+İlçedeki okullar: http://api-etap.eba.gov.tr:1000/api/school/no-limit/1/3
+İlk 15 Okul arama: http://api-etap.eba.gov.tr:1000/api/school/1/1?page=0&search=okul
+Limitsiz okul arama: http://api-etap.eba.gov.tr:1000/api/school/no-limit/1/1?page=0&search=okul
+Kayıt güncelleme: http://api-etap.eba.gov.tr:1000/api/board/update
+MAC arama: http://api-etap.eba.gov.tr:1000/api/board/check?mac=08:00:27:72:1e:d4
+
+
+{"code":214088,"name":"Aladağ Halk Eğitimi Merkezi","city_id":1,"town_id":1,"type":69,"type_name":"Halk Eğitimi Merkezi","createdAt":"2025-05-29T09:29:03.388Z","updatedAt":"2025-05-29T09:29:03.388Z"}
+
+ISO 8601  formatlı tarih tutuyor. MongoDB + Node.js yığını olabilir.
+
+Ahenk:
+messaging_conf_src = "/etc/ahenk/config.d/messaging.conf"
+ahenk_conf_src = "/etc/ahenk/ahenk.conf"
+registration_url = "register-liderahenk.eba.gov.tr"
+app_name = "ahenk"
+
+pulsar_host = pulsar-liderahenk.eba.gov.tr
+pulsar_port = 6650
+pulsar_use_tls = true
+tls_trust_certs_file_path = /usr/share/ahenk-eba-cert/eba.gov.tr.fullchain.crt
+
+
+

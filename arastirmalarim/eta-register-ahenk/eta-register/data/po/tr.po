@@ -1,0 +1,633 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Osman Coskun <osman.coskun@pardus.org.tr>, 2024-2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-14 16:51+0300\n"
+"PO-Revision-Date: 2025-05-20 16:43+0300\n"
+"Last-Translator: Osman Coskun <osman.coskun@pardus.org.tr>\n"
+"Language-Team: Turkish <dev@pardus.org.tr>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 48.0\n"
+
+#: ui/ui.glade:11
+msgid "🚫 Error! 🚫"
+msgstr "🚫 Hata! 🚫"
+
+#: ui/ui.glade:12
+msgid ""
+"An error occured while registering board. You can try again or register "
+"later."
+msgstr ""
+"Tahta kaydedilirken bir hata oluştu. Tekrar deneyebilir veya daha sonra "
+"kayıt yapabilirsiniz."
+
+#: ui/ui.glade:63
+msgid "Register With School Code"
+msgstr "Okul Kodu ile Kaydet"
+
+#: ui/ui.glade:76
+msgid "Register With Selecting "
+msgstr "Seçerek Kaydet"
+
+#: ui/ui.glade:147 ui/ui.glade:157
+msgid "Check School Code"
+msgstr "Okul Kodunu Kontrol Et"
+
+#: ui/ui.glade:179 ui/ui.glade:571 ui/ui.glade:655 ui/ui.glade:746
+#: ui/ui.glade:874
+msgid "page0"
+msgstr "sayfa0"
+
+#: ui/ui.glade:215 ui/ui.glade:277 ui/ui.glade:331 src/MainWindow.py:84
+#: src/MainWindow.py:575
+msgid "City"
+msgstr "Şehir"
+
+#: ui/ui.glade:228 ui/ui.glade:345 ui/ui.glade:402 src/MainWindow.py:85
+#: src/MainWindow.py:576
+msgid "Town"
+msgstr "İlçe"
+
+#: ui/ui.glade:241 ui/ui.glade:417 ui/ui.glade:471 src/MainWindow.py:86
+#: src/MainWindow.py:577
+msgid "School"
+msgstr "Okul"
+
+#: ui/ui.glade:292
+msgid "Search City"
+msgstr "Şehir Ara"
+
+#: ui/ui.glade:360
+msgid "Search Town"
+msgstr "İlçe Ara"
+
+#: ui/ui.glade:432
+msgid "Search School"
+msgstr "Okul Ara"
+
+#: ui/ui.glade:492 ui/ui.glade:786
+msgid "page1"
+msgstr "sayfa1"
+
+#: ui/ui.glade:513 src/MainWindow.py:89
+msgid "Unit Name"
+msgstr "Şube Adı"
+
+#: ui/ui.glade:523
+msgid "Register This Board"
+msgstr "Bu Tahtayı Kaydet"
+
+#: ui/ui.glade:585
+msgid ""
+"Your location and school detected. But board is not registered. You can "
+"register board with following informations. If information is not correct, "
+"just click on Other Methods."
+msgstr ""
+"Konumunuz ve okulunuz tespit edildi. Ancak tahtanız kayıtlı değil. Aşağıdaki "
+"bilgilerle tahtanızı kaydedebilirsiniz. Bilgiler doğru değilse, Diğer "
+"Yöntemler'e tıklayın."
+
+#: ui/ui.glade:621
+msgid "Other Methods"
+msgstr "Diğer Yöntemler"
+
+#: ui/ui.glade:634
+msgid "Register"
+msgstr "Kaydet"
+
+#: ui/ui.glade:681
+msgid "label"
+msgstr "etiket"
+
+#: ui/ui.glade:706
+msgid "👋 ALREADY REGISTERED 📝✨"
+msgstr "👋 ZATEN KAYITLI 📝✨"
+
+#: ui/ui.glade:732
+msgid "✏️ Edit Board"
+msgstr "✏️ Tahtayı Düzenle"
+
+#: ui/ui.glade:761
+msgid "Installation is not completed."
+msgstr "Kayıt işlemi yarım kaldı."
+
+#: ui/ui.glade:772
+msgid "Retry"
+msgstr "Tekrar Dene"
+
+#: ui/ui.glade:802
+msgid ""
+"Your smart board will be registered with following informations. Are you "
+"sure?"
+msgstr "Akıllı tahtanız aşağıdaki bilgilerle kaydedilecektir. Emin misiniz?"
+
+#: ui/ui.glade:887
+msgid "🎉 Success! 🎉"
+msgstr "🎉 Başarılı! 🎉"
+
+#: ui/ui.glade:888
+msgid "Your board successfully registered on the system."
+msgstr "Tahtanız sisteme başarıyla kaydedildi."
+
+#: src/MainWindow.py:87 src/MainWindow.py:578
+msgid "Mac"
+msgstr "Mac"
+
+#: src/MainWindow.py:349 src/MainWindow.py:693 src/MainWindow.py:736
+msgid "City:"
+msgstr "Şehir:"
+
+#: src/MainWindow.py:351 src/MainWindow.py:356 src/MainWindow.py:361
+msgid "Not Selected"
+msgstr "Seçilmedi"
+
+#: src/MainWindow.py:354 src/MainWindow.py:697 src/MainWindow.py:740
+msgid "Town:"
+msgstr "İlçe:"
+
+#: src/MainWindow.py:359 src/MainWindow.py:701 src/MainWindow.py:743
+msgid "School:"
+msgstr "Okul:"
+
+#: src/MainWindow.py:364 src/MainWindow.py:708 src/MainWindow.py:748
+msgid "Unit:"
+msgstr "Şube Adı:"
+
+#: src/MainWindow.py:366
+msgid "Not Entered"
+msgstr "Girilmedi"
+
+#: src/MainWindow.py:373
+msgid "Registering board. Please wait"
+msgstr "Tahta kaydediliyor. Lütfen bekleyin"
+
+#: src/MainWindow.py:383
+msgid "Connection Error"
+msgstr "Bağlantı Hatası"
+
+#: src/MainWindow.py:387
+msgid ""
+"Unable to connect to the backend service. Please check your network "
+"connection."
+msgstr "İnternete bağlanılamıyor. Ağ bağlantılarınızı kontrol edin!"
+
+#: src/MainWindow.py:403 src/MainWindow.py:447
+msgid "Success"
+msgstr "Başarılı"
+
+#: src/MainWindow.py:405
+msgid "Board registered successfully"
+msgstr "Tahta başarıyla kaydedildi."
+
+#: src/MainWindow.py:447
+msgid "Error"
+msgstr "Hata"
+
+#: src/MainWindow.py:479
+msgid "Already registered: {} > {} > {}"
+msgstr "Zaten kayıtlı: {} > {} >{}"
+
+#: src/MainWindow.py:564
+msgid "Checking your internet connection."
+msgstr "İnternet bağlantınız kontrol ediliyor."
+
+#: src/MainWindow.py:574
+msgid "Are you sure? \n"
+msgstr "Emin misiniz? \n"
+
+#: src/MainWindow.py:580
+msgid "Unit"
+msgstr "Şube Adı"
+
+#: src/MainWindow.py:591
+msgid "No internet connection."
+msgstr "İnternet bağlantısı yok."
+
+#: src/MainWindow.py:604 src/MainWindow.py:644 src/MainWindow.py:648
+#: src/MainWindow.py:901
+msgid "Device is not registered. Please register your device."
+msgstr "Tahtanız sistemde kayıtlı değildir. Lütfen kaydediniz."
+
+#: src/MainWindow.py:613
+msgid "Checking your board."
+msgstr "Tahtanız kontrol ediliyor."
+
+#: src/MainWindow.py:662
+msgid "<b>Already registered:</b> {} > {} > {}"
+msgstr "<b>Zaten kayıtlı</b> {} > {} > {}"
+
+#: src/MainWindow.py:666
+msgid "Device is already registered."
+msgstr "Tahta zaten kayıtlı"
+
+#: src/MainWindow.py:688
+msgid "Your board is already registered with the following information:"
+msgstr "Tahtanız zaten aşağıdaki bilgilerle kayıtlıdır:"
+
+#: src/MainWindow.py:756
+msgid "Your board is not registed on the system. Please register your board."
+msgstr "Tahtanız sistemde kayıtlı değildir. Lütfen kaydediniz."
+
+#: src/MainWindow.py:811
+msgid "Board has been successfully registered."
+msgstr "Tahta başarıyla kaydedildi."
+
+#: src/MainWindow.py:815
+msgid "Installing Ahenk with dependencies."
+msgstr "Ahenk bağımlılıkları ile birlikte yükleniyor."
+
+#: src/MainWindow.py:821
+msgid "An error occured while registering board."
+msgstr "Tahta kaydedilirken bir hata oluştu."
+
+#: src/MainWindow.py:828 src/ServerPost.py:63
+msgid "Server returned error {}"
+msgstr "Sunucu {} hatası döndürdü"
+
+#: src/MainWindow.py:835 src/ServerPost.py:71
+msgid "Error: {}"
+msgstr "Hata: {}"
+
+#: src/MainWindow.py:874
+msgid "Unit name must be at most 10 characters long"
+msgstr "Şube adı en fazla 10 karakter uzunluğunda olmalıdır"
+
+#: src/MainWindow.py:1018
+msgid "Eta Register"
+msgstr "Eta Kayıt"
+
+#: src/SchoolCode.py:56
+msgid "<i>Please wait, checking school code...</i>"
+msgstr "<i>Lütfen bekleyin, okul kodu kontrol ediliyor...</i>"
+
+#: src/SchoolCode.py:66
+msgid "Please enter a school code to check."
+msgstr "Kontrol etmek için lütfen okul kodu girin"
+
+#: src/SchoolCode.py:81
+msgid "<i>Error: {}</i>"
+msgstr "<i>Hata: {}</i>"
+
+#: src/SchoolCode.py:93
+msgid "School code doesn't match. Re-enter correct school code."
+msgstr "Okul kodu eşleşmedi. Başka bir kod deneyin."
+
+#: src/SchoolCode.py:105
+msgid "<i>Error: Incomplete school data received.</i>"
+msgstr "<i>Hata: Yanlış okul verisi geldi.</i>"
+
+#: src/SchoolCode.py:114
+msgid "<i>Error: Incomplete school data from server.</i>"
+msgstr "<i>Hata: Sunucudan yanlış okul verisi geldi.</i>"
+
+#: src/SchoolCode.py:134
+msgid "<i>Error: Could not retrieve city details.</i>"
+msgstr "<i>Hata: Şehir verileri alınamadı.</i>"
+
+#: src/SchoolCode.py:151
+msgid "<i>Error: Could not retrieve town details.</i>"
+msgstr "<i>Hata: İlçe verileri alınamadı.</i>"
+
+#: src/Main.py:38
+msgid "Initializing ETA Register Application"
+msgstr "ETA Kayıt Uygulaması Başlatılıyor"
+
+#: src/Main.py:52
+msgid "Control of application"
+msgstr "Uygulama başlatılıyor..."
+
+#: src/Main.py:57
+msgid "Activating application"
+msgstr "Uygulama başlatılıyor..."
+
+#: src/Main.py:59
+msgid "Creating new MainWindow"
+msgstr "Yeni Ana Pencere oluşturuluyor"
+
+#: src/Main.py:62
+msgid "Calling controlArgs for existing window"
+msgstr "Mevcut pencere için controlArgs çağrılıyor"
+
+#: src/Main.py:66
+msgid "Processing command line arguments"
+msgstr "Komut satırı argümanları işleniyor"
+
+#: src/Main.py:73
+msgid "Error processing arguments: {}"
+msgstr "Argümanlar işlenirken hata: {}"
+
+#: src/Main.py:79
+msgid "ETA Register Application starting"
+msgstr "ETA Kayıt Uygulaması başlatılıyor"
+
+#: src/ServerGet.py:70
+msgid "Error in server request: {}"
+msgstr "Sunucu isteğinde hata: {}"
+
+#: src/ServerPost.py:40
+msgid "POST Request URL: {}"
+msgstr "POST İstek URL: {}"
+
+#: src/ServerPost.py:41
+msgid "POST Request Type: {}"
+msgstr "POST İstek Türü: {}"
+
+#: src/ServerPost.py:56
+msgid "Server Post Response (Status {})"
+msgstr "Sunucu Gönderim Yanıtı (Durum {})"
+
+#: src/ServerPost.py:79
+msgid "Response line: {}"
+msgstr "Yanıt satırı: {}"
+
+#: src/ServerPost.py:85
+msgid "Parsed Response: {}"
+msgstr "Ayrıştırılmış Yanıt: {}"
+
+#: src/ServerPost.py:88
+msgid "Empty response line"
+msgstr "Boş yanıt satırı"
+
+#: src/ServerPost.py:89
+msgid "Empty response received"
+msgstr "Boş yanıt alındı"
+
+#: src/ServerPost.py:92
+msgid "JSON Decode Error: {}"
+msgstr "JSON Çözümleme Hatası: {}"
+
+#: src/ServerPost.py:93
+msgid "Raw response: {}"
+msgstr "Ham yanıt: {}"
+
+#: src/ServerPost.py:94
+msgid "JSON parsing error: {}"
+msgstr "JSON ayrıştırma hatası: {}"
+
+#: src/ServerPost.py:97
+msgid "Error reading input stream: {}"
+msgstr "Girdi akışı okunurken hata: {}"
+
+#: src/ServerPost.py:99
+msgid "Input stream read error: {}"
+msgstr "Girdi akışı okuma hatası: {}"
+
+#: src/ServerPost.py:102 src/ServerPost.py:103
+msgid "No input stream received"
+msgstr "Girdi akışı alınmadı"
+
+#: src/ServerPost.py:107
+msgid "Error in ServerPost: {}"
+msgstr "ServerPost'ta hata: {}"
+
+#: src/ServerPost.py:109
+msgid "Unexpected error: {}"
+msgstr "Beklenmeyen hata: {}"
+
+#: src/ServerPost.py:118
+msgid "Error closing input stream: {}"
+msgstr "Girdi akışı kapatılırken hata: {}"
+
+#: src/ServerPost.py:124 src/ServerPost.py:130
+msgid "Error closing stream: {}"
+msgstr "Akış kapatılırken hata: {}"
+
+#: src/ServerPost.py:135
+msgid "ServerPost called with response: {} data: {} type: {}"
+msgstr "ServerPost yanıtla çağrıldı: {} veri: {} tür: {}"
+
+#: src/std_opr.py:20
+msgid "Starting process execution with command: {}"
+msgstr "Komut ile işlem yürütme başlatılıyor: {}"
+
+#: src/std_opr.py:33
+msgid "Executing command: {}"
+msgstr "Komut yürütülüyor: {}"
+
+#: src/std_opr.py:42
+msgid "Process started with PID: {}"
+msgstr "İşlem PID ile başlatıldı: {}"
+
+#: src/std_opr.py:55
+msgid "STDOUT: {}"
+msgstr "STDOUT: {}"
+
+#: src/std_opr.py:57
+msgid "Error reading stdout: {}"
+msgstr "stdout okunurken hata: {}"
+
+#: src/std_opr.py:67
+msgid "STDERR: {}"
+msgstr "STDERR: {}"
+
+#: src/std_opr.py:69
+msgid "Error reading stderr: {}"
+msgstr "stderr okunurken hata: {}"
+
+#: src/std_opr.py:75 src/std_opr.py:155
+msgid "Process {} finished with status: {}"
+msgstr "İşlem {} şu durumla tamamlandı: {}"
+
+#: src/std_opr.py:82
+msgid "Process exit code: {}, Success: {}"
+msgstr "İşlem çıkış kodu: {}, Başarılı: {}"
+
+#: src/std_opr.py:89
+msgid "Authentication was dismissed"
+msgstr "Kimlik doğrulama iptal edildi"
+
+#: src/std_opr.py:96
+msgid "Process did not exit normally"
+msgstr "İşlem normal şekilde sonlanmadı"
+
+#: src/std_opr.py:102
+msgid "Showing authentication error dialog"
+msgstr "Kimlik doğrulama hata penceresi gösteriliyor"
+
+#: src/std_opr.py:108
+msgid "Authentication Cancelled"
+msgstr "Kimlik doğrulama iptal edildi"
+
+#: src/std_opr.py:112
+msgid ""
+"The operation requires administrator privileges. Please complete the "
+"authentication."
+msgstr ""
+"Bu işlem yönetici ayrıcalıkları gerektirir. Lütfen kimlik doğrulamayı "
+"tamamlayın."
+
+#: src/std_opr.py:130
+msgid "Unexpected error executing command: {}"
+msgstr "Komut yürütülürken beklenmeyen hata: {}"
+
+#: src/std_opr.py:139
+msgid "Processing stdout"
+msgstr "stdout işleniyor"
+
+#: src/std_opr.py:147
+msgid "Processing stderr"
+msgstr "stderr işleniyor"
+
+#: src/std_opr.py:157
+msgid "Ahenk installation successful"
+msgstr "Ahenk kurulumu başarılı"
+
+#: src/std_opr.py:158
+msgid "Ahenk installed successfully. Quitting"
+msgstr "Ahenk başarıyla yüklendi. Çıkılıyor"
+
+#: src/std_opr.py:164
+msgid "Ahenk installation failed"
+msgstr "Ahenk kurulumu başarısız"
+
+#: src/std_opr.py:166
+msgid "An error occured while installing Ahenk. Quitting"
+msgstr "Ahenk yüklenirken bir hata oluştu. Çıkılıyor"
+
+#: src/utils.py:39
+msgid "Network connection failed after {} attempts: {}"
+msgstr "{} denemeden sonra ağ bağlantısı başarısız: {}"
+
+#: src/utils.py:106
+msgid "Current Selection: {}"
+msgstr "Şu Anki seçim: {}"
+
+#: src/utils.py:122
+msgid "User is not etapadmin. Exiting..."
+msgstr "Kullanıcı etapadmin değil. Çıkılıyor..."
+
+#: src/utils.py:126
+msgid "Control arg found."
+msgstr "Kontrol argümanı bulundu."
+
+#: src/utils.py:127
+msgid "Checking network connection..."
+msgstr "Ağ bağlantısı kontrol ediliyor..."
+
+#: src/utils.py:134
+msgid "Network connection check attempt {}"
+msgstr "Ağ bağlantısı kontrol denemesi {}"
+
+#: src/utils.py:138
+msgid "Network connection is OK."
+msgstr "Ağ bağlantısı sorunsuz."
+
+#: src/utils.py:139
+msgid "Checking if device is registered..."
+msgstr "Cihazın kayıtlı olup olmadığı kontrol ediliyor..."
+
+#: src/utils.py:150
+msgid "Registration state response: {}"
+msgstr "Kayıt durumu cevabı: {}"
+
+#: src/utils.py:163
+msgid "Device is already registered and Ahenk is installed."
+msgstr "Cihaz zaten kayıtlı ve Ahenk yüklü."
+
+#: src/utils.py:165
+msgid "Exiting..."
+msgstr "Çıkılıyor..."
+
+#: src/utils.py:173
+msgid "IP is registered but board is not. Showing quick register."
+msgstr "IP adresi kayıtlı ama tahta değil. Hızlı kayıt gösteriliyor."
+
+#: src/utils.py:181
+msgid "Device is not registered or Ahenk is not installed."
+msgstr "Cihaz kayıtlı değil veya Ahenk yüklü değil."
+
+#: src/utils.py:184
+msgid "Registration state: {}, Ahenk installed: {}"
+msgstr "Kayıt durumu: {}, Ahenk yüklendi: {}"
+
+#: src/utils.py:188
+msgid "Follow on screen instructions."
+msgstr "Ekrandaki talimatları takip edin."
+
+#: src/utils.py:193
+msgid "Error checking device registration: {}"
+msgstr "Cihaz kaydı kontrol edilirken hata: {}"
+
+#: src/utils.py:205
+msgid "Network connection failed. Next attempt in {} seconds"
+msgstr "Ağ bağlantısı başarısız. {} saniye içinde tekrar denenecek"
+
+#: src/utils.py:211
+msgid "No network connection after all attempts."
+msgstr "Tüm denemelerden sonra ağ bağlantısı yok."
+
+#: src/utils.py:214
+msgid "Control arg not found..."
+msgstr "Kontrol argümanı bulunamadı..."
+
+#: src/utils.py:215
+msgid "Starting application..."
+msgstr "Uygulama başlatılıyor..."
+
+#: src/utils.py:225
+msgid "🚫 Error! ⚠️"
+msgstr "🚫 Hata! ⚠️"
+
+#: src/utils.py:228
+msgid "Cannot connect to internet. Check your network connections!"
+msgstr "İnternete bağlanılamıyor. Ağ bağlantılarınızı kontrol edin!"
+
+#: src/utils.py:270
+msgid "Failed to get real IP after {} attempts: {}"
+msgstr "{} denemeden sonra gerçek IP alınamadı: {}"
+
+#~ msgid "Search"
+#~ msgstr "Ara"
+
+#~ msgid "Previous"
+#~ msgstr "Önceki"
+
+#~ msgid "Next"
+#~ msgstr "Sonraki"
+
+#~ msgid "School code not found. Please enter a valid school code."
+#~ msgstr "Okul kodu bulunamadı. Lütfen geçerli bir okul kodu girin."
+
+#~ msgid "{} > {} > {}"
+#~ msgstr "{} > {} > {}"
+
+#~ msgid ""
+#~ "Your board will be registered on the system with the following "
+#~ "informations.\n"
+#~ msgstr "Tahtanız aşağıdaki bilgilerle sisteme kaydedilecektir.\n"
+
+#~ msgid "Invalid Unit Name"
+#~ msgstr "Geçersiz Şube Adı"
+
+#~ msgid "Please enter a valid unit name (at least 3 characters)"
+#~ msgstr "Lütfen geçerli bir şube adı girin (en az 3 karakter)"
+
+#~ msgid "⚠️ Installation Corrupted 🚨"
+#~ msgstr "⚠️ Kurulum Bozuldu 🚨"
+
+#~ msgid "🔄 Please click the \"Retry\" button to re-install."
+#~ msgstr "🔄 Yeniden kurmak için lütfen \"Tekrar Dene\" düğmesine tıklayın."
+
+#~ msgid "Registering board"
+#~ msgstr "Tahta kaydediliyor"
+
+#~ msgid "Save Unit"
+#~ msgstr "Şube Adını Kaydet"
+
+#~ msgid "Unit name has been saved."
+#~ msgstr "Şube adı kaydedildi."
+
+#~ msgid "Unit name can not be empty."
+#~ msgstr "Şube adı boş bırakılamaz."
+
+#~ msgid "Something wrong with code you have."
+#~ msgstr "Sahip olduğunuz kodda bir sorun var."

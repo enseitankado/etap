@@ -1,0 +1,14 @@
+[Unit]
+Description=Tahta acilisini logla.py de tanimli ag sunucusuna loglar
+DefaultDependencies=no
+After=network.target
+Before=shutdown.target reboot.target halt.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 /opt/logla.py bilgi "Tahta aciliyor (/etc/systemd/system/tahta-acilis-logla.service)."
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+<schemalist>
+  <schema id="tr.org.pardus.lightdm.greeter" path="/tr/org/pardus/lightdm/greeter/">
+    <key type="s" name="last-username">
+      <default>""</default>
+      <summary>Last username</summary>
+    </key>
+    <key type="s" name="last-session">
+      <default>""</default>
+      <summary>Last session</summary>
+    </key>
+    <key type="s" name="hidden-users">
+      <default>""</default>
+      <summary>Last session</summary>
+    </key>
+    <key type="s" name="note-text">
+      <default>""</default>
+      <summary>note text</summary>
+    </key>
+    <key type="s" name="last-hash">
+      <default>""</default>
+      <summary>Last hash</summary>
+    </key>
+  </schema>
+</schemalist>

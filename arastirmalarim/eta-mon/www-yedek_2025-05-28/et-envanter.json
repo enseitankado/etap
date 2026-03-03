@@ -1,0 +1,164 @@
+[
+    {
+        "sira_no": 1,
+        "envanter_no": "55.11.165.01.ET2.001",
+        "seri_no": 14,
+        "mac": "00:09:DF:8A:BB:0D",
+        "sinif": "9B",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 1
+    },
+    {
+        "sira_no": 2,
+        "envanter_no": "55.11.165.01.ET2.002",
+        "seri_no": 675,
+        "mac": "00:09:DF:8A:AD:07",
+        "sinif": "9F",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 2
+    },
+    {
+        "sira_no": 3,
+        "envanter_no": "55.11.165.01.ET2.003",
+        "seri_no": 53,
+        "mac": "00:09:DF:8A:BE:9F",
+        "sinif": "9I",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 3
+    },
+    {
+        "sira_no": 4,
+        "envanter_no": "55.11.165.01.ET2.004",
+        "seri_no": 74,
+        "mac": "00:09:DF:8A:C2:9F",
+        "sinif": "9K",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 4
+    },
+    {
+        "sira_no": 5,
+        "envanter_no": "55.11.165.01.ET2.005",
+        "seri_no": 28,
+        "mac": "00:09:DF:8A:BF:FC",
+        "sinif": "10L",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 5
+    },
+    {
+        "sira_no": 6,
+        "envanter_no": "55.11.165.01.ET2.006",
+        "seri_no": 125,
+        "mac": "00:09:DF:97:34:94",
+        "sinif": "10C",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 6
+    },
+    {
+        "sira_no": 7,
+        "envanter_no": "55.11.165.01.ET2.007",
+        "seri_no": 27,
+        "mac": "00:09:DF:8A:BE:EA",
+        "sinif": "10H",
+        "bina_kat": "A BLOK\/2",
+        "oda_no": 7
+    },
+    {
+        "sira_no": 8,
+        "envanter_no": "55.11.165.01.ET2.008",
+        "seri_no": 562,
+        "mac": "00:09:DF:8A:C4:1D",
+        "sinif": "9A",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 8
+    },
+    {
+        "sira_no": 9,
+        "envanter_no": "55.11.165.01.ET2.009",
+        "seri_no": 667,
+        "mac": "00:09:DF:8A:8D:C1",
+        "sinif": "9C",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 9
+    },
+    {
+        "sira_no": 10,
+        "envanter_no": "55.11.165.01.ET2.010",
+        "seri_no": 561,
+        "mac": "00:09:DF:8A:C5:1F",
+        "sinif": "9G",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 10
+    },
+    {
+        "sira_no": 11,
+        "envanter_no": "55.11.165.01.ET2.011",
+        "seri_no": 548,
+        "mac": "00:09:DF:8A:C5:2D",
+        "sinif": "9H",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 11
+    },
+    {
+        "sira_no": 12,
+        "envanter_no": "55.11.165.01.ET2.012",
+        "seri_no": 44,
+        "mac": "00:09:DF:8A:BF:A5",
+        "sinif": "9L",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 12
+    },
+    {
+        "sira_no": 13,
+        "envanter_no": "55.11.165.01.ET2.013",
+        "seri_no": 648,
+        "mac": "00:09:DF:8A:B0:73",
+        "sinif": "9M",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 13
+    },
+    {
+        "sira_no": 14,
+        "envanter_no": "55.11.165.01.ET2.014",
+        "seri_no": 653,
+        "mac": "00:09:DF:8A:B0:C2",
+        "sinif": "9P",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 14
+    },
+    {
+        "sira_no": 15,
+        "envanter_no": "55.11.165.01.ET2.015",
+        "seri_no": 559,
+        "mac": "00:09:DF:8A:3B:1F",
+        "sinif": "9R",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 15
+    },
+    {
+        "sira_no": 16,
+        "envanter_no": "55.11.165.01.ET2.016",
+        "seri_no": 662,
+        "mac": "00:09:DF:8A:B9:50",
+        "sinif": "9T",
+        "bina_kat": "A BLOK\/3",
+        "oda_no": 16
+    },
+    {
+        "sira_no": 47,
+        "envanter_no": "55.11.165.01.ET2.045",
+        "seri_no": 1488,
+        "mac": "00:09:DF:8A:B8:FB",
+        "sinif": "ARGE",
+        "bina_kat": "B\/2  (Bili\u015fim)",
+        "oda_no": 16
+    },
+    {
+        "sira_no": 50,
+        "envanter_no": "55.11.165.01.ET2.048",
+        "seri_no": 7,
+        "mac": "00:09:DF:8A:BE:56",
+        "sinif": "Ağ Sistemleri",
+        "bina_kat": "B\/2  (Bili\u015fim)",
+        "oda_no": 16
+    }
+]

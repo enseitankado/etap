@@ -1,0 +1,215 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.13">
+  <diagram name="Page-1" id="P0PVKIv9v-Sm3yz-iA4A">
+    <mxGraphModel dx="1867" dy="1581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-32" value="" style="rounded=0;whiteSpace=wrap;html=1;container=0;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="-312.8" width="2920" height="1802.8" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-27" value="" style="rounded=0;whiteSpace=wrap;html=1;container=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-25" y="130" width="2065" height="1310" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-17" target="1Rh0-Jpyivj9l5sKiZfh-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="315" />
+              <mxPoint x="1250" y="425" />
+              <mxPoint x="570" y="425" />
+              <mxPoint x="570" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-22" value="&amp;nbsp;if role == &quot;2&quot; or role == &quot;300&quot; or role == &quot;301&quot;:" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontFamily=Courier New;" parent="1Rh0-Jpyivj9l5sKiZfh-21" vertex="1" connectable="0">
+          <mxGeometry x="0.2795" y="-2" relative="1" as="geometry">
+            <mxPoint x="70" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-20" value="os.system(&quot;echo &#39;&quot;+self.loginType+&quot;:&quot;+username+&quot;:&quot;+userid+&quot;&#39; | netcat localhost 7777 &amp;amp;&quot;)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;verticalAlign=middle;fontFamily=Courier New;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="620" y="470" width="630" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-12" target="1Rh0-Jpyivj9l5sKiZfh-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-44" value="echo &#39;ebaqronline:ali-candan:parola&#39; | /usr/bin/pardus-lightdm-greeter-listener" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontFamily=Courier New;fillColor=default;" parent="1" vertex="1">
+          <mxGeometry x="680" y="560" width="585" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.545;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-20" target="1Rh0-Jpyivj9l5sKiZfh-41" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="490" />
+              <mxPoint x="1320" y="580" />
+              <mxPoint x="570" y="580" />
+              <mxPoint x="570" y="808" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-41" target="1Rh0-Jpyivj9l5sKiZfh-67" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-41" value="#!/bin/bash&lt;br&gt;add_user()&lt;br&gt;{&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; user=&quot;$1&quot;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; defpass=&quot;$user&quot;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; pass=&quot;$2&quot;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; if [ ! -d /home/$user ] ; then&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; useradd -m $user -s /bin/bash -p $(openssl passwd &quot;$pass&quot;) -U -d /home/$user&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; useradd $user-qr -s /bin/bash -p $(openssl passwd &quot;$defpass&quot;) -d /home/$user&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; mkdir -p /home/$user&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; chown $user -R /home/$user&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; chmod 755 /home/$user&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; uida=$(grep &quot;^$user:&quot; /etc/passwd | cut -f 3 -d &quot;:&quot;)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; uidb=$(grep &quot;^$user-qr:&quot; /etc/passwd | cut -f 3 -d &quot;:&quot;)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; sed -i &quot;s/:$uidb:/:$uida:/g&quot; /etc/passwd&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; for g in floppy audio video plugdev netdev $user; do usermod -aG $g $user-qr || true;usermod -aG $g $user || true;done&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; #usermod $user-qr -p $(openssl passwd -6 &quot;$pass&quot;)&lt;br&gt;&amp;nbsp;&amp;nbsp; fi&lt;br&gt;}" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontFamily=Courier New;spacingLeft=19;" parent="1" vertex="1">
+          <mxGeometry x="700" y="650" width="920" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-42" value="bash script: /usr/bin/pardus-lightdm-greeter-listener &lt;br&gt;(pardus-lightdm-greeter-listener.service -&amp;gt; tcpserver -v -P -R -H -l 0 0.0.0.0 7777 /usr/bin/pardus-lightdm-greeter-listener)" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="700" y="620" width="660" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-17" value="role=str(persondata[&quot;userInfoData&quot;][&quot;role&quot;])&lt;br&gt;userid=persondata[&quot;userInfoData&quot;][&quot;userId&quot;]&lt;br&gt;name=persondata[&quot;userInfoData&quot;][&quot;name&quot;]&lt;br&gt;surname=persondata[&quot;userInfoData&quot;][&quot;surname&quot;]&lt;br&gt;&lt;div&gt;username = self.username_prepare(name+&quot;-&quot;+surname)&lt;br&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;verticalAlign=top;fontFamily=Courier New;" parent="1" vertex="1">
+          <mxGeometry x="700" y="270" width="470" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-18" value="WebView: response_dataonline()" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="700" y="240" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-1" value="Login" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.login;container=0;" parent="1" vertex="1">
+          <mxGeometry x="-3.6290909090909196" y="160" width="141.8181818181818" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-28" value="&lt;div align=&quot;left&quot;&gt;soruce: /usr/share/pardus/pardus-lightdm-greeter/main.py&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#6c8ebf;fillColor=none;container=0;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="-24.99545454545455" y="100" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-11" value="&lt;div align=&quot;left&quot;&gt;source: module/ebaonline.py&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;container=0;" parent="1" vertex="1">
+          <mxGeometry x="-3.6318181818181827" y="240" width="354.54545454545456" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-12" value="" style="rounded=0;whiteSpace=wrap;html=1;container=0;" parent="1" vertex="1">
+          <mxGeometry x="-3.6318181818181827" y="269" width="378.18181818181813" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-6" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/ionicons-outline-vol-2/512/qr-code-outline-128.png;container=0;" parent="1" vertex="1">
+          <mxGeometry x="8.186363636363637" y="299" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-7" value="login_type = ebaqrebaqr (Sabit kullanıcı)&lt;br&gt;login_type = ebaqronline (Kişiye özel)" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;container=0;" parent="1" vertex="1">
+          <mxGeometry x="60.18636363636364" y="303" width="267.09090909090907" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-8" value="&lt;strong&gt;https://giris.eba.gov.tr/EBA_GIRIS/studentQrcode.jsp&lt;/strong&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;container=0;" parent="1" vertex="1">
+          <mxGeometry x="8.186363636363637" y="279" width="389.99999999999994" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-67" target="1Rh0-Jpyivj9l5sKiZfh-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="1165" />
+              <mxPoint x="740" y="1165" />
+              <mxPoint x="740" y="1240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-67" value="greeter_login()&lt;br&gt;{&lt;br&gt;&amp;nbsp;&amp;nbsp; /usr/bin/sshlogin $1 $2 &amp;amp;&lt;br&gt;&amp;nbsp;&amp;nbsp; sleep 4&lt;br&gt;&amp;nbsp;&amp;nbsp; /usr/bin/sshlogin $1 $2 &amp;amp;&lt;br&gt;}" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontFamily=Courier New;spacingLeft=10;" parent="1" vertex="1">
+          <mxGeometry x="1045" y="1000" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-72" value="TCP 7777&#39;yi dinleyen tcpserver&lt;br&gt;&amp;nbsp;pardus-lightdm-greeter-listener&#39;ı betiğini besliyor. &lt;br&gt;&lt;br&gt;TCP server&#39;ı ayakta tutan servis:&amp;nbsp;pardus-lightdm-greeter-listener.service&lt;br&gt;&lt;br&gt;Bu betik kullanıcı /home/$user yoksa kullanıcıları (un+unqr) oluşturur ve oturum açar. Oturum açma tipleri:&amp;nbsp;ebaqronline,&amp;nbsp;ebaqrebaqr,usbkeyusbkey" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="340" width="340" height="211.56" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1440" y="490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1440" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-77" value="lightdm desktop başarıyla başladıysa pipe kapanıyor ve ikinci sshlogin pipe&#39;ın olmadığı konusunda hata mesajı basıyor.&lt;br&gt;&lt;br&gt;&quot;&lt;font face=&quot;Courier New&quot;&gt;Failed to connect pardus lightdm greeter&lt;/font&gt;&quot;" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;spacingLeft=6;spacingRight=6;spacingTop=6;spacingBottom=6;" parent="1" vertex="1">
+          <mxGeometry x="1390" y="970" width="215" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-67" target="1Rh0-Jpyivj9l5sKiZfh-77" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-80" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="810" y="1180" width="810" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-60" value="" style="group" parent="1Rh0-Jpyivj9l5sKiZfh-80" vertex="1" connectable="0">
+          <mxGeometry x="550" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-58" value="JSON::PIPE" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1Rh0-Jpyivj9l5sKiZfh-60" vertex="1">
+          <mxGeometry y="30" width="236.36363636363637" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-59" value="&lt;b&gt;pipe:&lt;/b&gt; /var/lib/lightdm/pardus-greeter&lt;br&gt;&lt;i&gt;&lt;b&gt;pipe&lt;/b&gt;: /var/lib/lightdm/pardus-greeter-backup&lt;/i&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1Rh0-Jpyivj9l5sKiZfh-60" vertex="1">
+          <mxGeometry width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1Rh0-Jpyivj9l5sKiZfh-80" source="1Rh0-Jpyivj9l5sKiZfh-50" target="1Rh0-Jpyivj9l5sKiZfh-58" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-47" value="&amp;nbsp;&amp;nbsp; /usr/bin/sshlogin $1 $2 &amp;amp;&lt;br&gt;&amp;nbsp;&amp;nbsp; /usr/bin/pardus-login $1 $2 &amp;amp;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;" parent="1Rh0-Jpyivj9l5sKiZfh-80" vertex="1">
+          <mxGeometry y="30" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-50" value="&amp;nbsp;&amp;nbsp; module/cli.py&amp;nbsp; $1 $2" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1Rh0-Jpyivj9l5sKiZfh-80" vertex="1">
+          <mxGeometry x="330" y="30" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-51" value="sym link" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=12;" parent="1Rh0-Jpyivj9l5sKiZfh-80" vertex="1">
+          <mxGeometry x="250" y="30" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1Rh0-Jpyivj9l5sKiZfh-80" source="1Rh0-Jpyivj9l5sKiZfh-47" target="1Rh0-Jpyivj9l5sKiZfh-50" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-58" target="uMuDDFjJFQ15Jn1OtVUi-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-10" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1690" y="1300" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-8" value="kill_windowmanager()&lt;br&gt;self.o(&quot;ui_window_main&quot;).hide()" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=6;" parent="uMuDDFjJFQ15Jn1OtVUi-10" vertex="1">
+          <mxGeometry y="20" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-9" value="source: module/gtkwindow.py" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="uMuDDFjJFQ15Jn1OtVUi-10" vertex="1">
+          <mxGeometry width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-11" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1690" y="1190" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-2" value="loginwindow.o(&quot;ui_entry_username&quot;).set_text&lt;br&gt;loginwindow.o(&quot;ui_entry_password&quot;).set_text&lt;br&gt;lightdm.login()" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=8;" parent="uMuDDFjJFQ15Jn1OtVUi-11" vertex="1">
+          <mxGeometry y="20" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-3" value="source: module/daemon.py" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="uMuDDFjJFQ15Jn1OtVUi-11" vertex="1">
+          <mxGeometry width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="uMuDDFjJFQ15Jn1OtVUi-2" target="uMuDDFjJFQ15Jn1OtVUi-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1980" y="1240" />
+              <mxPoint x="1980" y="1350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.676;entryY=0.095;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="uMuDDFjJFQ15Jn1OtVUi-14" target="1Rh0-Jpyivj9l5sKiZfh-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-16" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="-20" y="-286.86046511627904" width="750.23" height="284.1279069767442" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-14" value="#!/bin/bash&lt;br&gt;set -o pipefail&lt;br&gt;python3 /usr/share/pardus/pardus-lightdm-greeter/main.py&amp;nbsp; |&amp;amp; tee ~/pardus-lightdm-greeter.log&lt;br&gt;if [ $? -ne 0&amp;nbsp; ] ; then&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; python3 &amp;lt;&amp;lt;EOF&lt;br&gt;import gi, os&lt;br&gt;gi.require_version(&quot;Gtk&quot;, &quot;3.0&quot;)&lt;br&gt;from gi.repository import Gtk&lt;br&gt;w = Gtk.Window()&lt;br&gt;txt=open(os.environ[&quot;HOME&quot;]+&quot;/pardus-lightdm-greeter.log&quot;, &quot;r&quot;).read()&lt;br&gt;l=Gtk.Label(txt)&lt;br&gt;w.add(l)&lt;br&gt;w.show_all()&lt;br&gt;Gtk.main()&lt;br&gt;EOF&lt;br&gt;fi" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="uMuDDFjJFQ15Jn1OtVUi-16" vertex="1">
+          <mxGeometry y="21.04651162790698" width="530" height="263.08139534883725" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-15" value="source: /usr/libexec/pardus-lightdm-greeter" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="uMuDDFjJFQ15Jn1OtVUi-16" vertex="1">
+          <mxGeometry width="470.23" height="21.04651162790698" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-18" value="/opt/logla.py altına kütüphane yerleştirdim. &lt;br&gt;&lt;br&gt;/opt yolunu /etc/environment dosyasında tanımladım.&lt;br&gt;&lt;br&gt;Temel kullanım şekli&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;from logla import logla&lt;/div&gt;logla(&#39;HATA&#39;, &#39;Bir hata oluştu&#39;)&lt;br&gt;&lt;br&gt;&lt;div&gt;log dosyası olarak /etc/var/eta.log dosyasını oluşturdum&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;okutalan qr kodlara tepkisi kalıyor, birden fazla kez okutulunca sonunda birikerek geliyor. Bir keresinde 3 kez peşpeşe geldi. Peşpeşe 3 kez sshlogin ebaqrebaqr çalıştı.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Mevcut kullanıcının oturumunu kapatmak için:&lt;br&gt;loginctl terminate-seat seat0&lt;br&gt;&lt;br&gt;Acilis kapanisi loglamak için bu servisi oluşturdum&lt;br&gt;nano /etc/systemd/system/acilis-kapanis-logla.service&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Greeter (main.py) log dosyası:&lt;br&gt;:/var/lib/lightdm/pardus-lightdm-greeter.log&lt;br&gt;&lt;br&gt;lighdm&#39;ın kullandığı yapılandırma dosyalarını görmek için:&lt;br&gt;&amp;nbsp;lightdm --show-config&lt;br&gt;&lt;br&gt;/usr/share/sifredegistir/passwordyetki&lt;br&gt;Bu araç suid bitli ve un pw syntax&#39;i ile parola sıfırlıyor&lt;br&gt;&lt;br&gt;&amp;nbsp;cat /var/lib/lightdm/pardus-lightdm-greeter.log&lt;br&gt;Greeter logları burada&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="2120" y="-165" width="540" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-21" value="&lt;pre&gt;Yaygın olarak XFCE (DE - Desktop Environment) ile LighDM tercih edilir. &lt;br&gt;Hangi Display Manager (Oturum yöneticisi) kullanıldığını görmek için:&lt;/pre&gt;&lt;pre&gt;&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; /etc/X11/default-display-manager &lt;br&gt;&lt;br&gt;LightDM yöneticisinin yapılandırması /etc/lightdm&#39;den şuraya taşınmış:&lt;br&gt;/usr/share/lightdm/lightdm.conf.d&lt;br&gt;&lt;/pre&gt;" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;spacingTop=5;spacingLeft=5;spacingRight=5;spacingBottom=5;align=left;" parent="1" vertex="1">
+          <mxGeometry x="650" y="-560" width="590" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="uMuDDFjJFQ15Jn1OtVUi-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.969;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="uMuDDFjJFQ15Jn1OtVUi-21" target="1Rh0-Jpyivj9l5sKiZfh-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-33" value="&lt;div align=&quot;left&quot;&gt;service: lightdm -&amp;gt;&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;source: /usr/libexec/pardus-lightdm-greeter&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=default;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="-340" width="578.6384108572174" height="27.1930259051959" as="geometry" />
+        </mxCell>
+        <mxCell id="1Rh0-Jpyivj9l5sKiZfh-62" value="&lt;div&gt;XFCE Desktop&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="2080.76" y="1080" width="479.24" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="wMKzaUErdJU3AvVdkluC-4" value="&lt;pre&gt;/var/lib/lightdm/pardus-lightdm-greeter.log&lt;/pre&gt;" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;spacingTop=5;spacingLeft=23;spacingRight=5;spacingBottom=5;align=left;" parent="1" vertex="1">
+          <mxGeometry x="2170" y="750" width="390" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wMKzaUErdJU3AvVdkluC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-27" target="wMKzaUErdJU3AvVdkluC-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6WEDemh_8ZBfYB8lQRi9-2" value="EBAQR" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=29;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="174.55" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6WEDemh_8ZBfYB8lQRi9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.891;exitY=0;exitDx=0;exitDy=0;entryX=0.293;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;dashed=1;" edge="1" parent="1" source="1Rh0-Jpyivj9l5sKiZfh-41" target="1Rh0-Jpyivj9l5sKiZfh-72">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1540" y="650" />
+              <mxPoint x="1540" y="551" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
