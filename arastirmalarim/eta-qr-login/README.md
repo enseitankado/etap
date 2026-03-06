@@ -1,4 +1,4 @@
-# etap-register
+# Pardus-23.4-ETAP-20260212-1645-amd64.iso DAĞITIMINDAKİ LPE AÇIĞI
 
 > ⚠️ **Bu depo bir güvenlik açığı araştırmasının bulgusudur. İçerik yalnızca eğitim ve belgeleme amacıyla paylaşılmaktadır.**
 
