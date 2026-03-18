@@ -6,7 +6,7 @@ Kısıtlı bir kullanıcı oturumundan (örn. `ogrenci`) yeni bir yerel hesap ol
 
 ## Nasıl Çalışır
 
-`/run/etap/qr-trigger` soketi, **lightdm** tarafından dinlenmekte olup yazma yetkisi kısıtlı kullanıcılara da açık bırakılmıştır. Betik bu sokete `register` tipinde bir doğrulama mesajı göndererek hesap oluşturma akışını tetikler ve oluşturulan parolanın MD5 hash'ini `stdout`'a yazar.
+`/run/etap/qr-trigger` soketi, **lightdm** tarafından dinlenmekte olup yazma yetkisi kısıtlı kullanıcılara da açık bırakılmıştır. Betik bu sokete `register` tipinde bir doğrulama mesajı göndererek hesap oluşturma akışını tetikler ve oluşturulan parolanın MD5 hash'ini `stdout`'a yazar. Çalışma sistemi hakkında daha detaylı bilgi edinmek için [buradaki](https://www.tankado.com/etap-pardus-programlama-notlarim-1/) yazıma göz atabilirsiniz.
 
 ```
 ogrenci@makine:~$ python3 etap_register.py yeni_kullanici
