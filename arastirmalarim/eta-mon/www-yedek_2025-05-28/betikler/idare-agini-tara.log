@@ -1,6 +1,0 @@
-Ağ taraması başlatılıyor: 
-192.168.16.0/21
-Failed to resolve "
-192.168.16.0".
-WARNING: No targets were specified, so 0 hosts scanned.
-rm: cannot remove '/tmp/idare-cihazlar.jsonl': No such file or directory
