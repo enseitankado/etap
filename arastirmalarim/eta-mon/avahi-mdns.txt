@@ -1,9 +1,0 @@
-
-ağda mdns çözücüsü var mı?
-
-root@arge-1:/opt# avahi-browse -t _workstation._tcp
-+ enp3s0f0 IPv4 istiklal                                      Workstation          local
-
-root@arge-1:/opt# avahi-resolve -n istiklal.local
-istiklal.local  10.255.187.231
-root@arge-1:/opt#

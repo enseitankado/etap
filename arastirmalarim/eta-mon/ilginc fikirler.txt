@@ -1,7 +1,0 @@
- sudo evtest /dev/input/event7 
-
-
-dokunma genişliği ile tahtaya yaslanma ve sıradışı kullanım raporlanabilir
-
-wifi ve bt taraması ile cihaz getiren öğrenci tespit edilebilir
-
