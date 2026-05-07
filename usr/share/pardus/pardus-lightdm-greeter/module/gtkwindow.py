@@ -1,4 +1,6 @@
+import time
 import hashlib
+import subprocess
 
 ############### class definition ###############
 
@@ -11,6 +13,7 @@ class LoginWindow:
         self.builder.add_from_file("data/main.ui")
         self.o = self.builder.get_object
         self.__init_variables()
+        self.wm_pid = None
         self.__init_gui()
         self.__update_user_background_loop()
         self.__connect_signals()
@@ -26,6 +29,7 @@ class LoginWindow:
         self.background_pixbuf = None
         self.ignore_password_cache = False
         self.background_handler = None
+        self.notifies = []
 
     def __connect_signals(self):
         def block_delete(*args):
@@ -84,9 +88,11 @@ class LoginWindow:
         self.o("ui_window_main").show()
         self.o("ui_window_main").present()
         self.o("ui_window_main").set_app_paintable(True)
+        self.o("ui_window_main").set_keep_below(True)
         # Clear error messages
         self.o("ui_label_login_error").set_text("")
         self.o("ui_label_reset_password_error").set_text("")
+        self.o("ui_button_notify").hide()
         # Disable suspend options if oem stuff detected.
         if os.path.exists("/sys/firmware/acpi/tables/MSDM"):
             self.o("ui_button_sleep").hide()
@@ -153,14 +159,39 @@ class LoginWindow:
         if get("authenticate-on-start", True, "gtkwindow"):
             lightdm.greeter.authenticate(username)
 
+    def create_notify(self, message):
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        l_date = Gtk.Label(label=time.strftime("%H:%M:%S"))
+        l_msg = Gtk.Label(label=message)
+        box.pack_start(l_date, False, False, 0)
+        box.pack_start(l_msg, True, True, 0)
+        l_msg.get_style_context().add_class("text")
+        l_date.get_style_context().add_class("text")
+        l_date.get_style_context().add_class("red")
+        l_date.set_halign(Gtk.Align.START)
+        l_msg.set_halign(Gtk.Align.START)
+        return box
+
     def msg_handler(self, message=""):
         log(message)
+        message = wrap(message, 50)
         self.unblock_gui()
-        self.o("ui_label_login_error").set_text(message)
-        self.o("ui_label_reset_password_error").set_text(message)
+        self.ignore_password_cache = True
+        cur_message = self.o("ui_label_login_error").get_text()
+        self.o("ui_label_login_error").set_text("{}\n{}".format(cur_message, message))
+        self.o("ui_label_reset_password_error").set_text("{}\n{}".format(cur_message, message))
         self.o("ui_entry_new_password1").set_text("")
         self.o("ui_entry_new_password2").set_text("")
+        self.o("ui_entry_password").set_text("")
         self.o("ui_stack_login").set_visible_child_name("page_main")
+        if len(message.strip()) > 0:
+            notify_widget = self.create_notify(message.strip())
+            self.notifies.append(notify_widget)
+            self.o("ui_icon_notify").set_from_icon_name("pardus-greeter-notify-new-symbolic", 0)
+            self.o("ui_button_notify").show()
+            self.o("ui_box_notify").pack_start(notify_widget, False, False, 3)
+            self.o("ui_box_notify").reorder_child(notify_widget, 0)
+            self.o("ui_box_notify").show_all()
 
     def login_handler(self):
         if get("password-cache", True, "gtkwindow"):
@@ -195,14 +226,20 @@ class LoginWindow:
         # if object is none go edit mode
         if u is not None:
             self.update_user_background()
-            self.o("ui_stack_username").set_visible_child_name("show")
-            # get real name
-            realname = u.get_real_name()
-            # fix realname if invalid
-            if realname is None or realname == "":
-                realname = username
-            # set realname to username button label
-            self.o("ui_button_username_label").set_label(realname)
+            if get("enabled", True, "userlist"):
+                self.o("ui_stack_username").set_visible_child_name("show")
+                # get real name
+                if get("enabled", True, "userlist"):
+                    realname = u.get_real_name()
+                    # fix realname if invalid
+                    if realname is None or realname == "":
+                        realname = username
+                    # set realname to username button label
+                    self.o("ui_button_username_label").set_label(realname)
+                else:
+                    self.o("ui_button_username_label").set_label(username)
+            else:
+                self.o("ui_stack_username").set_visible_child_name("edit")
             if not lightdm.get_is_reset():
                 # password entry focus
                 self.o("ui_entry_password").grab_focus()
@@ -227,6 +264,8 @@ class LoginWindow:
         self.__event_username_entry_changed(widget)
 
     def __event_username_entry_changed(self, w=None):
+        if not get("enabled", True, "userlist"):
+            return
         widget = self.o("ui_entry_username")
         # Get lightdm user object
         if not get("allow-root-login", False, "lightdm"):
@@ -282,6 +321,8 @@ class LoginWindow:
             self.o("ui_entry_username").get_text(),
             self.o("ui_entry_password").get_text()
         )
+        self.o("ui_label_login_error").set_text("")
+        self.o("ui_label_reset_password_error").set_text("")
         # start blocking gui
         self.block_gui()
         # remove username from hidden username cache
@@ -378,7 +419,7 @@ class LoginWindow:
             self.o(but).set_pixel_size(64*scale)
         # buttons 36 px
         for but in ["ui_icon_message", "ui_icon_wifi", "ui_icon_network", "ui_icon_powermenu",
-                    "ui_icon_options", "ui_icon_capslock", "ui_icon_numlock"]:
+                    "ui_icon_options", "ui_icon_capslock", "ui_icon_numlock", "ui_icon_notify"]:
             self.o(but).set_pixel_size(36*scale)
         # buttons 12px
         for but in ["ui_icon_userselect", "ui_icon_keyboard_layout", "ui_icon_default_session",
@@ -388,11 +429,15 @@ class LoginWindow:
         # login box width
         self.o("ui_box_reset_passwd").set_size_request(250*scale, -1)
         self.o("ui_box_login").set_size_request(250*scale, -1)
-        # login button & entry 128 x 31
-        for but in ["ui_button_login", "ui_box_username", "ui_entry_reset_username", "ui_entry_password",
-                    "ui_box_password",
-                    "ui_entry_new_password1", "ui_entry_new_password2", "ui_box_reset_buttons"]:
+        # notify panel
+        self.o("ui_scrolled_notify").set_size_request(-1, self.height/2)
+        # login button 128 x 31
+        for but in ["ui_button_login", "ui_box_reset_buttons"]:
             self.o(but).set_size_request(128*scale, 31*scale)
+        # login entry 250 x 31
+        for but in ["ui_stack_username", "ui_entry_reset_username", "ui_entry_password",
+                    "ui_entry_new_password1", "ui_entry_new_password2"]:
+            self.o(but).set_size_request(250*scale, 31*scale)
         # user list
         self.o("ui_box_userlist_main").set_size_request(
             250*scale, self.height/3)
@@ -446,15 +491,20 @@ class LoginWindow:
 ############### windowmanager ###############
 
     def start_windowmanager(self):
-        wm = get("window-manager", "xfwm4")
-        if which(wm.split(" ")[0]):
-            subprocess.run(["{} 2>/dev/null &".format(wm)], shell=True)
+        wm = get("window-manager", "x-window-manager")
+        if len(wm) > 0:
+            self.wm_pid = subprocess.Popen(wm, stdout=subprocess.PIPE, shell=True)
 
     def kill_windowmanager(self):
-        wm = get("window-manager", "xfwm4")
-        if which(wm.split(" ")[0]):
-            subprocess.run(["killall {}".format(wm)], shell=True)
-
+        if self.wm_pid:
+            try:
+                self.wm_pid.kill()
+                print(f"Killed window manager with PID: {self.wm_pid}")
+                self.wm_pid = None
+            except ProcessLookupError:
+                print(f"No process found with PID: {self.wm_pid}")
+            except Exception as e:
+                print(f"Error killing window manager: {e}")
 
 ############### class end ###############
 
@@ -479,10 +529,9 @@ def module_init():
     cssprovider = Gtk.CssProvider()
     style_context = Gtk.StyleContext()
     cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
-    if get("fix-cursor", False, "gtkwindow"):
+    if get("fix-cursor", False, "gtkwindow") or is_virtual_machine():
         Gdk.Screen.get_root_window(screen).set_cursor(cursor)
-    else:
-        loginwindow.o("ui_window_main").get_window().set_cursor(cursor)
+    loginwindow.o("ui_window_main").get_window().set_cursor(cursor)
     style_context.add_provider_for_screen(
         screen, cssprovider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
     )

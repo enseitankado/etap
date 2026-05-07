@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit *)",
+      "Bash(git *)",
+      "Bash(gh auth *)",
+      "Bash(mkdir -p ~/.ssh)",
+      "Bash(ssh-keyscan -t rsa,ecdsa,ed25519 github.com)",
+      "Read(//home/kali/.ssh/**)",
+      "Bash(ssh-add -l)"
+    ]
+  }
+}

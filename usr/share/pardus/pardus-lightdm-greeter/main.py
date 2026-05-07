@@ -94,6 +94,8 @@ for module in base_modules + os.listdir("module"):
             del (module_init)
         except Exception as e:
             print(module, traceback.format_exc(), file=sys.stderr)
+            if loginwindow:
+                loginwindow.msg_handler("{}:\n{}".format(module, traceback.format_exc()))
         loaded_modules.append(module)
 loginwindow.greeter_loaded = True
 ltime = time.time()

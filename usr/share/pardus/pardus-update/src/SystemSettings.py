@@ -24,12 +24,6 @@ class SystemSettings(object):
         self.config_autostart = None
         self.config_notifications = None
 
-        self.config_upgrade_enabled = None
-        self.config_upgrade_interval = None
-        self.config_upgrade_lastupgrade = None
-        self.config_upgrade_fix = None
-        self.config_upgrade_sources = None
-
     def readConfig(self):
         try:
             self.config.read(self.configdir + self.configfile)
@@ -49,13 +43,6 @@ class SystemSettings(object):
                 self.config_autostart = self.config.getboolean('Main', 'autostart')
             if self.config.has_option("Main", "notifications"):
                 self.config_notifications = self.config.getboolean('Main', 'notifications')
-
-            if self.config.has_option("Upgrade", "enabled"):
-                self.config_upgrade_enabled = self.config.getboolean('Upgrade', 'enabled')
-            if self.config.has_option("Upgrade", "interval"):
-                self.config_upgrade_interval = self.config.getint('Upgrade', 'interval')
-            if self.config.has_option("Upgrade", "lastupgrade"):
-                self.config_upgrade_lastupgrade = self.config.getint('Upgrade', 'lastupgrade')
 
         except Exception as e:
             print("{}".format(e))

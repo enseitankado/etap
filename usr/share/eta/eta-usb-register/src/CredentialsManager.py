@@ -3,16 +3,24 @@ import random
 import binascii
 import pickle
 import json
+import os
 
 
 def save_credentials_file(credentials_file, credentials_obj):
     try:
+        # Remove if exists
+        if os.path.exists(credentials_file):
+            os.remove(credentials_file)
+
         text = json.dumps(credentials_obj)
         hexlified = binascii.hexlify(text.encode("utf-8"))
+
         with open(credentials_file, "wb") as f:
             pickle.dump(hexlified, f, pickle.HIGHEST_PROTOCOL)
+
             f.write(hexlified)
             f.flush()
+
     except Exception as e:
         print(e)
         return (False, e)

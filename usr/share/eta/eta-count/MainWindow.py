@@ -1,4 +1,6 @@
 import gi, time, os
+from datetime import datetime
+from time import strftime, localtime
 
 gi.require_version("Gtk","3.0")
 from gi.repository import Gtk, GLib
@@ -88,6 +90,7 @@ class MainWindow(Gtk.Window):
         self.labels = [Gtk.Label(), Gtk.Label()]
         self.start = Gtk.Button(label=_("Start"))
         self.stop = Gtk.Button(label=_("Reset"))
+        self.mode = "main"
 
 
         self.dark_theme = True
@@ -115,6 +118,21 @@ class MainWindow(Gtk.Window):
         stack.add_named(main, "main")
         self.add(main_widget)
 
+        # clock box
+        clock = Gtk.Label()
+        def update_clock():
+            now = datetime.now()
+            f = now.strftime("%H:%M:%S")
+            clock.set_markup("<span font='62'>{}</span>".format(f))
+            GLib.timeout_add(500,update_clock)
+
+        main_top.pack_start(clock, True, True, 0)
+
+        update_clock()
+
+        # crono box
+        self.crono = Gtk.Label()
+        stack.add_named(self.crono, "crono")
 
         # time remaining label
         self.titles = [Gtk.Label(), Gtk.Label()]
@@ -136,8 +154,16 @@ class MainWindow(Gtk.Window):
 
         button_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         button_box.set_homogeneous(True)
-        button_box.set_size_request(600, -1)
+        button_box.set_size_request(400, -1)
+
+
+        mode_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        mode_box.set_homogeneous(True)
+        mode_box.set_size_request(200, -1)
+
         main_bottom.pack_start(button_box, False, False, 0)
+        main_bottom.pack_start(Gtk.Label(), True, True, 0)
+        main_bottom.pack_start(mode_box, False, False, 0)
         main_bottom.pack_start(Gtk.Label(), True, True, 0)
 
 
@@ -147,24 +173,27 @@ class MainWindow(Gtk.Window):
         settings_widget.pack_start(Gtk.Label(), True, True, 0)
         settings_widget.pack_start(settings_box, False, False, 0)
         settings_widget.pack_start(Gtk.Label(), True, True, 0)
-        settings_box.set_size_request(600, -1)
+        settings_box.set_size_request(300, -1)
         stack.add_named(settings_widget, "settings")
 
         # start button
         def start_fn(widget=None):
             global status
             global alarm
-            alarm = False
-            self.start_time = int(time.time())
-            self.timeout = self.get()
+            if self.mode == "main":
+                alarm = False
+                self.start_time = int(time.time())
+                self.timeout = self.get()
+                for i in range(0,6):
+                    self.cnt[i].hide_but()
+            elif self.mode == "crono":
+                self.start_time = int(time.time()) - self.__cur
             status = "START"
             self.start.hide()
             pause.show()
             GLib.idle_add(self.loop)
-            for i in range(0,6):
-                self.cnt[i].hide_but()
         self.start.connect("clicked", start_fn)
-        button_box.pack_start(self.start, True, True, 13)
+        button_box.pack_start(self.start, True, True, 5)
 
         self.start.set_sensitive(False)
         self.stop.set_sensitive(False)
@@ -178,28 +207,38 @@ class MainWindow(Gtk.Window):
             status="STOP"
             self.start.show()
             pause.hide()
-            for i in range(0,6):
-                self.cnt[i].show_but()
+            if self.mode == "main":
+                for i in range(0,6):
+                    self.cnt[i].show_but()
         pause.connect("clicked", pause_fn)
-        button_box.pack_start(pause, True, True, 13)
+        button_box.pack_start(pause, True, True, 5)
 
         # stop button (with reset)
         def stop_fn(widget=None):
             pause_fn()
-            self.set(0)
+            if self.mode == "main":
+                self.set(0)
+            elif self.mode == "crono":
+                self.crono.set_markup(f"<span font='128'>0.00</span>")
+                self.__cur = 0
 
         self.stop.connect("clicked", stop_fn)
-        button_box.pack_start(self.stop, True, True, 13)
+        button_box.pack_start(self.stop, True, True, 5)
+
+        window_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        window_box.set_homogeneous(True)
+        window_box.set_size_request(200, -1)
+        main_bottom.pack_start(window_box, False, False, 0)
 
         # minimize button
         exit = Gtk.Button(label=_("Minimize"))
         exit.connect("clicked", (lambda widget: self.iconify()))
-        main_bottom.pack_start(exit, False, False, 13)
+        window_box.pack_start(exit, True, True, 5)
 
         # exit button
         exit = Gtk.Button(label=_("Exit"))
         exit.connect("clicked", Gtk.main_quit)
-        main_bottom.pack_start(exit, False, False, 13)
+        window_box.pack_start(exit, True, True, 5)
 
 
         # theme button
@@ -214,6 +253,30 @@ class MainWindow(Gtk.Window):
         theme.connect("clicked", theme_fn)
         settings_box.pack_start(theme, False, False, 13)
 
+        # clock button
+        count_button = Gtk.Button(label=_("Countdown"))
+        crono_button = Gtk.Button(label=_("Cronometer"))
+        def select_fn(widget=None, page="main"):
+            stack.set_visible_child_name(page)
+            self.mode = page
+            count_button.set_sensitive(True)
+            crono_button.set_sensitive(True)
+            self.start.set_sensitive(page == "crono")
+            self.stop.set_sensitive(page == "crono")
+            settings_button.set_sensitive(page == "main")
+            if page == "main":
+                count_button.set_sensitive(False)
+                self.update_ui()
+            elif page == "crono":
+                crono_button.set_sensitive(False)
+            stop_fn()
+
+        count_button.connect("clicked", select_fn, "main")
+        crono_button.connect("clicked", select_fn, "crono")
+        mode_box.pack_start(count_button, True, True, 5)
+        mode_box.pack_start(crono_button, True, True, 5)
+
+
         # settings button
         settings_button = Gtk.Button(label=_("Settings"))
         def settings_fn(widget=None):
@@ -225,7 +288,9 @@ class MainWindow(Gtk.Window):
                 stack.set_visible_child_name("main")
 
         settings_button.connect("clicked", settings_fn)
-        button_box.pack_start(settings_button, True, True, 13)
+        button_box.pack_start(settings_button, True, True, 5)
+
+        select_fn(None, "main")
 
         # Title0 entry
         title0_entry = Gtk.Entry()
@@ -287,6 +352,7 @@ class MainWindow(Gtk.Window):
         self.fullscreen()
         stop_fn()
         self.init = True
+        stack.set_visible_child_name("main")
 
 
     @asynchronous
@@ -298,10 +364,13 @@ class MainWindow(Gtk.Window):
     def loop(self):
         global status
         global alarm
-        print(self.get())
         if status == "STOP":
             return
-        else:
+        if self.mode == "crono":
+            self.__cur = time.time() - self.start_time
+            self.crono.set_markup(f"<span font='128'>{self.__cur:.2f}</span>")
+            GLib.timeout_add(10,self.loop)
+        elif self.mode == "main":
             cur = int(self.start_time + self.timeout - time.time())
             if cur <= 0:
                 status = "STOP"
@@ -310,8 +379,10 @@ class MainWindow(Gtk.Window):
                 self.set(0)
                 return
             self.set(cur)
+            GLib.timeout_add(100,self.loop)
+        else:
+            return
 
-        GLib.timeout_add(100,self.loop)
 
     def get(self):
         ret = 0

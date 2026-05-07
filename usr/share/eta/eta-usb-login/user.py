@@ -14,9 +14,9 @@ def is_valid_user(user):
                 return True
     return False
 
-def create_user(user, hash, realname, ebaid):
+def create_user(user, hash, realname, ebaid, override_password=False):
     eba_hash = hashlib.md5(str(ebaid).encode("utf-8")).hexdigest()
-    if is_valid_user(user):
+    if is_valid_user(user) and override_password:
         return update_passwd(user, hash)
     print("########")
     print("Create user:",user, hash)

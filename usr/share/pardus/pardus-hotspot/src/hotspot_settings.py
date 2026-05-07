@@ -1,6 +1,9 @@
 from configparser import ConfigParser
 from pathlib import Path
 import os
+from logging_config import get_logger
+
+logger = get_logger()
 
 
 class HotspotSettings:
@@ -39,16 +42,23 @@ class HotspotSettings:
         self.forwarding = self.default_forwarding
 
 
-    def create_default_config(self, force=False):
-        self.config['Hotspot'] = {
-            "ssid": self.ssid,
-            "password": self.password,
-            "interface": self.interface,
-            "encryption": self.encryption,
+    def _prepare_config_dict(self):
+        """
+        Prepare configuration dictionary with all values as strings.
+        """
+        return {
+            "ssid": str(self.ssid) if self.ssid else "",
+            "password": str(self.password) if self.password else "",
+            "interface": str(self.interface) if self.interface else "",
+            "encryption": str(self.encryption) if self.encryption else "",
             "autostart": str(self.autostart),
-            "band": self.band,
+            "band": str(self.band) if self.band else "",
             "forwarding": str(self.forwarding)
         }
+
+
+    def create_default_config(self, force=False):
+        self.config['Hotspot'] = self._prepare_config_dict()
 
         config_path = os.path.join(self.config_dir, self.config_file)
         if not Path(config_path).is_file() or force:
@@ -83,20 +93,13 @@ class HotspotSettings:
                 'Hotspot', 'forwarding', fallback=self.default_forwarding
             )
         except Exception as e:
-            print(f"Error reading configuration: {e}")
+            logger.warning("Failed to read config file, creating default")
+            logger.debug(f"Config read error details: {e}")
             self.create_default_config(force=True)
 
 
     def write_config(self):
-        self.config['Hotspot'] = {
-            "ssid": self.ssid,
-            "password": self.password,
-            "interface": self.interface,
-            "encryption": self.encryption,
-            "autostart": self.autostart,
-            "band": self.band,
-            "forwarding": str(self.forwarding)
-        }
+        self.config['Hotspot'] = self._prepare_config_dict()
 
         if self.create_dir(self.config_dir):
             with open(
@@ -112,7 +115,8 @@ class HotspotSettings:
             Path(dir_path).mkdir(parents=True, exist_ok=True)
             return True
         except Exception as e:
-            print(f"Error creating directory {dir_path}: {e}")
+            logger.error("Failed to create config directory")
+            logger.debug(f"Directory creation error details: {e}")
             return False
 
 
@@ -120,7 +124,8 @@ class HotspotSettings:
         try:
             os.makedirs(self.autostartdir, exist_ok=True)
         except OSError as e:
-            print(f"Error creating directory {self.autostartdir}: {e}")
+            logger.error("Failed to create autostart directory")
+            logger.debug(f"Autostart directory error details: {e}")
             return
 
         autostart_file_path = os.path.join(self.autostartdir, self.autostart_file)
@@ -131,7 +136,8 @@ class HotspotSettings:
 
         if state:
             if not os.path.exists(target_desktop_file):
-                print(f"Target desktop file does not exist: {target_desktop_file}")
+                logger.error("Autostart desktop file not found")
+                logger.debug(f"Missing file: {target_desktop_file}")
                 return
 
             # Create the symlink
@@ -139,16 +145,18 @@ class HotspotSettings:
                 try:
                     os.symlink(target_desktop_file, autostart_file_path)
                 except OSError as e:
-                    print(f"Error creating symlink: {e}")
+                    logger.error("Failed to create autostart symlink")
+                    logger.debug(f"Symlink creation error details: {e}")
             else:
-                print("Autostart symlink already exists")
+                logger.info("Autostart symlink already exists")
         else:
             # Remove the symlink
             if os.path.exists(autostart_file_path):
                 try:
                     os.unlink(autostart_file_path)
                 except OSError as e:
-                    print(f"Error removing autostart symlink: {e}")
+                    logger.error("Failed to remove autostart symlink")
+                    logger.debug(f"Symlink removal error details: {e}")
 
         # Update the autostart setting and write to config
         self.autostart = state

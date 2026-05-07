@@ -11,22 +11,29 @@ def _options_event(widget):
 def _powermenu_event(widget):
     loginwindow.o("ui_popover_powermenu").popup()
 
+def _notifymenu_event(widget):
+    loginwindow.o("ui_icon_notify").set_from_icon_name("pardus-greeter-notify-symbolic", 0)
+    loginwindow.o("ui_popover_notify").popup()
+
 
 def _network_button_event(widget):
     loginwindow.o("ui_popover_network").popup()
 
 
 def _poweroff_event(widget):
+    loginwindow.o("ui_stack_main").set_visible_child_name("page_main")
     loginwindow.o("ui_stack_login").set_visible_child_name("page_poweroff")
     loginwindow.o("ui_popover_powermenu").popdown()
 
 
 def _restart_event(widget):
+    loginwindow.o("ui_stack_main").set_visible_child_name("page_main")
     loginwindow.o("ui_stack_login").set_visible_child_name("page_restart")
     loginwindow.o("ui_popover_powermenu").popdown()
 
 
 def _sleep_event(widget):
+    loginwindow.o("ui_stack_main").set_visible_child_name("page_main")
     loginwindow.o("ui_stack_login").set_visible_child_name("page_sleep")
     loginwindow.o("ui_popover_powermenu").popdown()
 
@@ -49,6 +56,7 @@ def module_init():
     loginwindow.o("ui_button_sleep").connect("clicked", _sleep_event)
     loginwindow.o("ui_button_poweroff").connect("clicked", _poweroff_event)
     loginwindow.o("ui_button_restart").connect("clicked", _restart_event)
+    loginwindow.o("ui_button_notify").connect("clicked", _notifymenu_event)
     loginwindow.o("ui_button_stack_poweroff_cancel").connect(
         "clicked", _cancel_event)
     loginwindow.o("ui_button_stack_restart_cancel").connect(

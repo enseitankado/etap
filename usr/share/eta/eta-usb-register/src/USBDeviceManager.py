@@ -15,7 +15,7 @@ class USBDeviceManager:
         self.monitor.filter_by(subsystem="block")
 
         def log_event(action, device):
-            print(action, device)
+            print(f"'{action}' on {device}")
             self.refreshSignal()
 
         self.observer = MonitorObserver(self.monitor, log_event)
@@ -49,6 +49,7 @@ class USBDeviceManager:
                 label = device.get("ID_FS_LABEL", "")
                 vendor = device.get("ID_VENDOR", "")
                 model = device.get("ID_MODEL", "NO_MODEL")
+                device_uuid = device.get("ID_FS_UUID", "")
 
                 if label == "":
                     label = "{} {}".format(vendor, model)
@@ -73,6 +74,7 @@ class USBDeviceManager:
                 has_partitions = False
                 for p in partitions:
                     has_partitions = True
+
                     # Read Size of the partition:
                     partition_block_name = p.device_node.split("/")[-1]
                     with open(
@@ -88,6 +90,7 @@ class USBDeviceManager:
                         else:
                             partition_size = f"{(partition_size / 1000):.1f} GB"
 
+                    # Read UUID of partition
                     uuid = p.get("ID_FS_UUID", "")
 
                     mounted_path = self.get_mount_point(p.device_node)
@@ -105,21 +108,34 @@ class USBDeviceManager:
                         device_list.append(device_info)
 
                 if not has_partitions:
-                    print(
-                        "Error: No partitions in usb:",
-                        device.device_node,
-                        label,
-                        total_size,
-                    )
-                    device_info = [
-                        device.device_node,  # 'sda'
-                        "",  # '/mnt/USBPartitionPath'
-                        label,  # 'TOSHIBA TransMemory-Mx'
-                        total_size,  # '31.1 GB'
-                        "",  # '223C-F3F8'
-                    ]
-                    device_list.append(device_info)
-                    continue
+                    # Check if device itself is the partition:
+                    device_node = f"/dev/{block_name}"
+                    mounted_path = self.get_mount_point(device_node)
+
+                    if mounted_path:
+                        device_info = [
+                            device_node,  # '/dev/sda'
+                            mounted_path,  # '/mnt/USBPartitionPath'
+                            label,  # 'TOSHIBA TransMemory-Mx'
+                            total_size,  # '31.1 GB'
+                            device_uuid,  # '223C-F3F8'
+                        ]
+                        device_list.append(device_info)
+                    else:
+                        print(
+                            "Info: No mounted partitions in:",
+                            device.device_node,
+                            label,
+                            total_size,
+                        )
+                        device_info = [
+                            device.device_node,  # 'sda'
+                            "",  # '/mnt/USBPartitionPath'
+                            label,  # 'TOSHIBA TransMemory-Mx'
+                            total_size,  # '31.1 GB'
+                            "",  # '223C-F3F8'
+                        ]
+                        device_list.append(device_info)
             except Exception as e:
                 print("Error on reading USB devices:", e)
 

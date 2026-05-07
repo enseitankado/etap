@@ -11,7 +11,14 @@ def _update_resolution_event(flag=None):
     global ignore_event_init
     debug("Screen configuration changed")
     resolution = None
-    if get("ignore-event", False, "screen"):
+    if get("resolution", "", "screen") != "":
+        resolution = get("resolution", "", "screen")
+        w = int(resolution.split("x")[0])
+        h = int(resolution.split("x")[1])
+        update_window_resolution(w, h)
+        for mon in monitor.get_xrandr_monitors():
+            os.system("xrandr --output {} --mode {} --pos 0x0".format(mon, resolution))
+    elif get("ignore-event", False, "screen"):
         if ignore_event_init:
             return
         m = monitor.get_monitors()[0]

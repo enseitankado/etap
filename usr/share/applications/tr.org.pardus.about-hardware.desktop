@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Pardus Hardware Information
+Name[tr]=Pardus Donanım Bilgisi
+GenericName=Hardware Information Viewer
+GenericName[tr]=Donanım Bilgisi Görüntüleyici
+Comment=Get informations about the hardware in your Pardus system.
+Comment[tr]=Pardus sisteminizdeki donanımlar hakkında bilgi edinin.
+Exec=pardus-about --hardware
+Icon=pardus-hardware-info
+Terminal=false
+Type=Application
+Categories=Settings;X-XFCE-SettingsDialog;X-Pardus-Apps;
+StartupNotify=true
+Keywords=about;info;system;hardware;
+Keywords[pt]=sobre;informação;sistema;
+Keywords[tr]=hakkında;bilgi;sistem;donanım;

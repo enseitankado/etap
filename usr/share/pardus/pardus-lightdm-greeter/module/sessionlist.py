@@ -14,11 +14,12 @@ class sessionButton(Gtk.Button):
         self.label = Gtk.Label()
         self.image = Gtk.Image()
         self.image.set_pixel_size(12*scale)
+        self.image.set_size_request(12*scale, 12*scale)
         self.label.set_text(self.session_name)
         box = Gtk.Box()
-        box.pack_start(self.label, False, False, 0)
-        box.pack_start(Gtk.Label(), True, True, 0)
-        box.pack_start(self.image, False, False, 0)
+        box.pack_start(self.label, False, False, 3)
+        box.pack_start(Gtk.Label(), True, True, 3)
+        box.pack_start(self.image, False, False, 3)
         box.set_margin_start(13*scale)
         box.show_all()
         self.add(box)
@@ -35,8 +36,8 @@ class sessionButton(Gtk.Button):
         for path in ["/usr/share/xsessions/{}.desktop".format(self.session),
                      "/usr/share/wayland-sessions/{}.desktop".format(self.session)]:
             if os.path.exists(path):
-                for line in open(path, "r").read().split("\n"):
-                    for n in ["Name"+_lang+"=", "Name="]:
+                for n in ["Name=", "Name"+_lang+"="]:
+                    for line in open(path, "r").read().split("\n"):
                         if n in line:
                             session = line.replace(n, "")
                             break

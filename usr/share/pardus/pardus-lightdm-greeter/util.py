@@ -188,3 +188,14 @@ def which(cmd):
         if os.path.exists("{}/{}".format(dir, cmd)):
             return "{}/{}".format(dir, cmd)
     return None
+
+def wrap(message, size):
+    ret = ""
+    l = 0
+    for word in message.split(" "):
+        if l > size:
+            ret += "\n"
+            l = 0
+        ret += word + " "
+        l += len(word) +1
+    return ret.strip()

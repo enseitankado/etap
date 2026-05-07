@@ -2,6 +2,7 @@ import gi
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib, GdkPixbuf
+import grp
 import os
 import qrcode
 import io
@@ -9,6 +10,7 @@ import io
 import hotspot
 from network_utils import get_interface_names
 from hotspot_settings import HotspotSettings
+from connected_devices import ConnectedDevices
 
 try:
     gi.require_version('AppIndicator3', '0.1')
@@ -20,7 +22,13 @@ except:
 
 import locale
 from locale import gettext as _
-locale.bindtextdomain('pardus-hotspot', '/usr/share/locale')
+
+# Development: ../locale, Production: /usr/share/locale
+localedir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../locale')
+if not os.path.exists(localedir):
+    localedir = '/usr/share/locale'
+
+locale.bindtextdomain('pardus-hotspot', localedir)
 locale.textdomain('pardus-hotspot')
 _ = locale.gettext
 
@@ -84,6 +92,7 @@ class MainWindow:
         self.menu_button = self.builder.get_object("menu_button")
         self.create_button = self.builder.get_object("create_button")
         self.ok_button = self.builder.get_object("ok_button")
+        self.grant_netdev_button = self.builder.get_object("grant_netdev_button")
         self.menu_about = self.builder.get_object("menu_about")
         self.menu_settings = self.builder.get_object("menu_settings")
         self.home_button = self.builder.get_object("home_button")
@@ -152,6 +161,7 @@ class MainWindow:
         self.menu_settings.connect("clicked", self.on_menu_settings_clicked)
         self.create_button.connect("clicked", self.on_create_button_clicked)
         self.ok_button.connect("clicked", self.on_ok_button_clicked)
+        self.grant_netdev_button.connect("clicked", self.on_grant_netdev_button_clicked)
         self.password_entry.connect("changed", self.on_password_entry_changed)
         self.password_entry.connect("icon-press", self.password_entry_icon_press)
         self.password_entry.connect("icon-release", self.password_entry_icon_release)
@@ -172,10 +182,30 @@ class MainWindow:
         self.encrypt_combo.append_text("WPA-PSK")
         self.encrypt_combo.append_text("SAE")
 
+        self.qr_image.set_visible(False)
+
+        # Connected Devices UI
+        self.devices_expander = self.builder.get_object("devices_expander")
+        self.devices_count_label = self.builder.get_object("devices_count_label")
+        self.devices_scrolled = self.builder.get_object("devices_scrolled")
+        self.no_devices_label = self.builder.get_object("no_devices_label")
+
+        # Create ListBox for devices and add to scrolled window
+        self.devices_listbox = Gtk.ListBox()
+        self.devices_listbox.set_selection_mode(Gtk.SelectionMode.NONE)
+        self.devices_scrolled.add(self.devices_listbox)
+        self.devices_listbox.show()
+
+        # Device tracker
+        self.device_tracker = ConnectedDevices()
+        self.devices_expander.set_visible(False)
+
+        # Group add process state
+        self.group_add_error_message = ""
+        self.group_add_in_progress = False
+
         self.band_combo.set_active(0)       # Set default: 2.4Ghz
         self.encrypt_combo.set_active(1)    # Set default: SAE
-
-        self.qr_image.set_visible(False)
 
         get_interface_names(self.ifname_combo, self.window)
 
@@ -293,6 +323,7 @@ class MainWindow:
             self.hotspot_dialog.hide()
 
         hotspot.remove_hotspot()
+        hotspot.cleanup()
         self.window.get_application().quit()
 
     def on_startup_switch_state_set(self, switch, state):
@@ -373,6 +404,12 @@ class MainWindow:
                 self.hotspot_settings.band = band_display
                 self.get_comboboxtext_value(self.band_combo, band_display)
             self.hotspot_settings.write_config()
+
+            # Set device tracker interface
+            ifname = self.ifname_combo.get_active_text()
+            if ifname:
+                self.device_tracker.set_interface(ifname)
+            self.devices_expander.set_visible(True)
         else:
             self.create_button.set_label(_("Create Hotspot"))
             self.item_enable.set_label(_("Enable"))
@@ -394,6 +431,9 @@ class MainWindow:
             self.security_entry.set_editable(True)
 
             self.connection_stack.set_visible_child_name("page_connect")
+            self.device_tracker.set_interface(None)
+            self.devices_expander.set_expanded(False)
+            self.devices_expander.set_visible(False)
 
             # Update connection icon
             if xfce_desktop:
@@ -414,15 +454,17 @@ class MainWindow:
                 "network-wireless-disabled-symbolic", Gtk.IconSize.BUTTON
             )
             self.qr_image.set_visible(False)
+            self.device_tracker.set_interface(None)
+            self.devices_expander.set_expanded(False)
+
+        self.check_existing_hotspot()
+
+        if self.create_button.get_label() == _("Disable Connection"):
+            self.qr_image.set_visible(True)
+            self.update_connected_devices()
         else:
-            self.check_existing_hotspot()
-
-            if self.create_button.get_label() == _("Disable Connection"):
-                self.qr_image.set_visible(True)
-            else:
-                self.qr_image.set_visible(False)
-                self.qr_image.clear()
-
+            self.qr_image.set_visible(False)
+            self.qr_image.clear()
 
         return True
 
@@ -531,6 +573,161 @@ class MainWindow:
         # Set the QR code image to the Gtk.Image widget
         self.qr_image.set_from_pixbuf(scaled_pixbuf)
 
+    def update_connected_devices(self):
+
+        devices = self.device_tracker.get_devices()
+        count = len(devices)
+
+        self.devices_count_label.set_text(f"({count})")
+
+        # Clear existing rows
+        for child in self.devices_listbox.get_children():
+            child.destroy()
+
+        # Show/hide "no devices" label
+        self.no_devices_label.set_visible(count == 0)
+        self.devices_scrolled.set_visible(count > 0)
+
+        # Add device rows
+        for device in devices:
+            row = self._create_device_row(device)
+            self.devices_listbox.add(row)
+
+        self.devices_listbox.show_all()
+
+    def _create_device_row(self, device):
+        """Create a single device row widget."""
+        row = Gtk.ListBoxRow()
+        box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        box.set_margin_top(6)
+        box.set_margin_bottom(6)
+        box.set_margin_start(8)
+        box.set_margin_end(8)
+
+        # Device icon
+        icon = Gtk.Image.new_from_icon_name(
+            "computer-symbolic", Gtk.IconSize.LARGE_TOOLBAR
+        )
+        box.pack_start(icon, False, False, 0)
+
+        # Info box (MAC + IP)
+        info_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
+
+        mac_label = Gtk.Label(label=device["mac"])
+        mac_label.set_xalign(0)
+        mac_label.get_style_context().add_class("heading")
+        info_box.pack_start(mac_label, False, False, 0)
+
+        if device["ip"]:
+            ip_label = Gtk.Label(label=device["ip"])
+            ip_label.set_xalign(0)
+            ip_label.get_style_context().add_class("dim-label")
+            info_box.pack_start(ip_label, False, False, 0)
+
+        if device["time"] is not None:
+            time_str = self.format_time(device["time"])
+            time_label = Gtk.Label(label=time_str)
+            time_label.set_xalign(0)
+            time_label.get_style_context().add_class("dim-label")
+            info_box.pack_start(time_label, False, False, 0)
+
+        box.pack_start(info_box, True, True, 0)
+
+        if device["signal"] is not None:
+            icon_name = self.get_signal_icon(device["signal"])
+            signal_icon = Gtk.Image.new_from_icon_name(
+                icon_name, Gtk.IconSize.LARGE_TOOLBAR
+            )
+            box.pack_end(signal_icon, False, False, 0)
+
+        # Disconnect button
+        disconnect_btn = Gtk.Button()
+        disconnect_btn.set_image(
+            Gtk.Image.new_from_icon_name(
+                "user-trash-symbolic", Gtk.IconSize.BUTTON
+            )
+        )
+        disconnect_btn.set_tooltip_text(_("Disconnect device"))
+        disconnect_btn.set_relief(Gtk.ReliefStyle.NONE)
+        disconnect_btn.connect(
+            "clicked",
+            lambda btn, mac=device["mac"], ip=device.get("ip", ""):
+                self._on_disconnect_device(mac, ip)
+        )
+        box.pack_end(disconnect_btn, False, False, 0)
+
+        row.add(box)
+        return row
+
+    def _on_disconnect_device(self, mac, ip):
+        """
+        Disconnect a device from the current connection
+        """
+        display_name = f"{ip} ({mac})" if ip else mac
+
+        dialog = Gtk.MessageDialog(
+            transient_for=self.window,
+            flags=Gtk.DialogFlags.MODAL,
+            message_type=Gtk.MessageType.QUESTION,
+            buttons=Gtk.ButtonsType.NONE,
+            text=_("Disconnect device"),
+        )
+        dialog.format_secondary_text(
+            _("%s will be disconnected. Continue?") % display_name
+        )
+        dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+        dialog.add_button(_("Disconnect"), Gtk.ResponseType.OK)
+
+        # Style the disconnect button as destructive
+        disconnect_btn = dialog.get_widget_for_response(Gtk.ResponseType.OK)
+        disconnect_btn.get_style_context().add_class(
+            Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION
+        )
+
+        response = dialog.run()
+        dialog.destroy()
+
+        if response == Gtk.ResponseType.OK:
+            interface = self.ifname_combo.get_active_text()
+            success = hotspot.disconnect_station(interface, mac)
+            if not success:
+                error_dialog = Gtk.MessageDialog(
+                    transient_for=self.window,
+                    flags=Gtk.DialogFlags.MODAL,
+                    message_type=Gtk.MessageType.ERROR,
+                    buttons=Gtk.ButtonsType.OK,
+                    text=_("Failed to disconnect device"),
+                )
+                error_dialog.format_secondary_text(
+                    _("Could not disconnect %s.") % display_name
+                )
+                error_dialog.run()
+                error_dialog.destroy()
+            self.update_connected_devices()
+
+    def get_signal_icon(self, signal):
+        """Get WiFi icon based on signal strength."""
+        if signal >= -50:
+            return "network-wireless-signal-excellent-symbolic"
+        elif signal >= -60:
+            return "network-wireless-signal-good-symbolic"
+        elif signal >= -70:
+            return "network-wireless-signal-ok-symbolic"
+        elif signal >= -80:
+            return "network-wireless-signal-weak-symbolic"
+        else:
+            return "network-wireless-signal-none-symbolic"
+
+    def format_time(self, seconds):
+        if seconds < 60:
+            return f"{seconds}s"
+        elif seconds < 3600:
+            m, s = divmod(seconds, 60)
+            return f"{m}m {s}s"
+        else:
+            h, rem = divmod(seconds, 3600)
+            m, s = divmod(rem, 60)
+            return f"{h}h {m}m"
 
     def on_create_button_clicked(self, button):
         """
@@ -554,6 +751,9 @@ class MainWindow:
             self.item_enable.set_label(_("Enable"))
             self.qr_image.set_visible(False)
             self.qr_image.clear()
+            self.device_tracker.set_interface(None)
+            self.devices_expander.set_expanded(False)
+            self.devices_expander.set_visible(False)
 
             style_context.remove_class(Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION)
             style_context.add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION)
@@ -575,11 +775,37 @@ class MainWindow:
                     else "sae"
             )
 
+            has_permission, permission_state = hotspot.check_user_network_permissions()
+            if not has_permission:
+                user_in_netdev = False
+                try:
+                    user_in_netdev = GLib.get_user_name() in grp.getgrnam("netdev").gr_mem
+                except KeyError:
+                    pass
+
+                self.hotspot_stack.set_visible_child_name("page_errors")
+                self.menu_button.set_visible(False)
+
+                if user_in_netdev:
+                    self.warning_msgs_lbl.set_text(
+                        _("You need to reboot your system for group permissions to take effect.")
+                    )
+                    self.grant_netdev_button.set_visible(False)
+                else:
+                    self.warning_msgs_lbl.set_text("{}\n{}\n{}".format(
+                        _("Network Permission Error"),
+                        _("You don't have permission to modify network settings."),
+                        _("User is not in netdev group.")
+                    ))
+                    self.grant_netdev_button.set_visible(True)
+                return
+
             # Check if Wi-Fi is enabled
             if not hotspot.is_wifi_enabled():
                 message = _("Please enable Wi-Fi to continue")
                 self.hotspot_stack.set_visible_child_name("page_errors")
                 self.warning_msgs_lbl.set_text(message)
+                self.grant_netdev_button.set_visible(False)
                 self.menu_button.set_visible(False)
                 return
 
@@ -588,6 +814,7 @@ class MainWindow:
                 message = _("Please select a network interface for the hotspot")
                 self.hotspot_stack.set_visible_child_name("page_errors")
                 self.warning_msgs_lbl.set_text(message)
+                self.grant_netdev_button.set_visible(False)
                 self.menu_button.set_visible(False)
                 return
 
@@ -596,6 +823,7 @@ class MainWindow:
                 message = _("Please enter a name for your hotspot connection")
                 self.hotspot_stack.set_visible_child_name("page_errors")
                 self.warning_msgs_lbl.set_text(message)
+                self.grant_netdev_button.set_visible(False)
                 self.menu_button.set_visible(False)
                 return
 
@@ -604,6 +832,7 @@ class MainWindow:
                 message = _("Password must be at least 8 characters long")
                 self.hotspot_stack.set_visible_child_name("page_errors")
                 self.warning_msgs_lbl.set_text(message)
+                self.grant_netdev_button.set_visible(False)
                 self.menu_button.set_visible(False)
                 return
 
@@ -616,6 +845,8 @@ class MainWindow:
 
             hotspot.set_network_interface(ifname)
             hotspot.create_hotspot(ssid, password, selected_encrypt, selected_band, forwarding_enabled)
+            self.device_tracker.set_interface(ifname)
+            self.devices_expander.set_visible(True)
 
             self.connection_stack.set_visible_child_name("page_connected")
             self.con_entry.set_text(ssid)
@@ -645,9 +876,84 @@ class MainWindow:
 
 
     def on_ok_button_clicked(self, button):
-        # Send a speacial flag if you want to exit !
         self.hotspot_stack.set_visible_child_name("page_main")
         self.menu_button.set_visible(True)
+        self.grant_netdev_button.set_visible(False)
+
+
+    def on_grant_netdev_button_clicked(self, button):
+        """
+        Run pkexec to add the current user to the netdev group
+        """
+        if self.group_add_in_progress:
+            return
+
+        self.group_add_in_progress = True
+        self.group_add_error_message = ""
+        self.grant_netdev_button.set_sensitive(False)
+
+        user_name = GLib.get_user_name()
+        group_add_script = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "group_add.py"
+        )
+        command = ["/usr/bin/pkexec", group_add_script, user_name, "netdev"]
+
+        try:
+            pid, stdin, stdout, stderr = GLib.spawn_async(
+                command,
+                flags=GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+                standard_output=True,
+                standard_error=True
+            )
+            GLib.io_add_watch(
+                GLib.IOChannel(stderr), GLib.IO_IN | GLib.IO_HUP,
+                self.on_group_add_stderr
+            )
+            GLib.child_watch_add(
+                GLib.PRIORITY_DEFAULT, pid, self.on_group_add_exit
+            )
+        except Exception as e:
+            self.group_add_in_progress = False
+            self.grant_netdev_button.set_sensitive(True)
+            self.warning_msgs_lbl.set_text(
+                _("Failed to add user to the netdev group.")
+            )
+
+
+    def on_group_add_stderr(self, source, condition):
+        if condition == GLib.IO_HUP:
+            return False
+        line = source.readline()
+        self.group_add_error_message = line
+        return True
+
+
+    def on_group_add_exit(self, pid, status):
+        self.group_add_in_progress = False
+        self.grant_netdev_button.set_sensitive(True)
+
+        if status == 0:
+            self.grant_netdev_button.set_visible(False)
+            self.warning_msgs_lbl.set_text(
+                _("User has been added to the netdev group.") + "\n\n" +
+                _("You need to reboot your system for group permissions to take effect.")
+            )
+        elif status == 32256:
+            # pkexec: operation cancelled / Request dismissed
+            pass
+        else:
+            if self.group_add_error_message:
+                self.warning_msgs_lbl.set_text(
+                    "{}\n\n{}".format(
+                        _("Failed to add user to the netdev group."),
+                        self.group_add_error_message
+                    )
+                )
+            else:
+                self.warning_msgs_lbl.set_text(
+                    _("Failed to add user to the netdev group.")
+                )
 
 
     def on_settings_changed(self):
@@ -657,6 +963,9 @@ class MainWindow:
         """
         # Remove current connection
         hotspot.remove_hotspot()
+        self.device_tracker.set_interface(None)
+        self.devices_expander.set_expanded(False)
+        self.devices_expander.set_visible(False)
         enable_icon_name = "network-wireless-disabled-symbolic"
         self.settings_img.set_from_icon_name("preferences-other-symbolic",
                 Gtk.IconSize.BUTTON

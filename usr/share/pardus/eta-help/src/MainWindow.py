@@ -475,7 +475,7 @@ class MainWindow(object):
         self.ui_sendreportinfo_label.set_visible(False)
 
     def on_ui_forum_button_clicked(self, button):
-        webbrowser.open("https://forum.pardus.org.tr")
+        webbrowser.open("https://forum.pardus.org.tr/c/projeler/etap/29")
 
     def on_ui_community_button_clicked(self, button):
         webbrowser.open("https://gonullu.pardus.org.tr")

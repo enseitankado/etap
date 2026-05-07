@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=E-Tahta Application
+Name[tr]=E-Tahta Uygulaması
+Type=Application
+Comment=Simple Qt based E-Tahta Application
+Comment[tr]=Basit Qt tabanlı E-Tahta Uygulaması
+Terminal=false
+Exec=/usr/bin/e-tahta
+Icon=/usr/share/e-tahta/e-tahta.png
+Categories=Qt;Utility;
+Keywords=zil;etahta;e-tahta;pen,board,tahta;
+GenericName=E-Tahta

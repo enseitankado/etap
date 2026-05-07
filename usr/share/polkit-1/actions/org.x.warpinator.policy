@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN" "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Linux Mint</vendor>
+  <vendor_url>https://linuxmint.com/</vendor_url>
+  <action id="org.x.warpinator">
+    <icon_name>org.x.Warpinator</icon_name>
+    <description>Open a firewall port for Warpinator</description>
+    <description xml:lang="zh_TW">為 Warpinator 開啟防火牆通訊埠</description>
+    <description xml:lang="zh_CN">为Warpinator开启防火墙端口</description>
+    <description xml:lang="vi">Mở cổng tường lửa cho Warpinator</description>
+    <description xml:lang="uz">Warpinator uchun xavfsizlik devori portini ochish</description>
+    <description xml:lang="uk">Відкрити порт мережевого екрану для Warpinator</description>
+    <description xml:lang="tr">Warpinator için bir güvenlik duvarı bağlantı noktası açın</description>
+    <description xml:lang="sv">Öppna en port i brandväggen för Warpinator</description>
+    <description xml:lang="sr@latin">Otvorite jedan port u zaštitnom zidu (``firewall``) za Warpinator.</description>
+    <description xml:lang="sr">Отворите прикључник  мрежне баријере за „Warpinator“-а</description>
+    <description xml:lang="sl">Odpri vrata požarnega zidu za Warpinator</description>
+    <description xml:lang="sk">Otvorenie portu brány firewall pre aplikáciu Warpinator</description>
+    <description xml:lang="ru">Открыть порт сетевого экрана для Warpinator</description>
+    <description xml:lang="ro">Deschide un port în firewall pentru Warpinator</description>
+    <description xml:lang="pt_BR">Liberar uma porta no firewall para o Warpinator</description>
+    <description xml:lang="pt">Abrir uma porta de firewall para o Warpinator</description>
+    <description xml:lang="pl">Otwórz port zapory sieciowej dla Warpinatora</description>
+    <description xml:lang="oc">Dobrissètz un pòrt del para-fuòc per Warpinator</description>
+    <description xml:lang="nl">Open een firewallpoort voor Warpinator</description>
+    <description xml:lang="nb">Åpne en brannmurport for Warpinator</description>
+    <description xml:lang="lt">Atverti užkardos prievadą programai Warpinator</description>
+    <description xml:lang="la">Portum muri incendiarii pro Warpinator aperi</description>
+    <description xml:lang="ku">Ji bo Warpinator portek dîwarê vekin</description>
+    <description xml:lang="ko">Warpinator용 방화벽 포트 열기</description>
+    <description xml:lang="kn">ವಾರ್‌ಪಿನೇಟರ್‌ಗಾಗಿ ಫೈರ್‌ವಾಲ್ ಪೋರ್ಟ್ ತೆರೆ</description>
+    <description xml:lang="kab">Ldi tawwurt n uɣrab n tmes i Warpinator</description>
+    <description xml:lang="ja">Warpinator 用のファイアウォールのポートを開く</description>
+    <description xml:lang="it">Apri una porta sul firewall per Warpinator</description>
+    <description xml:lang="is">Opna eldveggjargátt fyrir Warpinator</description>
+    <description xml:lang="ie">Aperter un portu por Warpinator</description>
+    <description xml:lang="id">Buka port firewall untuk Warpinator</description>
+    <description xml:lang="ia">Aperir un porta de parafoco pro Warpinator</description>
+    <description xml:lang="hu">Tűzfalport nyitása a Warpinator számára</description>
+    <description xml:lang="hr">Otvorite ulaz vatrozida za Warpinator</description>
+    <description xml:lang="hi">Warpinator हेतु फ़ायरवॉल पोर्ट सक्रिय करें</description>
+    <description xml:lang="he">פתיחת פתחה בחומת האש עבור Warpinator</description>
+    <description xml:lang="fy">Fjoermuorrepoarte foar Warpinator iepenje</description>
+    <description xml:lang="fr_CA">Ouvrir un port de pare-feu pour Warpinator</description>
+    <description xml:lang="fr">Ouvrir un port de pare-feu pour Warpinator</description>
+    <description xml:lang="fi">Avaa palomuuriportti Warpinatorille</description>
+    <description xml:lang="fa">بازکردن یک پورت دیوارآتش برای Warpinator</description>
+    <description xml:lang="eu">Ireki suebakiko ataka bat Warpinatorrentzat</description>
+    <description xml:lang="et">Warpinatori jaoks tulemüüris pordi avamine</description>
+    <description xml:lang="es">Abrir un puerto del cortafuegos para Warpinator</description>
+    <description xml:lang="eo">Malfermi fajroŝirmilan pordon por Warpinator</description>
+    <description xml:lang="en_GB">Open a firewall port for Warpinator</description>
+    <description xml:lang="en_CA">Open a firewall port for Warpinator</description>
+    <description xml:lang="el">Ανοίξτε μια θύρα στο τείχος προστασίας για το Warpinator</description>
+    <description xml:lang="de">Einen Firewall-Port für Warpinator öffnen</description>
+    <description xml:lang="da">Åbn en firewallport til Warpinator</description>
+    <description xml:lang="cy">Agor porth mur cadarn ar gyfer Warpinator</description>
+    <description xml:lang="cs">Otevřít pro Warpinator port na bráně firewall</description>
+    <description xml:lang="ca">Obre un port de el tallafocs per Warpinator</description>
+    <description xml:lang="be">Адкрыць порт фаервола для Warpinator</description>
+    <description xml:lang="ast">Abrir un puertu de tornafueos pa Warpinator</description>
+    <message>To modify firewall settings, you need to authenticate.</message>
+    <message xml:lang="zh_TW">你需要認證以便更改防火牆設定。</message>
+    <message xml:lang="zh_CN">需要您的认证以修改防火墙设置。</message>
+    <message xml:lang="vi">Để sửa đổi cài đặt tường lửa, bạn cần xác thực.</message>
+    <message xml:lang="uz">Xavfsizlik devori sozlamalarini o‘zgartirish uchun siz autentifikatsiya qilishingiz kerak.</message>
+    <message xml:lang="uk">Для зміни налаштувань мережевого екрану потрібне розпізнання</message>
+    <message xml:lang="tr">Güvenlik duvarı ayarlarını değiştirmek için, kimlik doğrulaması gerekiyor.</message>
+    <message xml:lang="sv">Du måste bekräfta din identitet för att kunna ändra brandväggsinställningarna.</message>
+    <message xml:lang="sr@latin">Da biste izmenili podešavanja zaštitnog zida (``firewall``), morate da potvrdite svoj identitet.</message>
+    <message xml:lang="sr">Да измените поставке мрежне баријере, морате да потврдите идентитет.</message>
+    <message xml:lang="sl">Za spreminjanje nastavitev požarnega zidu je potrebna overitev.</message>
+    <message xml:lang="sk">Pre úpravu nastavení brány firewall, musíte overiť vašu totožnosť.</message>
+    <message xml:lang="ru">Для изменения настроек межсетевого экрана необходима аутентификация</message>
+    <message xml:lang="ro">Pentru a modifica setările firewall-ului, trebuie să vă autentificați.</message>
+    <message xml:lang="pt_BR">Para modificar as configurações do firewall, você precisa autenticar.</message>
+    <message xml:lang="pt">Para modificar as definições da firewall, é necessário autenticar.</message>
+    <message xml:lang="pl">Aby zmodyfikować ustawienia zapory sieciowej, musisz się uwierzytelnić.</message>
+    <message xml:lang="oc">Per modificar vòstres paramètres de para-fuòc, devètz vos autentificar.</message>
+    <message xml:lang="nl">Om firewallinstellingen te wijzigen moet u zich authenticeren.</message>
+    <message xml:lang="nb">For å endre brannmurinnstillingene må du autentisere.</message>
+    <message xml:lang="lt">Norėdami modifikuoti užkardos nustatymus, turite nustatyti tapatybę.</message>
+    <message xml:lang="la">Comprobatio petita ad configurationem muri incendiarii mutandam.</message>
+    <message xml:lang="ku">Ji bo guheztina mîhengên firewallê, hûn hewce ne ku rast bikin.</message>
+    <message xml:lang="ko">방화벽 설정을 변경하려면 인증이 필요합니다.</message>
+    <message xml:lang="kn">ಫೈರ್‌ವಾಲ್ ಸಂಯೋಜನೆಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು, ನೀವು ದೃಢೀಕರಿಸಬೇಕಾಗಿದೆ.</message>
+    <message xml:lang="kab">Iwakken ad tbeddeleḍ iɣewwaren n uɣrab n tmes, tesraḍ ad tesestbeḍ.</message>
+    <message xml:lang="ja">ファイアウォールの設定を変更するには、認証が必要です。</message>
+    <message xml:lang="it">Per modificare le impostazioni del firewall è necessario autenticarsi.</message>
+    <message xml:lang="is">Til að breyta stillingum eldveggjar, þarft þú að auðkenna þig.</message>
+    <message xml:lang="id">Untuk mengubah pengaturan firewall, Anda perlu melakukan otentikasi.</message>
+    <message xml:lang="ia">Pro modificar le configurationes de parafoco, tu debe authenticar te.</message>
+    <message xml:lang="hu">A tűzfalszabályok módosításához meg kell adnia a jelszavát.</message>
+    <message xml:lang="hr">Potrebna je ovjera za promjenu postavki vatrozida.</message>
+    <message xml:lang="hi">फ़ायरवॉल सेटिंग्स बदलाव हेतु, पुष्टिकरण आवश्यक है।</message>
+    <message xml:lang="he">נדרש אימות לשינוי הגדרות חומת האש</message>
+    <message xml:lang="fy">Om dyn fjoermuorre ynstellings te feroaren, moatte jo jo ferifiearje.</message>
+    <message xml:lang="fr_CA">Pour modifier les paramètres du pare-feu, vous devez vous authentifier.</message>
+    <message xml:lang="fr">Pour modifier les paramètres du pare-feu, vous devez vous authentifier.</message>
+    <message xml:lang="fi">Palomuurin asetusten muuttaminen edellyttää todennusta.</message>
+    <message xml:lang="fa">برای تغییر تنظیمات دیوارآتش، باید احراز هویت کنید.</message>
+    <message xml:lang="eu">Suebakiaren ezarpenak aldatzeko autentifikatu beharra dago.</message>
+    <message xml:lang="et">Tulemüüri seadete muutmiseks tuleb ennast autentida.</message>
+    <message xml:lang="es">Necesita autenticarse para modificar la configuración del cortafuegos.</message>
+    <message xml:lang="eo">Por modifi fajroŝirmilajn agordojn vi bezonas aŭtentigi.</message>
+    <message xml:lang="en_GB">To modify firewall settings, you need to authenticate.</message>
+    <message xml:lang="en_CA">To modify firewall settings, you need to authenticate.</message>
+    <message xml:lang="el">Για να αλλάξετε ρυθμίσεις του τείχους προστασίας, πρέπει να επαληθεύσετε την ταυτότητά σας.</message>
+    <message xml:lang="de">Um die Firewall-Einstellungen zu ändern, müssen Sie sich legitimieren.</message>
+    <message xml:lang="da">For at ændre firewallindstillinger skal du bekræfte.</message>
+    <message xml:lang="cy">I newid gosodiadau mur cadarn, rhaid dilysu.</message>
+    <message xml:lang="cs">Pro změnu nastavení brány firewall je zapotřebí ověřit se.</message>
+    <message xml:lang="ca">Heu d'autenticar-vos per modificar la configuració del tallafocs.</message>
+    <message xml:lang="be">Неабходна аўтэнтыфікавацца, каб змяняць налады фаервола.</message>
+    <message xml:lang="ast">Pa cambear les preferencies del tornafueos precises autentificate</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/warpinator/firewall/ufw-modify</annotate>
+  </action>
+</policyconfig>

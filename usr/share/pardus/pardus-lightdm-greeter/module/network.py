@@ -31,18 +31,35 @@ def is_net_available():
 
 def update_network_icon():
     if not is_cable_available():
-        GLib.idle_add(loginwindow.o("ui_icon_network").set_from_icon_name, "network-error-symbolic", Gtk.IconSize.DND)
+        loginwindow.o("ui_icon_network").set_from_icon_name("network-error-symbolic", Gtk.IconSize.DND)
     elif not is_net_available():
-        GLib.idle_add(loginwindow.o("ui_icon_network").set_from_icon_name, "network-offline-symbolic", Gtk.IconSize.DND)
+        loginwindow.o("ui_icon_network").set_from_icon_name("network-offline-symbolic", Gtk.IconSize.DND)
     else:
-        GLib.idle_add(loginwindow.o("ui_icon_network").set_from_icon_name, "network-transmit-receive-symbolic", Gtk.IconSize.DND)
+        loginwindow.o("ui_icon_network").set_from_icon_name("network-transmit-receive-symbolic", Gtk.IconSize.DND)
+
+
+pyroute_available = True
+try:
+    from pyroute2 import IPRoute
+except:
+    pyroute_available = False
+
 
 @asynchronous
-def update_network_icon_loop():
-    while True:
-        update_network_icon()
-        # Check every second. TODO: remove this and trace changes
-        time.sleep(1)
+def update_network_icon_handler():
+    if pyroute_available:
+        ipr = IPRoute()
+        ipr.bind()
+        while True:
+            for message in ipr.get():
+                if "index" in message:
+                    GLib.idle_add(update_network_icon)
+
+    elif get("network-check-loop", False, "network"):
+        while True:
+            GLib.idle_add(update_network_icon)
+            # Check every second.
+            time.sleep(1)
 
 
 @asynchronous
@@ -77,7 +94,6 @@ def network_control_event():
 
 wmenu = None
 
-
 def module_init():
     global wmenu
     wifi_widget.set_scale(scale)
@@ -86,10 +102,7 @@ def module_init():
         return
     loginwindow.o("ui_button_network").connect(
         "clicked", _network_button_event)
-    if get("network-check-loop", False, "network"):
-        update_network_icon_loop()
-    else:
-        update_network_icon()
+    update_network_icon_handler()
     if not wifi_widget.wifi.available():
         loginwindow.o("ui_button_wifi").hide()
     else:

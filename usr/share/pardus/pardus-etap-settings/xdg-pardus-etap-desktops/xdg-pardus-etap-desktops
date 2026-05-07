@@ -29,7 +29,9 @@ desktop_files = [
 {"path": "/usr/share/applications/", "file": "tr.org.pardus.software.desktop"},
 {"path": "/usr/share/applications/", "file": "tr.org.pardus.usb-formatter.desktop"},
 {"path": "/usr/share/applications/", "file": "tr.org.pardus.night-light.desktop"},
-{"path": "/usr/share/applications/", "file": "tr.org.pardus.eta-help.desktop"}
+{"path": "/usr/share/applications/", "file": "tr.org.pardus.eta-help.desktop"},
+{"path": "/usr/share/applications/", "file": "e-tahta.desktop"},
+{"path": "/usr/share/applications/", "file": "com.github.xournalpp.xournalpp.desktop"}
 ]
 
 if not os.path.isfile(user_config_file):
@@ -43,9 +45,13 @@ if not os.path.isfile(user_config_file):
                 src_file = desktop_file["path"] + desktop_file["file"]
                 dst_file = os.path.join(user_desktop_dir, desktop_file["file"])
                 if os.path.isfile(src_file):
-                    shutil.copy2(src_file, dst_file)
-                    os.chmod(dst_file, 0o0755)
-                    print("{} created".format(dst_file))
+                    try:
+                        shutil.copy2(src_file, dst_file)
+                        os.chmod(dst_file, 0o0755)
+                        print("{} created".format(dst_file))
+                    except Exception as e:
+                        print(f"Error copying {src_file} -> {dst_file}: {e}")
+                        continue
                 else:
                     print("{} file not exists".format(src_file))
             else:

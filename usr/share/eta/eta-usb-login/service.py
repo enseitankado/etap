@@ -131,7 +131,7 @@ def add_event(udata):
         data["username"],
         data["password"],
         data["name"].strip(),
-        data["eba_id"])
+        data["eba_id"], override_password=True)
     # Write credential
     uid = user.find_uid(data["username"])
     os.makedirs("/run/etap/{}/".format(uid), exist_ok=True)

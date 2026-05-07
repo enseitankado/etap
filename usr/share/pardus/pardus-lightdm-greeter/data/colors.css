@@ -34,10 +34,15 @@ menu {
   border: none;
 }
 
+
 .textview {
   background: alpha(white,0.31);
 }
 
 .wrongpass {
     border: 1px solid red;
+}
+
+.red {
+    color: #A00000;
 }

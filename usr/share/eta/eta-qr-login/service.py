@@ -22,6 +22,7 @@ from user import create_user, is_valid_user, find_by_ebaid
 from pam import lightdm_trigger, allow_user
 
 os.makedirs("/run/etap", exist_ok=True)
+os.makedirs("/var/lib/eta/expire-uid", exist_ok=True)
 
 # Create unix socket service
 socket_service = UnixSocketService("/run/etap/qr-trigger")
@@ -90,6 +91,15 @@ def gen_username(u):
     u = u.replace(" ","")
     return u
 
+def find_uid(uname):
+    with open("/etc/passwd", "r") as f:
+        for line in f.read().split("\n"):
+            cur = line.split(":")[0]
+            if uname == cur:
+                return line.split(":")[2]
+    return None
+
+
 def send_ws(data):
     """Send data to websocket"""
     if ws is None:
@@ -131,14 +141,17 @@ def user_create_login(data):
                 new_user = uname + str(i)
                 i+=1
             uname = new_user
-        # generate password from eba_id md5
-        passwd = hashlib.md5(eba_id.encode("utf-8")).hexdigest()
+        # generate password from eba_id sha1
+        passwd = hashlib.sha1(eba_id.encode("utf-8")).hexdigest()
         if is_valid_user(uname):
             print(uname)
             allow_user(uname)
         else:
             create_user(uname, bcrypt.hash(passwd), user, eba_id)
-            subprocess.run(["chage", "-d", "0", uname])
+            # password changer expire file
+            user_uid = find_uid(uname)
+            with open(f"/var/lib/eta/expire-uid/{user_uid}","w") as f:
+                f.write(uname)
         lightdm_trigger(uname, passwd)
 
 def event(data):

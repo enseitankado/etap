@@ -73,13 +73,15 @@ def main():
 
         dpkg_conf_list = dpkg_conf.split(" ")
         yq_list = yq.split(" ")
-        subprocess.call(["apt", "full-upgrade"] + yq_list + dpkg_conf_list,
-                        env={**os.environ, 'DEBIAN_FRONTEND': 'noninteractive'})
+        result = subprocess.run(["apt", "full-upgrade"] + yq_list + dpkg_conf_list,
+                                env={**os.environ, "DEBIAN_FRONTEND": "noninteractive"})
 
         if keeps:
             keep_list = keeps.split(" ")
             for kp in keep_list:
                 subprocess.call(["apt-mark", "unhold", kp])
+
+        sys.exit(result.returncode)
 
     def fixbroken():
         subprocess.call(["apt", "install", "--fix-broken", "-yq"],

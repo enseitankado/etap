@@ -1,0 +1,9 @@
+polkit.addRule(function(action, subject) {
+    if (subject.isInGroup("sudo")) {    
+        if (action.id == "org.freedesktop.hostname1.set-static-hostname" ||
+            action.id == "org.freedesktop.hostname1.set-pretty-hostname") {
+                
+            return polkit.Result.YES;
+        }
+    }
+});

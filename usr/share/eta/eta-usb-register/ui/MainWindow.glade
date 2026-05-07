@@ -38,6 +38,37 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_btn_about_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="icon-name">help-about-symbolic</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="margin-bottom">21</property>
@@ -68,7 +99,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">0</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
@@ -83,7 +114,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">1</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                     <child>
@@ -94,7 +125,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">2</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                     <child>
@@ -109,7 +140,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">3</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                     <child>
@@ -157,7 +188,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">4</property>
+                        <property name="position">5</property>
                       </packing>
                     </child>
                   </object>
@@ -545,7 +576,7 @@
                           <object class="GtkLabel">
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
-                            <property name="label" translatable="yes">Kaydedilecek USB belleği seçiniz:</property>
+                            <property name="label" translatable="yes">USB Bellek Seçiniz:</property>
                             <style>
                               <class name="title-3"/>
                             </style>
@@ -712,9 +743,11 @@ Lütfen belleğin bölümlerini bağlayınız veya formatlanmamış bir USB ise 
                     <child>
                       <object class="GtkButton" id="btn_select_usb">
                         <property name="label" translatable="yes">Seç</property>
+                        <property name="width-request">100</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
+                        <property name="halign">end</property>
                         <signal name="clicked" handler="on_btn_select_usb_clicked" swapped="no"/>
                         <style>
                           <class name="suggested-action"/>
@@ -724,6 +757,60 @@ Lütfen belleğin bölümlerini bağlayınız veya formatlanmamış bir USB ise 
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="box_skip_usb_selection">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="no-show-all">True</property>
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">7</property>
+                        <child>
+                          <object class="GtkSeparator">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Dikkat:&lt;/b&gt; USB Bellek seçmeden devam ederseniz sadece EBA'daki kaydınız silinir,
+USB içerisindeki şifrelenmiş kayıt dosyası silinmez.</property>
+                            <property name="use-markup">True</property>
+                            <property name="justify">center</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="btn_skip_usb">
+                            <property name="label" translatable="yes">USB Seçmeden Devam Et</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="receives-default">True</property>
+                            <signal name="clicked" handler="on_btn_skip_usb_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </object>
@@ -743,7 +830,7 @@ Lütfen belleğin bölümlerini bağlayınız veya formatlanmamış bir USB ise 
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -758,7 +845,7 @@ Lütfen belleğin bölümlerini bağlayınız veya formatlanmamış bir USB ise 
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>
@@ -772,7 +859,7 @@ Lütfen belleğin bölümlerini bağlayınız veya formatlanmamış bir USB ise 
     <property name="type-hint">dialog</property>
     <property name="attached-to">window</property>
     <property name="program-name">ETA USB Register</property>
-    <property name="version">2.0.3</property>
+    <property name="version">2.0.5</property>
     <property name="copyright" translatable="yes">©2025 Pardus</property>
     <property name="comments" translatable="yes">USB'nizi EBA Hesabınıza kolayca kaydedin.</property>
     <property name="website">https://github.com/pardus/eta-usb-register</property>

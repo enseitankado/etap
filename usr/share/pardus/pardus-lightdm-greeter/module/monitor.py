@@ -9,16 +9,20 @@ class monitor_class:
 
     # common backends
     def get_monitors(self):
+        mlist = []
         if os.path.isdir("/sys/class/drm"):
-            return self.get_drm_monitors()
-        else:
-            return self.get_xrandr_monitors()
+            mlist = self.get_drm_monitors()
+        if len(mlist) == 0:
+            mlist = self.get_xrandr_monitors()
+        return mlist
 
     def get_resolutions(self, monitor):
+        mres = []
         if os.path.isdir("/sys/class/drm"):
-            return self.get_drm_resolutions(monitor)
-        else:
-            return self.get_xrandr_resolutions(monitor)
+            mres = self.get_drm_resolutions(monitor)
+        if len(mres) == 0:
+            mres = self.get_xrandr_resolutions(monitor)
+        return mres
 
     #### /sys/class/drm backend ####
 
@@ -43,6 +47,8 @@ class monitor_class:
 
     def get_drm_resolutions(self, monitor):
         ret = []
+        if not os.path.exists("/sys/class/drm/{}/modes".format(self.get_device(monitor))):
+            return ret
         with open("/sys/class/drm/{}/modes".format(self.get_device(monitor)), "r") as f:
             for line in f.read().split("\n"):
                 if len(line) > 0 and line[0].isnumeric():

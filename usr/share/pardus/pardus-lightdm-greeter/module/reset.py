@@ -7,6 +7,8 @@ def _reset_password(widget=None):
     p1 = loginwindow.o("ui_entry_new_password1").get_text()
     p2 = loginwindow.o("ui_entry_new_password2").get_text()
     if p1 == p2:
+        loginwindow.o("ui_label_login_error").set_text("")
+        loginwindow.o("ui_label_reset_password_error").set_text("")
         lightdm.set(password=_reset_password, username=_reset_username)
         lightdm.set2(password=p1, username=_reset_username)
         lightdm.login()

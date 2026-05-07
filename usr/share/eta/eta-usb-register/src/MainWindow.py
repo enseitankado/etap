@@ -6,7 +6,7 @@ from passlib.hash import bcrypt
 import requests
 
 gi.require_version("Gtk", "3.0")
-gi.require_version("WebKit2", "4.0")
+# gi.require_version("WebKit2", "4.0")
 
 from gi.repository import Gio, Gtk, WebKit2  # noqa
 from gi.repository.WebKit2 import WebView, Settings  # noqa
@@ -82,6 +82,7 @@ class MainWindow:
         self.list_devices = UI("list_devices")
         self.cmb_devices = UI("cmb_devices")
         self.btn_select_usb = UI("btn_select_usb")
+        self.box_skip_usb_selection = UI("box_skip_usb_selection")
 
         # EBA Web Page
         self.webview = UI("webview")
@@ -234,6 +235,19 @@ Error => {'msg_type': 'Error', 'msg': 'Error occured while getting information',
         code = result_code.split(".")[1]
 
         if code == "001":
+            try:
+                if self.model.usb:
+                    partition = self.model.usb[1]
+                    filepath = os.path.join(partition, ".credentials")
+
+                    if os.path.exists(filepath):
+                        # Remove file if exists
+                        os.remove(filepath)
+
+            except Exception as e:
+                print(".credentials silinemedi:", filepath)
+                print(e)
+
             Dialogs.info("Başarılı", "EBA Hesabınızdaki USB Kaydı silindi.")
         elif code == "006":
             Dialogs.info("Başarısız!", "USB daha önce eklenmemiş.")
@@ -409,7 +423,7 @@ Error => {'msg_type': 'Error', 'msg': 'Error occured while getting information',
             else:
                 self.stack_usb_warning.set_visible_child_name("warning")
 
-            print("device_info", device_info)
+            print("Selected Device:", device_info)
 
         self.btn_select_usb.set_sensitive(self.cmb_current_usb is not None)
 
@@ -417,12 +431,15 @@ Error => {'msg_type': 'Error', 'msg': 'Error occured while getting information',
         self.model = Model()
         self.model.mode = "delete"
 
-        self.load_eba_website()
-        self.window_webview.show_all()
+        self.box_skip_usb_selection.set_visible(True)
+
+        self.stack.set_visible_child_name("usb_select")
 
     def on_btn_register_clicked(self, btn):
         self.model = Model()
         self.model.mode = "register"
+
+        self.box_skip_usb_selection.set_visible(False)
 
         self.stack.set_visible_child_name("usb_select")
 
@@ -433,6 +450,10 @@ Error => {'msg_type': 'Error', 'msg': 'Error occured while getting information',
     def on_btn_select_usb_clicked(self, btn):
         self.model.usb = self.cmb_current_usb
 
+        self.load_eba_website()
+        self.window_webview.show_all()
+
+    def on_btn_skip_usb_clicked(self, btn):
         self.load_eba_website()
         self.window_webview.show_all()
 
