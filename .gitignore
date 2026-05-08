@@ -1,3 +1,4 @@
 # ETAP Diff geçici dosyaları
 .etap-diff-tmp/
 *.tmp
+.claude/
